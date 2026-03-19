@@ -1,43 +1,51 @@
-import { motion } from "framer-motion";
-import awardLogo from "@/assets/partners/award.png";
-import gcPartnerLogo from "@/assets/partners/gcpartner.png";
 import oxfordLogo from "@/assets/partners/oxford.png";
-import meshLogo from "@/assets/partners/mesh.png";
+import solsticeLogo from "@/assets/partners/solstice.png";
+import dwsLogo from "@/assets/partners/dws.png";
+import vanguardLogo from "@/assets/partners/vanguard.png";
+import ictDublinLogo from "@/assets/partners/ict-dublin.png";
+import cognismLogo from "@/assets/partners/cognism.png";
+import corprimeLogo from "@/assets/partners/corprime.png";
+import deusxLogo from "@/assets/partners/deusx.png";
+import nvidiaLogo from "@/assets/partners/nvidia-inception.png";
+import consensysLogo from "@/assets/partners/consensys.png";
 
 const partners = [
-  { src: awardLogo, alt: "Fintech Award" },
-  { src: gcPartnerLogo, alt: "Google Cloud Partner" },
   { src: oxfordLogo, alt: "University of Oxford" },
-  { src: meshLogo, alt: "Mesh" },
+  { src: solsticeLogo, alt: "Solstice" },
+  { src: dwsLogo, alt: "DWS" },
+  { src: vanguardLogo, alt: "Vanguard" },
+  { src: ictDublinLogo, alt: "ICT Services Dublin" },
+  { src: cognismLogo, alt: "Cognism" },
+  { src: corprimeLogo, alt: "CorPrime" },
+  { src: deusxLogo, alt: "Deus X" },
+  { src: nvidiaLogo, alt: "NVIDIA Inception Program" },
+  { src: consensysLogo, alt: "ConsenSys" },
 ];
 
 const PartnerLogoBanner = () => {
   return (
-    <div className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+    <div className="border-b border-border overflow-hidden">
+      <div className="py-12">
         <p className="mb-10 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/40">
-          Awards & Partners
+          Trusted By
         </p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20"
-        >
-          {partners.map((partner, i) => (
-            <motion.img
-              key={partner.alt}
-              src={partner.src}
-              alt={partner.alt}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="h-10 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 md:h-12"
-            />
-          ))}
-        </motion.div>
+        <div className="relative">
+          {/* Fade edges */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent" />
+
+          {/* Scrolling track */}
+          <div className="flex animate-marquee items-center gap-16">
+            {[...partners, ...partners].map((partner, i) => (
+              <img
+                key={`${partner.alt}-${i}`}
+                src={partner.src}
+                alt={partner.alt}
+                className="h-8 w-auto flex-shrink-0 object-contain opacity-60 brightness-0 invert transition-opacity duration-300 hover:opacity-100 md:h-10"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
