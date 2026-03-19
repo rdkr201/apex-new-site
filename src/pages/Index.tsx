@@ -6,25 +6,20 @@ import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import DataTab from "@/components/apex/DataTab";
 import SovereigntyTab from "@/components/apex/SovereigntyTab";
-import ApproachTab from "@/components/apex/ApproachTab";
-
-const tabComponents: Record<TabId, React.FC> = {
-  Overview: OverviewTab,
-  "Agentic Workflows": WorkflowsTab,
-  Infrastructure: InfrastructureTab,
-  "Data & Intelligence": DataTab,
-  "AI Sovereignty": SovereigntyTab,
-  Approach: ApproachTab,
-};
+import CompanyTab from "@/components/apex/CompanyTab";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabId>("Overview");
+  const [scrollSection, setScrollSection] = useState<string | undefined>();
 
-  const ActiveComponent = tabComponents[activeTab];
+  const handleTabChange = (tab: TabId, section?: string) => {
+    setActiveTab(tab);
+    setScrollSection(section);
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <TabNavigation activeTab={activeTab} onTabChange={handleTabChange} />
       <main className="pt-16">
         <AnimatePresence mode="wait">
           <motion.div
@@ -34,7 +29,12 @@ const Index = () => {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
           >
-            <ActiveComponent />
+            {activeTab === "Overview" && <OverviewTab />}
+            {activeTab === "Agentic Workflows" && <WorkflowsTab />}
+            {activeTab === "Infrastructure" && <InfrastructureTab />}
+            {activeTab === "Data & Intelligence" && <DataTab />}
+            {activeTab === "AI Sovereignty" && <SovereigntyTab />}
+            {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -61,7 +61,7 @@ const Index = () => {
                   (link) => (
                     <button
                       key={link}
-                      onClick={() => setActiveTab(link as TabId)}
+                      onClick={() => handleTabChange(link as TabId)}
                       className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link}
@@ -76,12 +76,19 @@ const Index = () => {
                 Company
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                <button
-                  onClick={() => setActiveTab("Approach")}
-                  className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Approach
-                </button>
+                {[
+                  { label: "Team", section: "team" },
+                  { label: "Mission", section: "mission" },
+                  { label: "Approach", section: "approach" },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => handleTabChange("Company", item.section)}
+                    className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </button>
+                ))}
                 <a
                   href="mailto:contact@apexe3.com"
                   className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
