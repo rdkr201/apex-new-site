@@ -8,16 +8,24 @@ interface Workflow {
 
 const workflows: Workflow[] = [
   {
-    title: "Research Pipeline",
+    title: "Research",
     steps: ["Ingest", "Parse", "Enrich", "Analyse", "Signal"],
   },
   {
-    title: "Signal Generation",
+    title: "Multi-Asset",
     steps: ["Data Stream", "Feature Extract", "Model Run", "Validate", "Emit"],
   },
   {
-    title: "Trade Execution",
+    title: "Equities",
     steps: ["Signal In", "Risk Check", "Optimise", "Route", "Execute"],
+  },
+  {
+    title: "Quant",
+    steps: ["Data Feed", "Transform", "Backtest", "Optimise", "Deploy"],
+  },
+  {
+    title: "Credit",
+    steps: ["Source", "Screen", "Assess", "Price", "Monitor"],
   },
 ];
 
