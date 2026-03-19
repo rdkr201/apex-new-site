@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
+import TransformationAnimation from "./TransformationAnimation";
 
 const services = [
   {
@@ -84,6 +85,9 @@ const OverviewTab = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Transformation Animation */}
+      <TransformationAnimation />
 
       {/* Service Cards */}
       <motion.div
