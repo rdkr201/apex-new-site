@@ -28,34 +28,12 @@ const TransformationAnimation = () => {
         </div>
 
         <div className="flex flex-col items-stretch gap-0 md:flex-row">
-          {/* Unstructured — chaotic fragments */}
-          <div className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20 p-6 md:p-8" style={{ minHeight: 280 }}>
-            <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/40">
+          {/* Unstructured — chaotic particles */}
+          <div className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20" style={{ minHeight: 300 }}>
+            <div className="absolute left-6 top-6 z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/40 md:left-8 md:top-8">
               Unstructured
             </div>
-            {fragments.map((f, i) => (
-              <motion.div
-                key={f.text}
-                className="absolute font-mono text-[10px] text-muted-foreground/30 md:text-xs"
-                style={{ left: `${f.x}%`, top: `${f.y}%` }}
-                initial={{ opacity: 0, rotate: f.rot }}
-                whileInView={{ opacity: 1, rotate: f.rot }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
-                animate={{
-                  x: [0, Math.sin(i) * 6, 0],
-                  y: [0, Math.cos(i) * 4, 0],
-                }}
-                // @ts-ignore
-                transition={{
-                  x: { duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
-                  y: { duration: 4 + i * 0.3, repeat: Infinity, ease: "easeInOut" },
-                  opacity: { duration: 0.4, delay: 0.1 + i * 0.08 },
-                }}
-              >
-                {f.text}
-              </motion.div>
-            ))}
+            <ChaosToOrderParticles />
           </div>
 
           {/* Center arrow with sweep */}
