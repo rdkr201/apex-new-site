@@ -46,7 +46,7 @@ const OverviewTab = () => {
     <div>
       {/* Hero */}
       <div className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
-        <ParticleField count={100} />
+        <DotWaveField />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <motion.div

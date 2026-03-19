@@ -10,7 +10,7 @@ interface HeroSectionProps {
 const HeroSection = ({ accentLine, headline, subtitle }: HeroSectionProps) => {
   return (
     <div className="relative flex min-h-[60vh] items-end overflow-hidden pb-20">
-      <ParticleField count={50} />
+      <DotWaveField />
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
