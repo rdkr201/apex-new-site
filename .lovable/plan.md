@@ -1,37 +1,35 @@
 
 
-# Add Abstract Flowing Dots Animation to Hero
+# Animated "Unstructured → Structured Insights" Transformation
 
-## What Changes
+## Placement
 
-Replace the current static `ParticleField` (randomly placed pulsing dots) with a dynamic, flowing dot-wave animation inspired by the uploaded halftone wave pattern. The dots will form wave-like patterns that continuously flow across the hero background, creating an abstract data-stream aesthetic.
+Add it as an animated section on the **Overview page**, between the hero and the service cards. This is the highest-visibility spot and reinforces the core value prop immediately. The Data & Intelligence tab already has a static version of this concept — the Overview gets the animated, attention-grabbing one.
 
-## Approach
+## What It Looks Like
 
-### New Component: `DotWaveField.tsx`
-Create a canvas-based animation component that renders a grid of dots with wave-distorted positions and varying sizes/opacities — producing the abstract halftone wave effect from the reference image.
+A horizontal animated flow with three stages:
 
-- **Grid of dots** (~40×25) positioned across the viewport
-- Each dot's size and opacity modulated by overlapping sine waves that animate over time
-- Waves flow diagonally/horizontally, creating a continuous fluid motion
-- Colors use the primary accent (teal) with varying opacity
-- Canvas-based for smooth 60fps performance (CSS approach with 1000+ dots would be too heavy)
-- `requestAnimationFrame` loop with cleanup on unmount
+```text
+[Scattered text fragments]  →  [Processing pulse]  →  [Clean structured rows]
+     (chaotic, faded)          (animated glow)         (sharp, primary-colored)
+```
 
-### Integration
-- Replace `<ParticleField>` in `OverviewTab.tsx` hero section with `<DotWaveField>`
-- Also replace in `HeroSection.tsx` (used by other tabs) for consistency
-- Remove or keep `ParticleField.tsx` as unused (can clean up later)
+- **Left column ("Unstructured")**: Fragments of text (PDFs, feeds, filings) rendered at random rotations/positions, slowly drifting — conveying chaos
+- **Center arrow**: An animated pulsing line/arrow with a glowing sweep effect moving left-to-right on loop
+- **Right column ("Actionable Insights")**: Clean, aligned rows that fade in sequentially with a subtle slide-up — conveying order and clarity
 
-### Animation Details
-- Dots arranged in a grid pattern
-- Position offset by `sin(x + time)` and `cos(y + time)` for flowing wave motion
-- Size varies with `sin(x * freq + y * freq + time)` to create the halftone density effect
-- Slow, smooth animation speed — institutional, not playful
-- Subtle fade gradient at edges so dots don't hard-clip
+The animation triggers on scroll into view (using framer-motion `whileInView`), and the processing sweep repeats on a slow loop.
 
 ## Files to Modify
-- **Create** `src/components/apex/DotWaveField.tsx` — Canvas-based flowing dot wave animation
-- **Edit** `src/components/apex/OverviewTab.tsx` — Swap ParticleField → DotWaveField
-- **Edit** `src/components/apex/HeroSection.tsx` — Swap ParticleField → DotWaveField
+
+- **Create** `src/components/apex/TransformationAnimation.tsx` — The animated unstructured-to-structured visual component
+- **Edit** `src/components/apex/OverviewTab.tsx` — Insert the new component between hero and service cards
+
+## Technical Details
+
+- Uses framer-motion for element animations (`whileInView`, staggered children, continuous rotation on chaotic fragments)
+- CSS keyframe for the glowing sweep on the center arrow
+- Responsive: stacks vertically on mobile
+- Keeps the existing static version in DataTab untouched
 
