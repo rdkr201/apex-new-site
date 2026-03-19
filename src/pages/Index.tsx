@@ -30,7 +30,7 @@ const Index = () => {
             transition={{ duration: 0.3 }}
           >
             {activeTab === "Overview" && <OverviewTab />}
-            {activeTab === "Agentic Workflows" && <WorkflowsTab scrollToSection={scrollSection} />}
+            {activeTab === "Agentic Workflows" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "Data & Intelligence" && <DataTab />}
             {activeTab === "AI Sovereignty" && <SovereigntyTab />}
