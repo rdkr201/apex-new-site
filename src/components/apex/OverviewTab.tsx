@@ -86,8 +86,6 @@ const OverviewTab = () => {
         </div>
       </div>
 
-      {/* Partner Logos */}
-      <PartnerLogoBanner />
 
       {/* Transformation Animation */}
       <TransformationAnimation />
