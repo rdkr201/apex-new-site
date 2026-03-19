@@ -1,60 +1,53 @@
 
 
-# APEX:E3 — Institutional AI Platform Website
+# Restructure APEX:E3 to Match Wintermute Layout
 
-## Design System
-- **Palette**: Near-black background (#0A0A0A), off-white text, subtle gray accents, single accent color (muted blue-green for data elements)
-- **Typography**: Monospace for labels/data, clean sans-serif (Inter) for body, tight letter-spacing throughout
-- **Grid**: Precise 12-column grid, generous whitespace, terminal-inspired alignment
-- **Motion**: Subtle fade/slide transitions between tabs, minimal data-pulse animations on key visuals
+## What Changes
 
-## Layout Structure
-- **Fixed top bar**: APEX:E3 logo (left), horizontal tab navigation (center), single understated "Contact" link (right)
-- **Tab-based content area**: Each tab renders a full-viewport, self-contained view — no scrolling between sections
-- **Footer**: Minimal — copyright, legal, contact only
+The current site uses compact centered tab navigation with small text. Wintermute uses a different pattern: full-width navbar with logo left, **uppercase navigation links spread right**, a CTA button, and **full-viewport hero sections** with large headlines and animated particle backgrounds on each page.
 
-## Tabs & Content
+## Key Design Changes
 
-### 1. Overview
-- Large monospaced headline: *"Infrastructure for Alpha"*
-- One-line descriptor beneath
-- Abstract data visualization (CSS grid of subtle pulsing dots or a minimal network graph)
-- No CTA buttons — just presence
+### 1. Navigation Bar (TabNavigation.tsx)
+- Logo stays left, but make it bolder/larger
+- Move nav links to the **right side** with wider spacing
+- ALL CAPS text for nav links, slightly larger (`text-xs` → `text-sm`)
+- Replace "Contact" text link with a styled button (rounded pill with arrow icon, like Wintermute's "Log-in")
+- Active state: accent color on text (not underline)
+- Increase header height from `h-14` to `h-16`
 
-### 2. Agentic Workflows
-- Three concrete workflow examples displayed as horizontal flow diagrams (research pipeline, signal generation, trade execution)
-- Each step shown as a node with brief label — feels like a system diagram
-- Minimal explanatory text per workflow
+### 2. Overview Tab — Full-Viewport Hero (OverviewTab.tsx)
+- Make headline much larger (`text-6xl` → `text-7xl md:text-8xl`)
+- Accent color on first phrase: `<span class="text-primary">Infrastructure</span> for Alpha`
+- Left-align headline (not centered) — position in left ~40% of screen
+- Add animated particle/dot background across the full viewport (similar to Wintermute's scattered green/gray dots pattern using CSS or canvas)
+- Subtitle below headline in muted color
 
-### 3. Infrastructure
-- Grid layout showing deployment specs: Cloud Agnostic, VPC, Kubernetes, Docker, Days-to-Deploy
-- Each as a card with icon and 1-2 line description
-- Emphasis on institutional readiness vs startup tooling
+### 3. All Tab Pages — Consistent Hero Pattern
+- Each tab page gets a full-viewport hero section with large two-line headline (first line accented) and subtitle
+- Content sections flow below the hero on scroll (not confined to viewport)
 
-### 4. Data & Intelligence
-- Focus on BDAaS capabilities
-- Visual: structured vs unstructured data transformation (simple before/after diagram)
-- Key stats: real-time ingestion, historical depth, latency specs
-- "Unstructured → Insight" as a core visual motif
+### 4. Service Cards Section (new, on Overview)
+- Below the hero, add horizontal service/capability cards similar to Wintermute's OTC/Liquidity/DeFi section
+- Each card: small label, title, one-line description, link arrow
+- Separated by thin dividers
 
-### 5. AI Sovereignty
-- On-premise deployment, full data control, compliance-ready
-- Clean list/grid of privacy guarantees
-- No marketing language — reads like a security spec sheet
+### 5. Footer Enhancement
+- Add a richer footer with multiple columns: links to sections, contact CTA, subscribe prompt
+- Matches Wintermute's bottom section pattern
 
-### 6. Approach
-- "Last Mile" philosophy explained in 3-4 tight paragraphs
-- Focus on integration into existing workflows, outcome-driven design
-- Closing statement that reinforces positioning
+## Files to Modify
+- `src/components/apex/TabNavigation.tsx` — Restyle navbar layout and typography
+- `src/components/apex/OverviewTab.tsx` — Full-viewport hero with particles, left-aligned headline, service cards below
+- `src/components/apex/WorkflowsTab.tsx` — Add hero section header pattern
+- `src/components/apex/InfrastructureTab.tsx` — Add hero section header pattern
+- `src/components/apex/DataTab.tsx` — Add hero section header pattern
+- `src/components/apex/SovereigntyTab.tsx` — Add hero section header pattern
+- `src/components/apex/ApproachTab.tsx` — Add hero section header pattern
+- `src/pages/Index.tsx` — Minor layout adjustments for new header height
 
-## Interactions
-- Tab switches use a clean crossfade with slight vertical offset
-- Active tab indicated by a thin underline accent
-- Subtle monospaced "typing" animation on the Overview headline on first load
-- Hover states are restrained — opacity shifts, no color explosions
-
-## Pages & Components
-- Single page app with tab state managed via React state (URL hash optional)
-- Components: TabNavigation, OverviewTab, WorkflowsTab, InfrastructureTab, DataTab, SovereigntyTab, ApproachTab
-- Reusable: DataCard, FlowDiagram, SectionHeading
+## Technical Details
+- Particle background: Pure CSS approach using absolutely-positioned dots with randomized positions and pulse animations (no canvas needed for performance)
+- Navigation stays as React state tabs (not routes) per original spec
+- Contact button uses `mailto:` link styled as a pill button with an arrow icon
 
