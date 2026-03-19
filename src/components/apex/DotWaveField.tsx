@@ -95,7 +95,7 @@ const DotWaveField = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className="pointer-events-none absolute top-0 right-0 h-full w-1/2"
     />
   );
 };
