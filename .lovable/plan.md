@@ -1,35 +1,40 @@
 
 
-# Animated "Unstructured → Structured Insights" Transformation
+## Plan: Redesign Agentic Workflows as Role-Based ALICE Showcase
 
-## Placement
+### What changes
 
-Add it as an animated section on the **Overview page**, between the hero and the service cards. This is the highest-visibility spot and reinforces the core value prop immediately. The Data & Intelligence tab already has a static version of this concept — the Overview gets the animated, attention-grabbing one.
+**1. Update dropdown items in TabNavigation.tsx**
+Replace the current "Agentic Workflows" dropdown entries with the five role-based sections, each with a `section` property for scroll targeting:
+- Research (Analysts & Investment Research Teams)
+- Multi-Asset (Portfolio Managers & Strategists)
+- Equities (Equity Analysts & PMs)
+- Quant (Quantitative Researchers & Systematic Teams)
+- Credit (Fixed Income, Credit Analysts & Traders)
 
-## What It Looks Like
+**2. Rewrite WorkflowsTab.tsx completely**
+Replace the current simple step-flow layout with rich, structured sections for each role. Each section will follow the consistent structure from the provided content:
+- **Section header** — role title + audience subtitle
+- **"How ALICE works"** — brief intro paragraph
+- **Key capabilities** — bullet list of 5 capabilities
+- **Example queries/workflows** (where provided) — styled as code/query blocks
+- **Outcome** — highlighted business value statement
 
-A horizontal animated flow with three stages:
+Each section gets an `id` attribute (e.g., `id="research"`) so dropdown clicks scroll to that section.
 
-```text
-[Scattered text fragments]  →  [Processing pulse]  →  [Clean structured rows]
-     (chaotic, faded)          (animated glow)         (sharp, primary-colored)
-```
+**3. Add scroll-to-section support in WorkflowsTab**
+Accept `scrollToSection` prop (like CompanyTab does), use `useEffect` to scroll to the target section when it changes. Update `Index.tsx` to pass `scrollToSection` to WorkflowsTab.
 
-- **Left column ("Unstructured")**: Fragments of text (PDFs, feeds, filings) rendered at random rotations/positions, slowly drifting — conveying chaos
-- **Center arrow**: An animated pulsing line/arrow with a glowing sweep effect moving left-to-right on loop
-- **Right column ("Actionable Insights")**: Clean, aligned rows that fade in sequentially with a subtle slide-up — conveying order and clarity
+### Design approach
+- Maintain the existing dark, mono-spaced, minimal aesthetic
+- Each role section separated by border dividers
+- Capabilities as clean bullet lists with subtle primary-colored markers
+- Example queries in monospace code-style blocks
+- Outcome in a highlighted card/callout with left border accent
+- Hero section updated: headline → "ALICE — Role-Adaptive Intelligence", subtitle reflecting the positioning
 
-The animation triggers on scroll into view (using framer-motion `whileInView`), and the processing sweep repeats on a slow loop.
-
-## Files to Modify
-
-- **Create** `src/components/apex/TransformationAnimation.tsx` — The animated unstructured-to-structured visual component
-- **Edit** `src/components/apex/OverviewTab.tsx` — Insert the new component between hero and service cards
-
-## Technical Details
-
-- Uses framer-motion for element animations (`whileInView`, staggered children, continuous rotation on chaotic fragments)
-- CSS keyframe for the glowing sweep on the center arrow
-- Responsive: stacks vertically on mobile
-- Keeps the existing static version in DataTab untouched
+### Files to edit
+- `src/components/apex/TabNavigation.tsx` — update dropdown items
+- `src/components/apex/WorkflowsTab.tsx` — full rewrite with rich content sections
+- `src/pages/Index.tsx` — pass `scrollToSection` prop to WorkflowsTab
 
