@@ -30,9 +30,6 @@ const TransformationAnimation = () => {
         <div className="flex flex-col items-stretch gap-0 md:flex-row">
           {/* Unstructured — chaotic particles */}
           <div className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20" style={{ minHeight: 300 }}>
-            <div className="absolute left-6 top-6 z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/40 md:left-8 md:top-8">
-              Unstructured
-            </div>
             <ChaosToOrderParticles />
           </div>
 
