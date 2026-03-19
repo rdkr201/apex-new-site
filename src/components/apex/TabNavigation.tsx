@@ -22,9 +22,11 @@ interface DropdownItem {
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
   "Agentic Workflows": [
-    { label: "Agent Orchestration" },
-    { label: "Signal Generation" },
-    { label: "Trade Execution" },
+    { label: "Research", section: "research" },
+    { label: "Multi-Asset", section: "multi-asset" },
+    { label: "Equities", section: "equities" },
+    { label: "Quant", section: "quant" },
+    { label: "Credit", section: "credit" },
   ],
   Infrastructure: [
     { label: "Cloud Architecture" },
