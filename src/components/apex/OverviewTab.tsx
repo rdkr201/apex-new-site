@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import ParticleField from "./ParticleField";
+import DotWaveField from "./DotWaveField";
 
 const services = [
   {
