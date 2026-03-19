@@ -93,10 +93,13 @@ const DotWaveField = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="pointer-events-none absolute top-0 right-0 h-full w-1/2"
-    />
+    <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2" style={{ perspective: '800px' }}>
+      <canvas
+        ref={canvasRef}
+        className="h-full w-full"
+        style={{ transform: 'rotateX(25deg) rotateY(-15deg) rotateZ(2deg)', transformOrigin: 'center center' }}
+      />
+    </div>
   );
 };
 
