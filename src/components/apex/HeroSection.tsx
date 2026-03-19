@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ParticleField from "./ParticleField";
+import DotWaveField from "./DotWaveField";
 
 interface HeroSectionProps {
   accentLine: string;
