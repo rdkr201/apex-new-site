@@ -86,6 +86,9 @@ const OverviewTab = () => {
         </div>
       </div>
 
+      {/* Transformation Animation */}
+      <TransformationAnimation />
+
       {/* Service Cards */}
       <motion.div
         initial={{ opacity: 0 }}
