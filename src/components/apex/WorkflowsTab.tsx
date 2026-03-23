@@ -34,7 +34,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "multi-asset",
-    icon: "🌐",
+    icon: "",
     title: "Multi-Asset",
     audience: "Portfolio Managers & Strategists",
     intro:
