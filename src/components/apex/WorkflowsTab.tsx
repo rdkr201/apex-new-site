@@ -89,9 +89,19 @@ const sections: RoleSection[] = [
     examples: {
       label: "Example workflows",
       items: [
-        "Backtest momentum, mean reversion, or hybrid strategies",
-        "Analyse factor-driven performance across time horizons",
-        "Build and iterate strategies without writing full code",
+        "Forecast BTC-USD price for next 10 days",
+        "Detect market regimes for AAPL over the last year",
+        "Test cointegration between SPY and QQQ",
+        "Analyze the impulse response of SPY to a shock in TLT. Trace the effect over 20 periods.",
+        "For SPY: Detect Markov regimes, fit GJR-GARCH for volatility, fit HAR model for decomposition",
+        "Use SARIMAX to forecast XOM including CL (Crude Oil) as an exogenous variable",
+      ],
+    },
+    codeGeneration: {
+      intro: "ALICE also generates executable Python code for quantitative analysis, letting teams inspect, modify, and deploy strategies directly.",
+      examples: [
+        "Generate a Python script for a momentum + mean reversion hybrid backtest",
+        "Write code to calculate rolling Sharpe ratios across multiple timeframes",
       ],
     },
     outcome:
