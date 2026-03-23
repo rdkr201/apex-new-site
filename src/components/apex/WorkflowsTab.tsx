@@ -17,7 +17,7 @@ interface RoleSection {
 const sections: RoleSection[] = [
   {
     id: "research",
-    icon: "🔎",
+    icon: "",
     title: "Research",
     audience: "Analysts & Investment Research Teams",
     intro:
@@ -34,7 +34,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "multi-asset",
-    icon: "🌐",
+    icon: "",
     title: "Multi-Asset",
     audience: "Portfolio Managers & Strategists",
     intro:
@@ -51,7 +51,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "equities",
-    icon: "📊",
+    icon: "",
     title: "Equities",
     audience: "Equity Analysts & PMs",
     intro:
@@ -75,7 +75,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "quant",
-    icon: "⚙️",
+    icon: "",
     title: "Quant",
     audience: "Quantitative Researchers & Systematic Teams",
     intro:
@@ -103,7 +103,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "credit",
-    icon: "💳",
+    icon: "",
     title: "Credit",
     audience: "Fixed Income, Credit Analysts & Traders",
     intro:
@@ -163,7 +163,7 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
               {/* Header */}
               <div className="mb-10">
                 <h2 className="font-mono text-lg font-medium tracking-tight text-foreground">
-                  <span className="mr-3">{section.icon}</span>
+                  
                   {section.title}
                 </h2>
                 <p className="mt-1 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
