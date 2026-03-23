@@ -7,26 +7,30 @@ import SovereigntySection from "./SovereigntySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 
-const services = [
+const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   {
     label: "01",
     title: "Agentic Workflows",
     desc: "End-to-end automation across research, signal generation, and trade execution.",
+    tab: "Agentic Workflows",
   },
   {
     label: "02",
     title: "Big Data Architecture",
     desc: "Ingest structured and unstructured data. Real-time and historical. Query anything.",
+    tab: "Data & Intelligence",
   },
   {
     label: "03",
     title: "AI Sovereignty",
     desc: "On-premise deployment. Full data control. Designed for strict compliance environments.",
+    tab: "Infrastructure",
   },
   {
     label: "04",
     title: "Infrastructure",
     desc: "Cloud agnostic. VPC deployment. Kubernetes + Docker microservices. Days to deploy.",
+    tab: "Infrastructure",
   },
 ];
 
@@ -136,12 +140,16 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       >
         <div className="mx-auto max-w-[1400px] divide-y divide-border">
           {services.map((service, i) => (
-            <motion.div
+            <motion.button
               key={service.title}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
-              className="group flex items-center justify-between px-6 py-8 transition-colors hover:bg-secondary/30 lg:px-10"
+              onClick={() => {
+                onTabChange?.(service.tab);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="group flex w-full items-center justify-between px-6 py-8 text-left transition-colors hover:bg-secondary/30 lg:px-10 cursor-pointer"
             >
               <div className="flex items-start gap-8">
                 <span className="font-mono text-xs text-muted-foreground/50">
@@ -157,7 +165,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
                 </div>
               </div>
               <ArrowRight className="h-4 w-4 text-muted-foreground/30 transition-colors group-hover:text-primary" />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </motion.div>

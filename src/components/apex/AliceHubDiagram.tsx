@@ -67,7 +67,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * gi }}
-                className="space-y-2"
+                className="space-y-2 min-w-0"
               >
                 <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
                   {group.label}
@@ -76,7 +76,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                   {group.items.map((item) => (
                     <div
                       key={item}
-                      className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80"
+                      className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80 whitespace-nowrap"
                     >
                       {item}
                     </div>
