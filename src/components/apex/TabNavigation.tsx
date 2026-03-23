@@ -7,7 +7,6 @@ const tabs = [
   "Agentic Workflows",
   "Infrastructure",
   "Data & Intelligence",
-  "AI Sovereignty",
   "Company",
 ] as const;
 
@@ -37,11 +36,6 @@ const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
     { label: "Data Ingestion" },
     { label: "Analytics" },
     { label: "NLP & Parsing" },
-  ],
-  "AI Sovereignty": [
-    { label: "On-Premise" },
-    { label: "Compliance" },
-    { label: "Data Control" },
   ],
   Company: [
     { label: "Team", section: "team" },

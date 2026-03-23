@@ -5,7 +5,7 @@ import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import DataTab from "@/components/apex/DataTab";
-import SovereigntyTab from "@/components/apex/SovereigntyTab";
+
 import CompanyTab from "@/components/apex/CompanyTab";
 
 const Index = () => {
@@ -33,7 +33,7 @@ const Index = () => {
             {activeTab === "Agentic Workflows" && <WorkflowsTab scrollToSection={scrollSection} />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "Data & Intelligence" && <DataTab />}
-            {activeTab === "AI Sovereignty" && <SovereigntyTab />}
+            
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
         </AnimatePresence>
@@ -57,7 +57,7 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["Agentic Workflows", "Infrastructure", "Data & Intelligence", "AI Sovereignty"].map(
+                {["Agentic Workflows", "Infrastructure", "Data & Intelligence"].map(
                   (link) => (
                     <button
                       key={link}
