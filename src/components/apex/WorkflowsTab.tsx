@@ -17,7 +17,7 @@ interface RoleSection {
 const sections: RoleSection[] = [
   {
     id: "research",
-    icon: "🔎",
+    icon: "",
     title: "Research",
     audience: "Analysts & Investment Research Teams",
     intro:
