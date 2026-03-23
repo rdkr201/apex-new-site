@@ -59,7 +59,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           className="flex flex-col items-center"
         >
           {/* Input groups — 4-col grid (2-col mobile) */}
-          <div className="grid w-full max-w-3xl grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="grid w-full max-w-4xl grid-cols-2 gap-4 lg:grid-cols-4">
             {inputGroups.map((group, gi) => (
               <motion.div
                 key={group.label}
