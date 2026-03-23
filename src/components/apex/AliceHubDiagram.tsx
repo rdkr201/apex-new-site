@@ -17,7 +17,7 @@ const inputGroups = [
   },
   {
     label: "Proprietary Data",
-    items: ["Internal Datasets", "Alternative Data", "Portfolio Holdings & Position Data"],
+    items: ["Internal Datasets", "Alternative Data", "Portfolio & Position Data"],
   },
 ];
 
