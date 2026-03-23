@@ -124,6 +124,9 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       {/* AI Sovereignty */}
       <SovereigntySection />
 
+      {/* ALICE Hub Diagram */}
+      {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
+
       {/* Service Cards */}
       <motion.div
         initial={{ opacity: 0 }}

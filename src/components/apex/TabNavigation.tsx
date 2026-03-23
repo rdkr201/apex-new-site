@@ -64,10 +64,13 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-10">
-        {/* Logo */}
-        <div className="font-mono text-base font-medium tracking-tightest text-foreground">
+        {/* Logo — home button */}
+        <button
+          onClick={() => onTabChange("Overview")}
+          className="font-mono text-base font-medium tracking-tightest text-foreground transition-colors hover:text-primary cursor-pointer"
+        >
           APEX<span className="text-primary">:</span>E3
-        </div>
+        </button>
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 lg:flex">
