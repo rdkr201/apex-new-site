@@ -1,40 +1,56 @@
 
 
-# Move AI Sovereignty into Overview Tab
+# Redesign Agentic Workflows as Discipline-Switcher Page
 
 ## Summary
-Merge the AI Sovereignty content into the Overview page as a dedicated section below the "From noise to conviction" transformation animation. Remove "AI Sovereignty" as a separate tab from navigation. Inspired by the uploaded screenshot, present the security/sovereignty guarantees as a 3x2 grid of icon cards with a headline and footer note.
+Replace the current vertically-stacked sections in WorkflowsTab with a single adaptive layout: one shared hero, a sticky discipline tab bar, and a dynamic content area that updates based on the selected discipline.
 
-## Layout (placed between TransformationAnimation and Service Cards)
+## Layout
 
 ```text
-┌─────────────────────────────────────────────────────┐
-│          Enterprise-Grade AI Sovereignty             │
-├─────────────────┬──────────────────┬────────────────┤
-│   🏢            │   🛡️             │   🔒           │
-│  On-Premise     │  Data            │  Compliance    │
-│  Deployment     │  Sovereignty     │  Ready         │
-├─────────────────┬──────────────────┬────────────────┤
-│   🚫            │   📋             │   🧠           │
-│  Air-Gapped     │  Full Audit      │  Model         │
-│  Capable        │  Trail           │  Isolation     │
-├─────────────────┴──────────────────┴────────────────┤
-│  Your data. Your models. Your infrastructure.        │
-│  No compromises.                                     │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│  Hero (shared)                               │
+│  "Agentic Workflows"                         │
+│  "ALICE: Role-Adaptive Intelligence"         │
+│  Subtitle + CTA                              │
+├──────────────────────────────────────────────┤
+│  [Equities] [Credit] [Research] [Quant] [MA] │  ← sticky tab bar
+├──────────────────────────────────────────────┤
+│  Dynamic content for selected discipline:    │
+│  - Title + audience                          │
+│  - Overview paragraph                        │
+│  - Feature cards (3-col grid)                │
+│  - Example queries (terminal-style)          │
+│  - Outcome strip                             │
+└──────────────────────────────────────────────┘
 ```
 
-Uses Lucide icons (Server, ShieldCheck, Scale, WifiOff, ClipboardList, Brain) in a 3-column grid with border dividers, matching the screenshot's dark, minimal card style. Each card has an icon, a title, and a one-line description. A footer line reinforces the message.
+## Technical approach
 
-## Files to Edit
+### 1. Rewrite `WorkflowsTab.tsx`
+- Keep the existing `HeroSection` at top
+- Add a sticky discipline tab bar below hero with pill-style active indicator (teal highlight)
+- Use local `useState` for the active discipline (default: "Equities")
+- Define a single `disciplines` data array with all 5 disciplines (reusing existing content)
+- Render content dynamically from the selected discipline object
+- Use `AnimatePresence` + `motion.div` for fade transitions between tabs
+- On mobile, tabs become horizontally scrollable
 
-1. **`src/components/apex/OverviewTab.tsx`** - Import and add a new `<SovereigntySection />` component between `<TransformationAnimation />` and the service cards.
+### Content layout per discipline:
+- **Header**: discipline title + audience subtitle
+- **Overview**: 1-2 sentence intro paragraph
+- **Feature cards**: 3-column grid of capability cards with subtle borders
+- **Example queries**: terminal-style monospace blocks
+- **Outcome**: bordered accent strip (reuse existing left-border style)
 
-2. **Create `src/components/apex/SovereigntySection.tsx`** - New component: 3x2 grid of sovereignty guarantees with icons, titles, descriptions. Uses `whileInView` framer-motion animations. Styled with border dividers matching the screenshot aesthetic.
+### 2. Update `TabNavigation.tsx`
+- Remove the dropdown items for "Agentic Workflows" since the discipline switching now lives inside the page itself (no longer scroll-to-section)
 
-3. **`src/components/apex/TabNavigation.tsx`** - Remove "AI Sovereignty" from the `tabs` array and the `dropdowns` record.
+### 3. Update `Index.tsx`
+- Remove `scrollSection` pass-through to `WorkflowsTab` (no longer needed for discipline sections)
 
-4. **`src/pages/Index.tsx`** - Remove the `SovereigntyTab` import and its conditional render. Remove "AI Sovereignty" from the footer links.
-
-5. **`src/components/apex/SovereigntyTab.tsx`** - Can be deleted (no longer used).
+### Files to edit
+- `src/components/apex/WorkflowsTab.tsx` -- full rewrite
+- `src/components/apex/TabNavigation.tsx` -- remove Agentic Workflows dropdown
+- `src/pages/Index.tsx` -- simplify WorkflowsTab usage
 
