@@ -1,11 +1,22 @@
 import { motion } from "framer-motion";
 import ChaosToOrderParticles from "./ChaosToOrderParticles";
 
-const insights = [
-  { label: "Signal", value: "Long AAPL, 94% confidence" },
-  { label: "Risk", value: "VaR breach: sector rotation detected" },
-  { label: "Alpha", value: "+2.3σ edge on earnings catalyst" },
-  { label: "Action", value: "Execute via TWAP, 15min window" },
+const queryGroups = [
+  {
+    label: "Forecasting",
+    queries: [
+      "Compare 5-day forecasts for TSLA using Prophet, XGBoost, and Ensemble (ARIMA+ETS). Which model predicts the highest price?",
+      "Forecast NVDA using XGBoost for the next 5 days. Show top 10 features and MAPE on test set.",
+    ],
+  },
+  {
+    label: "Fundamental",
+    queries: [
+      "Compare the ESG scores of major tech companies",
+      "What is Amazon's free cash flow trend?",
+      "How has Apple's gross margin trended over the last 8 quarters?",
+    ],
+  },
 ];
 
 const TransformationAnimation = () => {
