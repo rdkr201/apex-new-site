@@ -58,9 +58,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, hsl(174 42% 45% / 0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 85% 40%, hsl(174 42% 45% / 0.07) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 50% at 15% 75%, hsl(174 42% 45% / 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 60% at 0% 0%, hsl(174 42% 45% / 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 10% 15%, hsl(174 42% 45% / 0.10) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 25% 5%, hsl(174 42% 45% / 0.06) 0%, transparent 45%),
       linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 3%) 50%, hsl(0 0% 4%) 100%);
     background-attachment: fixed;
   }
