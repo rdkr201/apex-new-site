@@ -38,9 +38,10 @@ const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
     { label: "NLP & Parsing" },
   ],
   Company: [
-    { label: "Team", section: "team" },
-    { label: "Mission", section: "mission" },
-    { label: "Approach", section: "approach" },
+    { label: "About", section: "about" },
+    { label: "Blog", section: "blog" },
+    { label: "Newsroom", section: "newsroom" },
+    { label: "Careers", section: "careers" },
   ],
 };
 

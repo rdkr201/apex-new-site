@@ -77,9 +77,10 @@ const Index = () => {
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
                 {[
-                  { label: "Team", section: "team" },
-                  { label: "Mission", section: "mission" },
-                  { label: "Approach", section: "approach" },
+                  { label: "About", section: "about" },
+                  { label: "Blog", section: "blog" },
+                  { label: "Newsroom", section: "newsroom" },
+                  { label: "Careers", section: "careers" },
                 ].map((item) => (
                   <button
                     key={item.label}
