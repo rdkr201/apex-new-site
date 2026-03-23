@@ -1,50 +1,42 @@
 
 
-# Remove "Overview" Tab + Add ALICE Hub-and-Spoke Diagram
+# Redesign ALICE Hub Diagram to Vertical Center-Focused Layout
 
-## Summary
-Two changes: (1) Remove "Overview" from the nav tabs and make the APEX:E3 logo act as the home/overview button. (2) Add a new ALICE hub-and-spoke intelligence diagram section to the Overview page (between SovereigntySection and service cards) with animated data flow lines and a "Learn More" CTA linking to Data & Intelligence.
+## What changes
+Replace the current horizontal 3-column layout with a vertical flow: Inputs → ALICE → Outputs. ALICE becomes the dominant focal point with stronger glow. Everything flows vertically into and out of it.
 
-## Change 1: Logo as Home Button
+## New Layout (both desktop and mobile)
 
-**`src/components/apex/TabNavigation.tsx`**
-- Remove `"Overview"` from the `tabs` array (keep it as a valid `TabId` type)
-- Make the APEX:E3 logo div a clickable button that calls `onTabChange("Overview")`
-- Add cursor-pointer and hover styles to the logo
+```text
+     ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+     │ Public   │  │Enterprise│  │Financial │  │Proprietary│
+     │ Data     │  │ Data     │  │Providers │  │ Data      │
+     │ items... │  │ items... │  │ items... │  │ items...  │
+     └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬──────┘
+          └──────────────┼──────────────┼──────────────┘
+                         │ (animated lines flowing down)
+                    ┌────▼────┐
+                    │         │
+                    │  ALICE  │  ← bigger (h-40 w-40), stronger glow
+                    │         │
+                    └────┬────┘
+                         │ (animated lines flowing down)
+          ┌──────┬───────┼───────┬──────┬──────┐
+          ▼      ▼       ▼       ▼      ▼
+       Insights Reports Models Dashboards Signals
+       (glowing output cards in a row)
+```
 
-**`src/pages/Index.tsx`**
-- No changes needed — "Overview" still renders, just not shown as a tab
+## Key design decisions
 
-## Change 2: ALICE Hub-and-Spoke Diagram
+1. **ALICE node**: Scale up to `h-40 w-40` on desktop, triple-layer glow (blur-2xl outer, blur-lg mid, border ring), slow pulse animation
+2. **Input groups**: 4-column grid at top, each group is a compact card with label + stacked items
+3. **Flow lines**: Vertical animated gradient lines between inputs→ALICE and ALICE→outputs using CSS keyframes (`flowDown`)
+4. **"INGEST" / "OUTPUT" labels**: Small mono labels on the vertical flow connectors
+5. **Output cards**: Horizontal row of 5 cards with teal border glow + staggered entrance animation
+6. **Mobile**: Inputs become 2-col grid, outputs become 3-col grid, same vertical flow
+7. **Remove**: The separate desktop (horizontal) and mobile layouts — use one unified vertical layout that's responsive
 
-**Create `src/components/apex/AliceHubDiagram.tsx`**
-
-A full-width section with an SVG-based hub-and-spoke system diagram:
-
-- **Center**: Glowing circular "ALICE" node with subtitle "Intelligence Layer", soft teal pulse animation
-- **Left side (inputs)** — 4 grouped categories with labeled nodes:
-  - Public Data: SEC EDGAR, News / Web Data, Market Data
-  - Enterprise Data: SharePoint, Microsoft 365, Internal Documents
-  - Financial Data Providers: S&P Capital IQ, Bloomberg, FactSet
-  - Proprietary Data: Internal datasets, Alternative data
-- **Right side (outputs)** — 5 value nodes: Insights, Reports, Models, Dashboards, Signals
-- **Connections**: Animated lines (CSS keyframe particles/dashes traveling along paths) flowing inward from inputs to ALICE, then outward to outputs
-- **Animation**: Continuous subtle loop — inbound flow, ALICE pulse, outbound flow
-- **CTA**: "Learn More" button at bottom that navigates to Data & Intelligence tab
-
-Design: dark background section, teal accent glow on ALICE node, clean sans-serif labels, generous spacing, no clutter.
-
-**`src/components/apex/OverviewTab.tsx`**
-- Import `AliceHubDiagram`
-- Add it between `<SovereigntySection />` and the service cards
-- Pass `onTabChange` prop down (or use a callback prop) for the "Learn More" CTA
-
-**`src/pages/Index.tsx`**
-- Pass `onTabChange={handleTabChange}` as prop to `OverviewTab`
-
-## Files
-1. `src/components/apex/TabNavigation.tsx` — remove Overview from visible tabs, make logo clickable
-2. `src/components/apex/AliceHubDiagram.tsx` — new hub-and-spoke diagram component
-3. `src/components/apex/OverviewTab.tsx` — add AliceHubDiagram, accept onTabChange prop
-4. `src/pages/Index.tsx` — pass onTabChange to OverviewTab
+## File to edit
+- `src/components/apex/AliceHubDiagram.tsx` — full rewrite of the diagram section, keeping header and CTA unchanged
 
