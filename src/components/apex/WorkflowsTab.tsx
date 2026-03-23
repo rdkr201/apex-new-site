@@ -163,7 +163,7 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
               {/* Header */}
               <div className="mb-10">
                 <h2 className="font-mono text-lg font-medium tracking-tight text-foreground">
-                  <span className="mr-3">{section.icon}</span>
+                  
                   {section.title}
                 </h2>
                 <p className="mt-1 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
