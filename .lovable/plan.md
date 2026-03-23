@@ -1,35 +1,36 @@
 
 
-# Animated "Unstructured → Structured Insights" Transformation
+# Update Prompts in TransformationAnimation and Quant Section
 
-## Placement
+## Changes
 
-Add it as an animated section on the **Overview page**, between the hero and the service cards. This is the highest-visibility spot and reinforces the core value prop immediately. The Data & Intelligence tab already has a static version of this concept — the Overview gets the animated, attention-grabbing one.
+### 1. TransformationAnimation.tsx — Replace insight rows with real prompts
+Replace the current generic insights (Signal, Risk, Alpha, Action) with curated example prompts split into two categories:
 
-## What It Looks Like
+**Forecasting queries:**
+- "Compare 5-day forecasts for TSLA using Prophet, XGBoost, and Ensemble (ARIMA+ETS). Which model predicts the highest price?"
+- "Forecast NVDA using XGBoost for the next 5 days. Show top 10 features and MAPE on test set."
 
-A horizontal animated flow with three stages:
+**Fundamental queries:**
+- "Compare the ESG scores of major tech companies"
+- "What is Amazon's free cash flow trend?"
+- "How has Apple's gross margin trended over the last 8 quarters?"
 
-```text
-[Scattered text fragments]  →  [Processing pulse]  →  [Clean structured rows]
-     (chaotic, faded)          (animated glow)         (sharp, primary-colored)
-```
+Display them as two labeled groups (Forecasting, Fundamental) in the right-side "Actionable Insights" panel, styled as monospace query blocks rather than label/value pairs.
 
-- **Left column ("Unstructured")**: Fragments of text (PDFs, feeds, filings) rendered at random rotations/positions, slowly drifting — conveying chaos
-- **Center arrow**: An animated pulsing line/arrow with a glowing sweep effect moving left-to-right on loop
-- **Right column ("Actionable Insights")**: Clean, aligned rows that fade in sequentially with a subtle slide-up — conveying order and clarity
+### 2. WorkflowsTab.tsx — Upgrade Quant example workflows
+Replace the current 3 generic Quant examples with the most impressive prompts from the provided list:
 
-The animation triggers on scroll into view (using framer-motion `whileInView`), and the processing sweep repeats on a slow loop.
+- "Forecast BTC-USD price for next 10 days"
+- "Detect market regimes for AAPL over the last year"
+- "Test cointegration between SPY and QQQ"
+- "Analyze the impulse response of SPY to a shock in TLT. Trace the effect over 20 periods."
+- "For SPY: Detect Markov regimes, fit GJR-GARCH for volatility, fit HAR model for decomposition"
+- "Use SARIMAX to forecast XOM including CL (Crude Oil) as an exogenous variable"
 
-## Files to Modify
+Also add a new **"Code Generation"** subsection to the Quant section describing ALICE's ability to generate executable Python code for quantitative analysis, with a couple of example prompts.
 
-- **Create** `src/components/apex/TransformationAnimation.tsx` — The animated unstructured-to-structured visual component
-- **Edit** `src/components/apex/OverviewTab.tsx` — Insert the new component between hero and service cards
-
-## Technical Details
-
-- Uses framer-motion for element animations (`whileInView`, staggered children, continuous rotation on chaotic fragments)
-- CSS keyframe for the glowing sweep on the center arrow
-- Responsive: stacks vertically on mobile
-- Keeps the existing static version in DataTab untouched
+### 3. Files to edit
+- `src/components/apex/TransformationAnimation.tsx` — replace insights data and layout
+- `src/components/apex/WorkflowsTab.tsx` — update Quant examples, add code generation capability mention
 
