@@ -18,7 +18,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <TabNavigation activeTab={activeTab} onTabChange={handleTabChange} />
       <main className="pt-16">
         <AnimatePresence mode="wait">
