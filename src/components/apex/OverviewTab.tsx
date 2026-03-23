@@ -32,7 +32,11 @@ const services = [
 
 const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
 
-const OverviewTab = () => {
+interface OverviewTabProps {
+  onTabChange?: (tab: TabId) => void;
+}
+
+const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pausing" | "erasing">("typing");
