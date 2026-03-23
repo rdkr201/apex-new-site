@@ -13,16 +13,18 @@ const teamMembers = [
 ];
 
 const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
-  const teamRef = useRef<HTMLDivElement>(null);
-  const missionRef = useRef<HTMLDivElement>(null);
-  const approachRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const blogRef = useRef<HTMLDivElement>(null);
+  const newsroomRef = useRef<HTMLDivElement>(null);
+  const careersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!scrollToSection) return;
     const ref =
-      scrollToSection === "team" ? teamRef :
-      scrollToSection === "mission" ? missionRef :
-      scrollToSection === "approach" ? approachRef : null;
+      scrollToSection === "about" ? aboutRef :
+      scrollToSection === "blog" ? blogRef :
+      scrollToSection === "newsroom" ? newsroomRef :
+      scrollToSection === "careers" ? careersRef : null;
 
     if (ref?.current) {
       setTimeout(() => {
@@ -39,8 +41,8 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
         subtitle="A team of practitioners building infrastructure where AI meets alpha."
       />
 
-      {/* Team Section */}
-      <div ref={teamRef} className="scroll-mt-20 border-t border-border">
+      {/* About Section */}
+      <div ref={aboutRef} className="scroll-mt-20 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -48,11 +50,24 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Team
+              About
             </p>
             <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
               Domain-Native Builders
             </h3>
+            <div className="mt-8 space-y-6 max-w-2xl">
+              <p className="text-sm leading-[1.8] text-muted-foreground">
+                Our mission is to close the gap between AI capability and
+                investment outcome. We build infrastructure that institutional
+                investors can deploy, trust, and measure. Not demos, not
+                prototypes, but production systems.
+              </p>
+              <p className="text-sm leading-[1.8] text-muted-foreground">
+                Every component is designed for the realities of regulated capital
+                markets: data sovereignty, auditability, latency constraints, and
+                integration with existing workflows.
+              </p>
+            </div>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {teamMembers.map((member, i) => (
                 <motion.div
@@ -75,8 +90,8 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
         </div>
       </div>
 
-      {/* Mission Section */}
-      <div ref={missionRef} className="scroll-mt-20 border-t border-border">
+      {/* Blog Section */}
+      <div ref={blogRef} className="scroll-mt-20 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -85,30 +100,22 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
             className="max-w-2xl"
           >
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Mission
+              Blog
             </p>
             <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-              Institutional AI, Delivered
+              Insights & Research
             </h3>
             <div className="mt-8 space-y-6">
               <p className="text-sm leading-[1.8] text-muted-foreground">
-                Our mission is to close the gap between AI capability and
-                investment outcome. We build infrastructure that institutional
-                investors can deploy, trust, and measure. Not demos, not
-                prototypes, but production systems.
-              </p>
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                Every component is designed for the realities of regulated capital
-                markets: data sovereignty, auditability, latency constraints, and
-                integration with existing workflows.
+                Perspectives on agentic AI, quantitative research, and the future of institutional investment infrastructure. Coming soon.
               </p>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Approach Section */}
-      <div ref={approachRef} className="scroll-mt-20 border-t border-border">
+      {/* Newsroom Section */}
+      <div ref={newsroomRef} className="scroll-mt-20 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -117,42 +124,54 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
             className="max-w-2xl"
           >
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Approach
+              Newsroom
             </p>
             <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-              The Last Mile
+              Press & Announcements
             </h3>
             <div className="mt-8 space-y-6">
               <p className="text-sm leading-[1.8] text-muted-foreground">
-                Most AI platforms stop at the model layer. They deliver
-                capabilities in isolation: a language model here, a data pipeline
-                there, and leave integration as an exercise for the client. The
-                result is tooling that never reaches the desk.
-              </p>
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                APEX:E3 is built around the last mile: the space between raw AI
-                capability and actual alpha generation. Every component, from
-                data ingestion to agent orchestration, is designed to integrate
-                directly into existing buy-side workflows, not replace them.
-              </p>
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                We deploy within your infrastructure, adapt to your data
-                architecture, and align with your investment process. The platform
-                becomes invisible. The outcomes do not.
+                The latest updates on product launches, partnerships, and company milestones. Coming soon.
               </p>
             </div>
           </motion.div>
+        </div>
+      </div>
 
+      {/* Careers Section */}
+      <div ref={careersRef} className="scroll-mt-20 border-t border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-12 border-t border-border pt-12"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="max-w-2xl"
           >
-            <p className="font-mono text-sm text-muted-foreground">
-              Not another AI tool.{" "}
-              <span className="text-primary">Infrastructure for alpha.</span>
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
+              Careers
             </p>
+            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
+              Join the Team
+            </h3>
+            <div className="mt-8 space-y-6">
+              <p className="text-sm leading-[1.8] text-muted-foreground">
+                We're building the future of institutional AI. If you thrive at the intersection of finance, engineering, and research, we'd like to hear from you.
+              </p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-12 border-t border-border pt-12"
+            >
+              <p className="font-mono text-sm text-muted-foreground">
+                Interested?{" "}
+                <a href="mailto:contact@apexe3.com" className="text-primary hover:underline">
+                  Get in touch
+                </a>
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
