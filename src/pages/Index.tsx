@@ -5,7 +5,7 @@ import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import DataTab from "@/components/apex/DataTab";
-import SovereigntyTab from "@/components/apex/SovereigntyTab";
+
 import CompanyTab from "@/components/apex/CompanyTab";
 
 const Index = () => {
