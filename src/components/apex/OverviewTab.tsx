@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
 import TransformationAnimation from "./TransformationAnimation";
@@ -28,21 +28,44 @@ const services = [
   },
 ];
 
+const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
+
 const OverviewTab = () => {
-  const headline = "Infrastructure for Alpha";
-  const [displayedChars, setDisplayedChars] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [phase, setPhase] = useState<"typing" | "pausing" | "erasing">("typing");
+  const [showContent, setShowContent] = useState(false);
+  const firstComplete = useRef(false);
 
   useEffect(() => {
-    if (displayedChars < headline.length) {
-      const timeout = setTimeout(() => setDisplayedChars((c) => c + 1), 45);
-      return () => clearTimeout(timeout);
-    }
-  }, [displayedChars, headline.length]);
+    const word = rotatingWords[wordIndex];
 
-  const typed = headline.slice(0, displayedChars);
-  const splitIndex = "Infrastructure".length;
-  const firstPart = typed.slice(0, splitIndex);
-  const secondPart = typed.slice(splitIndex);
+    if (phase === "typing") {
+      if (charIndex < word.length) {
+        const t = setTimeout(() => setCharIndex((c) => c + 1), 70);
+        return () => clearTimeout(t);
+      } else {
+        if (!firstComplete.current) {
+          firstComplete.current = true;
+          setShowContent(true);
+        }
+        setPhase("pausing");
+      }
+    } else if (phase === "pausing") {
+      const t = setTimeout(() => setPhase("erasing"), 1800);
+      return () => clearTimeout(t);
+    } else if (phase === "erasing") {
+      if (charIndex > 0) {
+        const t = setTimeout(() => setCharIndex((c) => c - 1), 50);
+        return () => clearTimeout(t);
+      } else {
+        setWordIndex((i) => (i + 1) % rotatingWords.length);
+        setPhase("typing");
+      }
+    }
+  }, [charIndex, phase, wordIndex]);
+
+  const dynamicText = rotatingWords[wordIndex].slice(0, charIndex);
 
   return (
     <div>
@@ -58,14 +81,15 @@ const OverviewTab = () => {
             className="max-w-3xl"
           >
             <h1 className="font-mono text-5xl font-light leading-[1.1] tracking-tightest text-foreground md:text-7xl lg:text-8xl">
-              <span className="text-primary">{firstPart}</span>
-              {secondPart}
+              <span className="text-primary">Infrastructure</span>
+              {" for "}
+              {dynamicText}
               <span className="animate-pulse text-primary">_</span>
             </h1>
 
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: displayedChars >= headline.length ? 1 : 0 }}
+              animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 max-w-lg font-mono text-sm leading-relaxed tracking-wide text-muted-foreground"
             >
@@ -76,7 +100,7 @@ const OverviewTab = () => {
             <motion.a
               href="mailto:contact@apexe3.com"
               initial={{ opacity: 0 }}
-              animate={{ opacity: displayedChars >= headline.length ? 1 : 0 }}
+              animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.4, delay: 0.5 }}
               className="mt-10 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/50 hover:text-primary"
             >
