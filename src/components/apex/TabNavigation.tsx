@@ -11,7 +11,7 @@ const tabs = [
 
 export type TabId = (typeof tabs)[number] | "Overview";
 
-export type TabId = (typeof tabs)[number];
+
 
 export type SubSection = string;
 
