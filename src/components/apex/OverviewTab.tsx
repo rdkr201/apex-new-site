@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
 import TransformationAnimation from "./TransformationAnimation";
@@ -28,21 +28,44 @@ const services = [
   },
 ];
 
+const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
+
 const OverviewTab = () => {
-  const headline = "Infrastructure for Alpha";
-  const [displayedChars, setDisplayedChars] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [phase, setPhase] = useState<"typing" | "pausing" | "erasing">("typing");
+  const [showContent, setShowContent] = useState(false);
+  const firstComplete = useRef(false);
 
   useEffect(() => {
-    if (displayedChars < headline.length) {
-      const timeout = setTimeout(() => setDisplayedChars((c) => c + 1), 45);
-      return () => clearTimeout(timeout);
-    }
-  }, [displayedChars, headline.length]);
+    const word = rotatingWords[wordIndex];
 
-  const typed = headline.slice(0, displayedChars);
-  const splitIndex = "Infrastructure".length;
-  const firstPart = typed.slice(0, splitIndex);
-  const secondPart = typed.slice(splitIndex);
+    if (phase === "typing") {
+      if (charIndex < word.length) {
+        const t = setTimeout(() => setCharIndex((c) => c + 1), 70);
+        return () => clearTimeout(t);
+      } else {
+        if (!firstComplete.current) {
+          firstComplete.current = true;
+          setShowContent(true);
+        }
+        setPhase("pausing");
+      }
+    } else if (phase === "pausing") {
+      const t = setTimeout(() => setPhase("erasing"), 1800);
+      return () => clearTimeout(t);
+    } else if (phase === "erasing") {
+      if (charIndex > 0) {
+        const t = setTimeout(() => setCharIndex((c) => c - 1), 50);
+        return () => clearTimeout(t);
+      } else {
+        setWordIndex((i) => (i + 1) % rotatingWords.length);
+        setPhase("typing");
+      }
+    }
+  }, [charIndex, phase, wordIndex]);
+
+  const dynamicText = rotatingWords[wordIndex].slice(0, charIndex);
 
   return (
     <div>
