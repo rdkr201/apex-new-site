@@ -10,6 +10,7 @@ interface RoleSection {
   intro: string;
   capabilities: string[];
   examples?: { label: string; items: string[] };
+  codeGeneration?: { intro: string; examples: string[] };
   outcome: string;
 }
 
@@ -89,9 +90,19 @@ const sections: RoleSection[] = [
     examples: {
       label: "Example workflows",
       items: [
-        "Backtest momentum, mean reversion, or hybrid strategies",
-        "Analyse factor-driven performance across time horizons",
-        "Build and iterate strategies without writing full code",
+        "Forecast BTC-USD price for next 10 days",
+        "Detect market regimes for AAPL over the last year",
+        "Test cointegration between SPY and QQQ",
+        "Analyze the impulse response of SPY to a shock in TLT. Trace the effect over 20 periods.",
+        "For SPY: Detect Markov regimes, fit GJR-GARCH for volatility, fit HAR model for decomposition",
+        "Use SARIMAX to forecast XOM including CL (Crude Oil) as an exogenous variable",
+      ],
+    },
+    codeGeneration: {
+      intro: "ALICE also generates executable Python code for quantitative analysis, letting teams inspect, modify, and deploy strategies directly.",
+      examples: [
+        "Generate a Python script for a momentum + mean reversion hybrid backtest",
+        "Write code to calculate rolling Sharpe ratios across multiple timeframes",
       ],
     },
     outcome:
@@ -209,7 +220,27 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
                 </div>
               )}
 
-              {/* Outcome */}
+              {/* Code Generation */}
+              {section.codeGeneration && (
+                <div className="mb-10">
+                  <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+                    Code Generation
+                  </h3>
+                  <p className="mb-4 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
+                    {section.codeGeneration.intro}
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {section.codeGeneration.examples.map((ex) => (
+                      <div
+                        key={ex}
+                        className="rounded border border-border bg-secondary/30 px-4 py-3 font-mono text-xs text-foreground/70"
+                      >
+                        "{ex}"
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               <div className="border-l-2 border-primary/40 pl-5">
                 <h3 className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-primary/70">
                   Outcome
