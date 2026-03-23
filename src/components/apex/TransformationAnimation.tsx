@@ -69,7 +69,7 @@ const TransformationAnimation = () => {
 
   useEffect(() => {
     if (isPaused) return;
-    const id = setInterval(advance, 5000);
+    const id = setInterval(advance, 3000);
     return () => clearInterval(id);
   }, [isPaused, advance]);
 
