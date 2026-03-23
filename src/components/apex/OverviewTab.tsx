@@ -7,26 +7,30 @@ import SovereigntySection from "./SovereigntySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 
-const services = [
+const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   {
     label: "01",
     title: "Agentic Workflows",
     desc: "End-to-end automation across research, signal generation, and trade execution.",
+    tab: "Agentic Workflows",
   },
   {
     label: "02",
     title: "Big Data Architecture",
     desc: "Ingest structured and unstructured data. Real-time and historical. Query anything.",
+    tab: "Data & Intelligence",
   },
   {
     label: "03",
     title: "AI Sovereignty",
     desc: "On-premise deployment. Full data control. Designed for strict compliance environments.",
+    tab: "Infrastructure",
   },
   {
     label: "04",
     title: "Infrastructure",
     desc: "Cloud agnostic. VPC deployment. Kubernetes + Docker microservices. Days to deploy.",
+    tab: "Infrastructure",
   },
 ];
 
