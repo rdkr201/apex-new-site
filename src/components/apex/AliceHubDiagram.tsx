@@ -43,10 +43,10 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
             System Architecture
           </p>
           <h2 className="mt-3 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-            One Intelligence Layer
+            One Intelligence Layer. Fully Private.
           </h2>
           <p className="mx-auto mt-4 max-w-lg font-mono text-sm text-muted-foreground">
-            ALICE sits at the center — unifying every data source, powering every output.
+            ALICE sits behind your firewall — unifying every data source, powering every output.
           </p>
         </motion.div>
 
