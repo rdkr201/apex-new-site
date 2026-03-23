@@ -3,12 +3,13 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef } from "react";
 
 const tabs = [
-  "Overview",
   "Agentic Workflows",
   "Infrastructure",
   "Data & Intelligence",
   "Company",
 ] as const;
+
+export type TabId = (typeof tabs)[number] | "Overview";
 
 export type TabId = (typeof tabs)[number];
 
