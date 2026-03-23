@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from "react";
 
 const PARTICLE_COUNT = 120;
-const CYCLE_DURATION = 8000; // ms for one full chaos→order cycle
-const HOLD_DURATION = 2000; // ms to hold the ordered state
+const CYCLE_DURATION = 5000; // ms for one full chaos→order cycle
+const HOLD_DURATION = 1500; // ms to hold the ordered state
 const TOTAL_CYCLE = CYCLE_DURATION + HOLD_DURATION;
 
 interface Particle {
