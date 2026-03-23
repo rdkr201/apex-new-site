@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
+import AliceHubDiagram from "./AliceHubDiagram";
+import { type TabId } from "./TabNavigation";
 
 const services = [
   {
