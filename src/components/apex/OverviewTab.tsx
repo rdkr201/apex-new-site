@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
 import TransformationAnimation from "./TransformationAnimation";
+import SovereigntySection from "./SovereigntySection";
 
 const services = [
   {
