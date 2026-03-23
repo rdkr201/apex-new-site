@@ -1,36 +1,40 @@
 
 
-# Update Prompts in TransformationAnimation and Quant Section
+# Move AI Sovereignty into Overview Tab
 
-## Changes
+## Summary
+Merge the AI Sovereignty content into the Overview page as a dedicated section below the "From noise to conviction" transformation animation. Remove "AI Sovereignty" as a separate tab from navigation. Inspired by the uploaded screenshot, present the security/sovereignty guarantees as a 3x2 grid of icon cards with a headline and footer note.
 
-### 1. TransformationAnimation.tsx — Replace insight rows with real prompts
-Replace the current generic insights (Signal, Risk, Alpha, Action) with curated example prompts split into two categories:
+## Layout (placed between TransformationAnimation and Service Cards)
 
-**Forecasting queries:**
-- "Compare 5-day forecasts for TSLA using Prophet, XGBoost, and Ensemble (ARIMA+ETS). Which model predicts the highest price?"
-- "Forecast NVDA using XGBoost for the next 5 days. Show top 10 features and MAPE on test set."
+```text
+┌─────────────────────────────────────────────────────┐
+│          Enterprise-Grade AI Sovereignty             │
+├─────────────────┬──────────────────┬────────────────┤
+│   🏢            │   🛡️             │   🔒           │
+│  On-Premise     │  Data            │  Compliance    │
+│  Deployment     │  Sovereignty     │  Ready         │
+├─────────────────┬──────────────────┬────────────────┤
+│   🚫            │   📋             │   🧠           │
+│  Air-Gapped     │  Full Audit      │  Model         │
+│  Capable        │  Trail           │  Isolation     │
+├─────────────────┴──────────────────┴────────────────┤
+│  Your data. Your models. Your infrastructure.        │
+│  No compromises.                                     │
+└─────────────────────────────────────────────────────┘
+```
 
-**Fundamental queries:**
-- "Compare the ESG scores of major tech companies"
-- "What is Amazon's free cash flow trend?"
-- "How has Apple's gross margin trended over the last 8 quarters?"
+Uses Lucide icons (Server, ShieldCheck, Scale, WifiOff, ClipboardList, Brain) in a 3-column grid with border dividers, matching the screenshot's dark, minimal card style. Each card has an icon, a title, and a one-line description. A footer line reinforces the message.
 
-Display them as two labeled groups (Forecasting, Fundamental) in the right-side "Actionable Insights" panel, styled as monospace query blocks rather than label/value pairs.
+## Files to Edit
 
-### 2. WorkflowsTab.tsx — Upgrade Quant example workflows
-Replace the current 3 generic Quant examples with the most impressive prompts from the provided list:
+1. **`src/components/apex/OverviewTab.tsx`** - Import and add a new `<SovereigntySection />` component between `<TransformationAnimation />` and the service cards.
 
-- "Forecast BTC-USD price for next 10 days"
-- "Detect market regimes for AAPL over the last year"
-- "Test cointegration between SPY and QQQ"
-- "Analyze the impulse response of SPY to a shock in TLT. Trace the effect over 20 periods."
-- "For SPY: Detect Markov regimes, fit GJR-GARCH for volatility, fit HAR model for decomposition"
-- "Use SARIMAX to forecast XOM including CL (Crude Oil) as an exogenous variable"
+2. **Create `src/components/apex/SovereigntySection.tsx`** - New component: 3x2 grid of sovereignty guarantees with icons, titles, descriptions. Uses `whileInView` framer-motion animations. Styled with border dividers matching the screenshot aesthetic.
 
-Also add a new **"Code Generation"** subsection to the Quant section describing ALICE's ability to generate executable Python code for quantitative analysis, with a couple of example prompts.
+3. **`src/components/apex/TabNavigation.tsx`** - Remove "AI Sovereignty" from the `tabs` array and the `dropdowns` record.
 
-### 3. Files to edit
-- `src/components/apex/TransformationAnimation.tsx` — replace insights data and layout
-- `src/components/apex/WorkflowsTab.tsx` — update Quant examples, add code generation capability mention
+4. **`src/pages/Index.tsx`** - Remove the `SovereigntyTab` import and its conditional render. Remove "AI Sovereignty" from the footer links.
+
+5. **`src/components/apex/SovereigntyTab.tsx`** - Can be deleted (no longer used).
 
