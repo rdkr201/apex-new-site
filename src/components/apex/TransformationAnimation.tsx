@@ -69,7 +69,7 @@ const TransformationAnimation = () => {
 
   useEffect(() => {
     if (isPaused) return;
-    const id = setInterval(advance, 3000);
+    const id = setInterval(advance, 5000);
     return () => clearInterval(id);
   }, [isPaused, advance]);
 
@@ -128,7 +128,7 @@ const TransformationAnimation = () => {
           {/* Right panel: auto-scrolling discipline carousel */}
           <div
             className="relative flex-1 rounded-sm border border-primary/20 bg-secondary/10 overflow-hidden"
-            style={{ minHeight: 320 }}
+            style={{ minHeight: 380 }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
