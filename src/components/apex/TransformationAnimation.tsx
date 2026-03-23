@@ -70,7 +70,14 @@ const TransformationAnimation = () => {
   useEffect(() => {
     if (isPaused) return;
     const id = setInterval(advance, 5000);
-    return () => clearInterval(id);
+    const handleVisibility = () => {
+      if (!document.hidden) advance();
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [isPaused, advance]);
 
   const active = disciplines[activeIndex];
