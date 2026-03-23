@@ -29,7 +29,7 @@ const sections: RoleSection[] = [
       "Compare company narratives, sentiment, and forward guidance",
     ],
     outcome:
-      "Reduce hours of manual reading and synthesis into minutes — with deeper, more consistent insight generation.",
+      "Reduce hours of manual reading and synthesis into minutes, with deeper, more consistent insight generation.",
   },
   {
     id: "multi-asset",
@@ -141,8 +141,8 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
     <div>
       <HeroSection
         accentLine="Agentic Workflows"
-        headline="ALICE — Role-Adaptive Intelligence"
-        subtitle="Not a tool — an intelligence system that adapts to every role across the investment lifecycle."
+        headline="ALICE: Role-Adaptive Intelligence"
+        subtitle="Not a tool. An intelligence system that adapts to every role across the investment lifecycle."
       />
 
       <div className="border-t border-border">

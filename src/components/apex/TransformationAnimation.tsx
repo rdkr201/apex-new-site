@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import ChaosToOrderParticles from "./ChaosToOrderParticles";
 
 const insights = [
-  { label: "Signal", value: "Long AAPL — 94% confidence" },
+  { label: "Signal", value: "Long AAPL, 94% confidence" },
   { label: "Risk", value: "VaR breach: sector rotation detected" },
   { label: "Alpha", value: "+2.3σ edge on earnings catalyst" },
-  { label: "Action", value: "Execute via TWAP — 15min window" },
+  { label: "Action", value: "Execute via TWAP, 15min window" },
 ];
 
 const TransformationAnimation = () => {
@@ -28,7 +28,7 @@ const TransformationAnimation = () => {
         </div>
 
         <div className="flex flex-col items-stretch gap-0 md:flex-row">
-          {/* Unstructured — chaotic particles */}
+          {/* Unstructured: chaotic particles */}
           <div className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20" style={{ minHeight: 300 }}>
             <ChaosToOrderParticles />
           </div>
@@ -60,7 +60,7 @@ const TransformationAnimation = () => {
             </div>
           </div>
 
-          {/* Structured — clean rows */}
+          {/* Structured: clean rows */}
           <div className="flex-1 rounded-sm border border-primary/20 bg-secondary/10 p-6 md:p-8" style={{ minHeight: 280 }}>
             <div className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-primary/60">
               Actionable Insights

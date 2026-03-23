@@ -94,7 +94,7 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 Our mission is to close the gap between AI capability and
                 investment outcome. We build infrastructure that institutional
-                investors can deploy, trust, and measure — not demos, not
+                investors can deploy, trust, and measure. Not demos, not
                 prototypes, but production systems.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
@@ -125,14 +125,14 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
             <div className="mt-8 space-y-6">
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 Most AI platforms stop at the model layer. They deliver
-                capabilities in isolation — a language model here, a data pipeline
-                there — and leave integration as an exercise for the client. The
+                capabilities in isolation: a language model here, a data pipeline
+                there, and leave integration as an exercise for the client. The
                 result is tooling that never reaches the desk.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 APEX:E3 is built around the last mile: the space between raw AI
-                capability and actual alpha generation. Every component — from
-                data ingestion to agent orchestration — is designed to integrate
+                capability and actual alpha generation. Every component, from
+                data ingestion to agent orchestration, is designed to integrate
                 directly into existing buy-side workflows, not replace them.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">

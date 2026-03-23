@@ -57,7 +57,7 @@ const DotWaveField = () => {
           const x = baseX + wave1 + wave3;
           const y = baseY + wave2;
 
-          // Size modulation — halftone density effect
+          // Size modulation: halftone density effect
           const sizeWave =
             Math.sin(nx * 8 + ny * 4 + t * 1.0) * 0.5 +
             Math.cos(ny * 6 - nx * 3 + t * 0.7) * 0.3 +
@@ -65,7 +65,7 @@ const DotWaveField = () => {
 
           const size = Math.max(0.3, 1 + sizeWave * 2.5);
 
-          // Opacity — fade edges, modulate with waves
+          // Opacity: fade edges, modulate with waves
           const edgeFadeX = Math.min(nx, 1 - nx) * 4;
           const edgeFadeY = Math.min(ny, 1 - ny) * 4;
           const edgeFade = Math.min(1, Math.min(edgeFadeX, edgeFadeY));
