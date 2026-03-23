@@ -7,7 +7,6 @@ const tabs = [
   "Agentic Workflows",
   "Infrastructure",
   "Data & Intelligence",
-  "AI Sovereignty",
   "Company",
 ] as const;
 
