@@ -37,11 +37,6 @@ const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
     { label: "Analytics" },
     { label: "NLP & Parsing" },
   ],
-  "AI Sovereignty": [
-    { label: "On-Premise" },
-    { label: "Compliance" },
-    { label: "Data Control" },
-  ],
   Company: [
     { label: "Team", section: "team" },
     { label: "Mission", section: "mission" },

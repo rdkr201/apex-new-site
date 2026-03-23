@@ -91,6 +91,9 @@ const OverviewTab = () => {
       {/* Transformation Animation */}
       <TransformationAnimation />
 
+      {/* AI Sovereignty */}
+      <SovereigntySection />
+
       {/* Service Cards */}
       <motion.div
         initial={{ opacity: 0 }}
