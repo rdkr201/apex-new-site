@@ -94,7 +94,7 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 Our mission is to close the gap between AI capability and
                 investment outcome. We build infrastructure that institutional
-                investors can deploy, trust, and measure — not demos, not
+                investors can deploy, trust, and measure. Not demos, not
                 prototypes, but production systems.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
