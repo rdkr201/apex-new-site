@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import ChaosToOrderParticles from "./ChaosToOrderParticles";
 
 const insights = [
-  { label: "Signal", value: "Long AAPL — 94% confidence" },
+  { label: "Signal", value: "Long AAPL, 94% confidence" },
   { label: "Risk", value: "VaR breach: sector rotation detected" },
   { label: "Alpha", value: "+2.3σ edge on earnings catalyst" },
-  { label: "Action", value: "Execute via TWAP — 15min window" },
+  { label: "Action", value: "Execute via TWAP, 15min window" },
 ];
 
 const TransformationAnimation = () => {
