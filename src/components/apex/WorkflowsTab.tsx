@@ -10,6 +10,7 @@ interface RoleSection {
   intro: string;
   capabilities: string[];
   examples?: { label: string; items: string[] };
+  codeGeneration?: { intro: string; examples: string[] };
   outcome: string;
 }
 
