@@ -57,7 +57,7 @@ const DotWaveField = () => {
           const x = baseX + wave1 + wave3;
           const y = baseY + wave2;
 
-          // Size modulation — halftone density effect
+          // Size modulation: halftone density effect
           const sizeWave =
             Math.sin(nx * 8 + ny * 4 + t * 1.0) * 0.5 +
             Math.cos(ny * 6 - nx * 3 + t * 0.7) * 0.3 +
