@@ -51,7 +51,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "equities",
-    icon: "📊",
+    icon: "",
     title: "Equities",
     audience: "Equity Analysts & PMs",
     intro:
