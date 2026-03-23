@@ -65,7 +65,7 @@ const DotWaveField = () => {
 
           const size = Math.max(0.3, 1 + sizeWave * 2.5);
 
-          // Opacity — fade edges, modulate with waves
+          // Opacity: fade edges, modulate with waves
           const edgeFadeX = Math.min(nx, 1 - nx) * 4;
           const edgeFadeY = Math.min(ny, 1 - ny) * 4;
           const edgeFade = Math.min(1, Math.min(edgeFadeX, edgeFadeY));

@@ -60,7 +60,7 @@ const TransformationAnimation = () => {
             </div>
           </div>
 
-          {/* Structured — clean rows */}
+          {/* Structured: clean rows */}
           <div className="flex-1 rounded-sm border border-primary/20 bg-secondary/10 p-6 md:p-8" style={{ minHeight: 280 }}>
             <div className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-primary/60">
               Actionable Insights

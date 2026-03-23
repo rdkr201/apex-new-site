@@ -141,8 +141,8 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
     <div>
       <HeroSection
         accentLine="Agentic Workflows"
-        headline="ALICE — Role-Adaptive Intelligence"
-        subtitle="Not a tool — an intelligence system that adapts to every role across the investment lifecycle."
+        headline="ALICE: Role-Adaptive Intelligence"
+        subtitle="Not a tool. An intelligence system that adapts to every role across the investment lifecycle."
       />
 
       <div className="border-t border-border">

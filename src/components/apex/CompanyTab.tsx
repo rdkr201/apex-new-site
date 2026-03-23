@@ -131,8 +131,8 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 APEX:E3 is built around the last mile: the space between raw AI
-                capability and actual alpha generation. Every component — from
-                data ingestion to agent orchestration — is designed to integrate
+                capability and actual alpha generation. Every component, from
+                data ingestion to agent orchestration, is designed to integrate
                 directly into existing buy-side workflows, not replace them.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
