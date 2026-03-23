@@ -75,7 +75,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "quant",
-    icon: "⚙️",
+    icon: "",
     title: "Quant",
     audience: "Quantitative Researchers & Systematic Teams",
     intro:
