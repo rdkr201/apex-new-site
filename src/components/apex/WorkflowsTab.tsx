@@ -98,13 +98,6 @@ const sections: RoleSection[] = [
         "Use SARIMAX to forecast XOM including CL (Crude Oil) as an exogenous variable",
       ],
     },
-    codeGeneration: {
-      intro: "ALICE also generates executable Python code for quantitative analysis, letting teams inspect, modify, and deploy strategies directly.",
-      examples: [
-        "Generate a Python script for a momentum + mean reversion hybrid backtest",
-        "Write code to calculate rolling Sharpe ratios across multiple timeframes",
-      ],
-    },
     outcome:
       "Accelerated research cycles and faster strategy iteration with reduced technical friction.",
   },
