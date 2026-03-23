@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import DotWaveField from "./DotWaveField";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
+import AliceHubDiagram from "./AliceHubDiagram";
+import { type TabId } from "./TabNavigation";
 
 const services = [
   {
@@ -30,7 +32,11 @@ const services = [
 
 const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
 
-const OverviewTab = () => {
+interface OverviewTabProps {
+  onTabChange?: (tab: TabId) => void;
+}
+
+const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pausing" | "erasing">("typing");
@@ -117,6 +123,9 @@ const OverviewTab = () => {
 
       {/* AI Sovereignty */}
       <SovereigntySection />
+
+      {/* ALICE Hub Diagram */}
+      {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
       {/* Service Cards */}
       <motion.div
