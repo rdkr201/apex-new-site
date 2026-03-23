@@ -50,161 +50,101 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           </p>
         </motion.div>
 
-        {/* Diagram */}
+        {/* Vertical diagram */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="flex flex-col items-center"
         >
-          {/* Desktop layout */}
-          <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-8">
-            {/* Left: Inputs */}
-            <div className="grid grid-cols-2 gap-4">
-              {inputGroups.map((group, gi) => (
-                <motion.div
-                  key={group.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * gi }}
-                  className="space-y-2"
-                >
-                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
-                    {group.label}
-                  </span>
-                  <div className="space-y-1.5">
-                    {group.items.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Center: ALICE node + flow lines */}
-            <div className="relative flex flex-col items-center gap-6">
-              {/* Inbound flow indicator */}
-              <div className="flex items-center gap-3">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50">
-                  <div className="h-full w-full animate-[flowRight_2s_linear_infinite] bg-gradient-to-r from-transparent via-primary to-transparent" />
-                </div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
-                  ingest
+          {/* Input groups — 4-col grid (2-col mobile) */}
+          <div className="grid w-full max-w-3xl grid-cols-2 gap-4 lg:grid-cols-4">
+            {inputGroups.map((group, gi) => (
+              <motion.div
+                key={group.label}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * gi }}
+                className="space-y-2"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
+                  {group.label}
                 </span>
-              </div>
-
-              {/* ALICE core */}
-              <div className="relative">
-                {/* Outer glow */}
-                <div className="absolute -inset-6 rounded-full bg-primary/10 blur-xl animate-pulse" />
-                <div className="absolute -inset-3 rounded-full border border-primary/20" />
-                <div className="relative flex h-32 w-32 flex-col items-center justify-center rounded-full border border-primary/40 bg-card">
-                  <span className="font-mono text-lg font-medium text-primary">
-                    ALICE
-                  </span>
-                  <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground">
-                    Intelligence Layer
-                  </span>
-                </div>
-              </div>
-
-              {/* Outbound flow indicator */}
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
-                  output
-                </span>
-                <div className="h-px w-16 bg-gradient-to-r from-primary/50 to-transparent">
-                  <div className="h-full w-full animate-[flowRight_2s_linear_infinite] bg-gradient-to-r from-transparent via-primary to-transparent" />
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Outputs */}
-            <div className="flex flex-col items-start gap-2">
-              <span className="mb-1 font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
-                Value Outputs
-              </span>
-              {outputs.map((output, i) => (
-                <motion.div
-                  key={output}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * i }}
-                  className="w-full max-w-[200px] rounded-md border border-primary/20 bg-primary/5 px-4 py-2.5 font-mono text-[11px] text-primary/90"
-                >
-                  {output}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile layout — vertical */}
-          <div className="flex flex-col items-center gap-8 lg:hidden">
-            {/* Inputs */}
-            <div className="grid w-full grid-cols-2 gap-3">
-              {inputGroups.map((group) => (
-                <div key={group.label} className="space-y-1.5">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
-                    {group.label}
-                  </span>
+                <div className="space-y-1.5">
                   {group.items.map((item) => (
                     <div
                       key={item}
-                      className="rounded-md border border-border bg-secondary/40 px-2.5 py-1.5 font-mono text-[10px] text-foreground/80"
+                      className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80"
                     >
                       {item}
                     </div>
                   ))}
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Arrow down */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="h-8 w-px bg-gradient-to-b from-muted-foreground/30 to-primary/50" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
-                ingest
+          {/* Inbound flow connector */}
+          <div className="flex flex-col items-center gap-2 py-6">
+            <div className="relative h-16 w-px overflow-hidden bg-border/30">
+              <div className="absolute inset-0 animate-[flowDown_1.5s_linear_infinite] bg-gradient-to-b from-transparent via-primary to-transparent" />
+            </div>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
+              ingest
+            </span>
+            <div className="relative h-8 w-px overflow-hidden bg-border/30">
+              <div className="absolute inset-0 animate-[flowDown_1.5s_linear_infinite_0.3s] bg-gradient-to-b from-transparent via-primary to-transparent" />
+            </div>
+          </div>
+
+          {/* ALICE core node */}
+          <div className="relative">
+            {/* Outer glow */}
+            <div className="absolute -inset-10 rounded-full bg-primary/8 blur-2xl animate-pulse" />
+            {/* Mid glow */}
+            <div className="absolute -inset-6 rounded-full bg-primary/10 blur-lg animate-[pulse_3s_ease-in-out_infinite]" />
+            {/* Border ring */}
+            <div className="absolute -inset-3 rounded-full border border-primary/20" />
+            {/* Core */}
+            <div className="relative flex h-32 w-32 flex-col items-center justify-center rounded-full border border-primary/40 bg-card lg:h-40 lg:w-40">
+              <span className="font-mono text-xl font-medium text-primary lg:text-2xl">
+                ALICE
+              </span>
+              <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground lg:text-[9px]">
+                Intelligence Layer
               </span>
             </div>
+          </div>
 
-            {/* ALICE */}
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-full bg-primary/10 blur-xl animate-pulse" />
-              <div className="relative flex h-28 w-28 flex-col items-center justify-center rounded-full border border-primary/40 bg-card">
-                <span className="font-mono text-base font-medium text-primary">ALICE</span>
-                <span className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground">
-                  Intelligence Layer
-                </span>
-              </div>
+          {/* Outbound flow connector */}
+          <div className="flex flex-col items-center gap-2 py-6">
+            <div className="relative h-8 w-px overflow-hidden bg-border/30">
+              <div className="absolute inset-0 animate-[flowDown_1.5s_linear_infinite_0.6s] bg-gradient-to-b from-transparent via-primary to-transparent" />
             </div>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
+              output
+            </span>
+            <div className="relative h-16 w-px overflow-hidden bg-border/30">
+              <div className="absolute inset-0 animate-[flowDown_1.5s_linear_infinite_0.9s] bg-gradient-to-b from-transparent via-primary to-transparent" />
+            </div>
+          </div>
 
-            {/* Arrow down */}
-            <div className="flex flex-col items-center gap-1">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50">
-                output
-              </span>
-              <div className="h-8 w-px bg-gradient-to-b from-primary/50 to-muted-foreground/30" />
-            </div>
-
-            {/* Outputs */}
-            <div className="grid w-full grid-cols-3 gap-2">
-              {outputs.map((output) => (
-                <div
-                  key={output}
-                  className="rounded-md border border-primary/20 bg-primary/5 px-3 py-2 text-center font-mono text-[10px] text-primary/90"
-                >
-                  {output}
-                </div>
-              ))}
-            </div>
+          {/* Output cards — row (3-col mobile) */}
+          <div className="grid w-full max-w-2xl grid-cols-3 gap-3 lg:grid-cols-5">
+            {outputs.map((output, i) => (
+              <motion.div
+                key={output}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * i }}
+                className="rounded-md border border-primary/20 bg-primary/5 px-3 py-3 text-center font-mono text-[11px] text-primary/90 shadow-[0_0_12px_-3px_hsl(var(--primary)/0.15)]"
+              >
+                {output}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
@@ -228,9 +168,9 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
 
       {/* Animated flow keyframes */}
       <style>{`
-        @keyframes flowRight {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+        @keyframes flowDown {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100%); }
         }
       `}</style>
     </section>
