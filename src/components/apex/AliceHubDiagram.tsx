@@ -157,7 +157,10 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           className="mt-16 text-center"
         >
           <button
-            onClick={() => onTabChange("Data & Intelligence")}
+            onClick={() => {
+              onTabChange("Data & Intelligence");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/50 hover:text-primary"
           >
             Learn More
