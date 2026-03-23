@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import HeroSection from "./HeroSection";
-import ArchitectureDiagram from "./ArchitectureDiagram";
 
 const stats = [
   { value: "<10ms", label: "Ingestion Latency" },
@@ -19,9 +18,6 @@ const DataTab = () => {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          {/* Architecture Diagram */}
-          <ArchitectureDiagram />
-
           {/* Transformation visual */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
