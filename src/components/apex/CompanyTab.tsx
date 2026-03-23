@@ -125,8 +125,8 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
             <div className="mt-8 space-y-6">
               <p className="text-sm leading-[1.8] text-muted-foreground">
                 Most AI platforms stop at the model layer. They deliver
-                capabilities in isolation — a language model here, a data pipeline
-                there — and leave integration as an exercise for the client. The
+                capabilities in isolation: a language model here, a data pipeline
+                there, and leave integration as an exercise for the client. The
                 result is tooling that never reaches the desk.
               </p>
               <p className="text-sm leading-[1.8] text-muted-foreground">
