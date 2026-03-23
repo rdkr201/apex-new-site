@@ -140,12 +140,16 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       >
         <div className="mx-auto max-w-[1400px] divide-y divide-border">
           {services.map((service, i) => (
-            <motion.div
+            <motion.button
               key={service.title}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
-              className="group flex items-center justify-between px-6 py-8 transition-colors hover:bg-secondary/30 lg:px-10"
+              onClick={() => {
+                onTabChange?.(service.tab);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="group flex w-full items-center justify-between px-6 py-8 text-left transition-colors hover:bg-secondary/30 lg:px-10 cursor-pointer"
             >
               <div className="flex items-start gap-8">
                 <span className="font-mono text-xs text-muted-foreground/50">
@@ -161,7 +165,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
                 </div>
               </div>
               <ArrowRight className="h-4 w-4 text-muted-foreground/30 transition-colors group-hover:text-primary" />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </motion.div>

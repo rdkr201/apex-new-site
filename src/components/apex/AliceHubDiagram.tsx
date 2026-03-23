@@ -67,7 +67,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * gi }}
-                className="space-y-2"
+                className="space-y-2 min-w-0"
               >
                 <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-primary/70">
                   {group.label}
