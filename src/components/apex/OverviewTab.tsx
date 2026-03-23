@@ -81,14 +81,15 @@ const OverviewTab = () => {
             className="max-w-3xl"
           >
             <h1 className="font-mono text-5xl font-light leading-[1.1] tracking-tightest text-foreground md:text-7xl lg:text-8xl">
-              <span className="text-primary">{firstPart}</span>
-              {secondPart}
+              <span className="text-primary">Infrastructure</span>
+              {" for "}
+              {dynamicText}
               <span className="animate-pulse text-primary">_</span>
             </h1>
 
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: displayedChars >= headline.length ? 1 : 0 }}
+              animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 max-w-lg font-mono text-sm leading-relaxed tracking-wide text-muted-foreground"
             >
@@ -99,7 +100,7 @@ const OverviewTab = () => {
             <motion.a
               href="mailto:contact@apexe3.com"
               initial={{ opacity: 0 }}
-              animate={{ opacity: displayedChars >= headline.length ? 1 : 0 }}
+              animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.4, delay: 0.5 }}
               className="mt-10 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/50 hover:text-primary"
             >
