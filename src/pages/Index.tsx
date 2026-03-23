@@ -33,7 +33,7 @@ const Index = () => {
             {activeTab === "Agentic Workflows" && <WorkflowsTab scrollToSection={scrollSection} />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "Data & Intelligence" && <DataTab />}
-            {activeTab === "AI Sovereignty" && <SovereigntyTab />}
+            
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
         </AnimatePresence>
