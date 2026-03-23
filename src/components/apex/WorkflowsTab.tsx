@@ -103,7 +103,7 @@ const sections: RoleSection[] = [
   },
   {
     id: "credit",
-    icon: "💳",
+    icon: "",
     title: "Credit",
     audience: "Fixed Income, Credit Analysts & Traders",
     intro:
