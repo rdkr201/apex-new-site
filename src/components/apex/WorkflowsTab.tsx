@@ -29,7 +29,7 @@ const sections: RoleSection[] = [
       "Compare company narratives, sentiment, and forward guidance",
     ],
     outcome:
-      "Reduce hours of manual reading and synthesis into minutes — with deeper, more consistent insight generation.",
+      "Reduce hours of manual reading and synthesis into minutes, with deeper, more consistent insight generation.",
   },
   {
     id: "multi-asset",
