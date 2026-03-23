@@ -19,6 +19,9 @@ const DataTab = () => {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          {/* Architecture Diagram */}
+          <ArchitectureDiagram />
+
           {/* Transformation visual */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
