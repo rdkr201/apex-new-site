@@ -19,6 +19,7 @@ const InfrastructureTab = () => {
         accentLine="Infrastructure"
         headline="Ingest everything. Query anything."
         subtitle="Big Data Architecture as a Service. From unstructured noise to research-grade intelligence."
+        tesseractVariant="infrastructure"
       />
 
       <div className="border-t border-border">

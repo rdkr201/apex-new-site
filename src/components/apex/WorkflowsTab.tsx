@@ -142,6 +142,7 @@ const WorkflowsTab = () => {
         accentLine="Solutions"
         headline="ALICE: Role-Adaptive Intelligence"
         subtitle="One intelligence layer for every role in investing."
+        tesseractVariant="solutions"
       />
 
       {/* Sticky discipline tabs */}
