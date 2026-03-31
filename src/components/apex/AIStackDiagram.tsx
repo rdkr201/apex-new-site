@@ -139,9 +139,8 @@ const AIStackDiagram = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
-                <div
-                  onMouseEnter={() => setExpandedId(layer.id)}
-                  onMouseLeave={() => setExpandedId(null)}
+                <button
+                  onClick={() => toggle(layer.id)}
                   className={`group w-full text-left transition-all duration-300 border border-primary/10 px-5 py-4 md:px-6 md:py-5 ${
                     isFirst ? "rounded-t-2xl" : ""
                   } ${isLast ? "rounded-b-2xl" : ""} ${
