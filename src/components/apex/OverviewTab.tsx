@@ -74,6 +74,12 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                 <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
                   Powered by APEX:E3
                 </p>
+                <button
+                  onClick={() => onTabChange?.("ALICE")}
+                  className="mt-6 inline-flex items-center gap-2 border border-primary/30 bg-primary/5 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
+                >
+                  Explore
+                </button>
               </>
             ) : (
               <>
