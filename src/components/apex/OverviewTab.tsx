@@ -156,48 +156,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
         </div>
       </div>
 
-      {/* Awards & Trusted By Section */}
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-12"
-          >
-            <p className="mb-8 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/40">
-              Partners & Awards
-            </p>
-            <div className="relative overflow-hidden">
-              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent" />
-              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent" />
-              <div className="flex animate-marquee items-center gap-16">
-                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                  <img
-                    key={`${logo.alt}-${i}`}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-10 w-auto flex-shrink-0 object-contain opacity-60 brightness-0 invert transition-opacity duration-300 hover:opacity-100"
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center"
-          >
-            <p className="font-mono text-sm leading-relaxed tracking-wide text-muted-foreground">
-              ALICE is trusted by asset managers, family offices and hedge funds managing{" "}
-              <span className="font-medium text-primary">$12T AUM</span>
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Transformation Animation */}
       <TransformationAnimation />
 
