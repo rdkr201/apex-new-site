@@ -20,6 +20,9 @@ const DataTab = () => {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          {/* AI Stack Diagram */}
+          <AIStackDiagram />
+
           {/* Architecture Diagram */}
           <ArchitectureDiagram />
 
