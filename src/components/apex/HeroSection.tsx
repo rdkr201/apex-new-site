@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import DotWaveField from "./DotWaveField";
+import TesseractAnimation, { type TesseractVariant } from "./TesseractAnimation";
 
 interface HeroSectionProps {
   accentLine: string;
@@ -7,12 +7,13 @@ interface HeroSectionProps {
   subtitle: string;
   preHeadline?: string;
   preSubline?: string;
+  tesseractVariant?: TesseractVariant;
 }
 
-const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline }: HeroSectionProps) => {
+const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
   return (
     <div className="relative flex min-h-[60vh] items-end overflow-hidden pb-20">
-      <DotWaveField />
+      <TesseractAnimation variant={tesseractVariant} />
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
