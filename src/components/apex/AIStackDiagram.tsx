@@ -92,11 +92,6 @@ const layers = [
       "The interaction layer delivers intelligence through the medium best suited to each user. From conversational AI to embeddable components, every touchpoint is designed for institutional workflows.",
   },
 ];
-const badges = [
-  { label: "Privacy", desc: "Private deployment · On-prem · VPC" },
-  { label: "Accuracy", desc: "Validated outputs · Retrieval-based reasoning" },
-  { label: "Security", desc: "Enterprise-grade infrastructure" },
-];
 
 const AIStackDiagram = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
