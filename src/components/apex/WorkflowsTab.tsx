@@ -14,39 +14,39 @@ interface Discipline {
 
 const disciplines: Discipline[] = [
   {
-    id: "equities",
-    title: "Equities",
-    audience: "Equity Analysts & PMs",
+    id: "portfolio-management",
+    title: "Portfolio Management",
+    audience: "Portfolio Managers & Strategists",
     overview:
-      "ALICE enables rapid, structured equity analysis by combining financial data, filings, and qualitative insights.",
+      "ALICE acts as a cross-asset intelligence layer, connecting macro, equities, credit, and alternative datasets into a single interface.",
     features: [
-      "Screen equities using fundamental and technical criteria",
-      "Analyse earnings transcripts and management commentary",
-      "Track company performance, valuation, and key ratios",
-      "Backtest equity strategies using historical data",
-      "Generate charts and investment summaries instantly",
+      "Query macro trends and link them to portfolio exposures",
+      "Analyse correlations and risk across asset classes",
+      "Run portfolio optimisation and allocation scenarios",
+      "Monitor global news, policy changes, and market shifts in real time",
+      "Generate portfolio-level insights across mixed asset strategies",
     ],
     examples: [
-      "Filter companies with ROA > 6% and gross margin > 33%",
-      "Summarise TSLA earnings calls over the last 4 quarters",
+      "What macro drivers explain recent portfolio underperformance?",
+      "Show cross-asset correlation shifts over the last 90 days",
     ],
     outcomes: [
-      "Faster idea generation",
-      "Deeper company understanding",
-      "More efficient portfolio construction",
+      "Better macro awareness",
+      "Clearer portfolio risk understanding",
+      "Stronger allocation decisions",
     ],
   },
   {
-    id: "credit",
-    title: "Credit",
-    audience: "Fixed Income, Credit Analysts & Traders",
+    id: "traders",
+    title: "Traders",
+    audience: "Traders & Execution Desks",
     overview:
-      "ALICE provides deep credit intelligence by analysing bond data, prospectuses, spreads, and macro drivers.",
+      "ALICE provides deep market intelligence by analysing bond data, spreads, macro drivers, and execution patterns in real time.",
     features: [
-      "Extract covenants and terms from bond prospectuses",
       "Analyse credit spreads and relative value across issuers",
-      "Monitor credit risk and rating changes in real time",
-      "Link macro developments to credit curve movements",
+      "Monitor market risk and rating changes in real time",
+      "Link macro developments to market movements",
+      "Extract key terms and covenants from prospectuses",
       "Summarise issuer fundamentals and debt structures",
     ],
     examples: [
@@ -60,31 +60,8 @@ const disciplines: Discipline[] = [
     ],
   },
   {
-    id: "research",
-    title: "Research",
-    audience: "Analysts & Investment Research Teams",
-    overview:
-      "ALICE transforms fragmented research workflows into a unified, AI-powered workspace.",
-    features: [
-      "Summarise earnings calls, research notes, and filings instantly",
-      "Run cross-document queries across entire research folders",
-      "Extract tables, figures, and key metrics into structured formats",
-      "Generate first drafts of reports, IC memos, and summaries",
-      "Compare company narratives, sentiment, and forward guidance",
-    ],
-    examples: [
-      "Summarise changes in forward guidance across semiconductor earnings calls",
-      "Compare management tone across the last 3 quarters",
-    ],
-    outcomes: [
-      "Less manual reading",
-      "Faster synthesis",
-      "More consistent insight generation",
-    ],
-  },
-  {
-    id: "quant",
-    title: "Quant",
+    id: "quants",
+    title: "Quants",
     audience: "Quantitative Researchers & Systematic Teams",
     overview:
       "ALICE bridges natural language and quantitative modelling, allowing quants to define, test, and iterate strategies faster.",
@@ -108,26 +85,49 @@ const disciplines: Discipline[] = [
     ],
   },
   {
-    id: "multi-asset",
-    title: "Multi-Asset",
-    audience: "Portfolio Managers & Strategists",
+    id: "researchers",
+    title: "Researchers",
+    audience: "Analysts & Investment Research Teams",
     overview:
-      "ALICE acts as a cross-asset intelligence layer, connecting macro, equities, credit, and alternative datasets into a single interface.",
+      "ALICE transforms fragmented research workflows into a unified, AI-powered workspace.",
     features: [
-      "Query macro trends and link them to portfolio exposures",
-      "Analyse correlations and risk across asset classes",
-      "Run portfolio optimisation and allocation scenarios",
-      "Monitor global news, policy changes, and market shifts in real time",
-      "Generate portfolio-level insights across mixed asset strategies",
+      "Summarise earnings calls, research notes, and filings instantly",
+      "Run cross-document queries across entire research folders",
+      "Extract tables, figures, and key metrics into structured formats",
+      "Generate first drafts of reports, IC memos, and summaries",
+      "Compare company narratives, sentiment, and forward guidance",
     ],
     examples: [
-      "What macro drivers explain recent portfolio underperformance?",
-      "Show cross-asset correlation shifts over the last 90 days",
+      "Summarise changes in forward guidance across semiconductor earnings calls",
+      "Compare management tone across the last 3 quarters",
     ],
     outcomes: [
-      "Better macro awareness",
-      "Clearer portfolio risk understanding",
-      "Stronger allocation decisions",
+      "Less manual reading",
+      "Faster synthesis",
+      "More consistent insight generation",
+    ],
+  },
+  {
+    id: "developers",
+    title: "Developers",
+    audience: "Engineers & Integration Teams",
+    overview:
+      "ALICE provides API-first access to capital markets intelligence, enabling developers to build custom workflows and integrations.",
+    features: [
+      "Access structured data via REST and GraphQL APIs",
+      "Build custom agents and pipelines using ALICE's SDK",
+      "Deploy microservices with Kubernetes and Docker",
+      "Integrate with internal systems via secure VPC endpoints",
+      "Extend ALICE with custom models and data sources",
+    ],
+    examples: [
+      "Build a Slack bot that answers portfolio questions using ALICE",
+      "Create an automated daily briefing pipeline for the CIO",
+    ],
+    outcomes: [
+      "Faster integration cycles",
+      "Flexible deployment options",
+      "Full API coverage",
     ],
   },
 ];
