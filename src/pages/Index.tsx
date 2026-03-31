@@ -5,7 +5,7 @@ import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
-
+import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
 
 const Index = () => {
