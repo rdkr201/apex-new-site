@@ -139,7 +139,7 @@ const WorkflowsTab = () => {
   return (
     <div>
       <HeroSection
-        accentLine="Agentic Workflows"
+        accentLine="Solutions"
         headline="ALICE: Role-Adaptive Intelligence"
         subtitle="One intelligence layer for every role in investing."
       />
