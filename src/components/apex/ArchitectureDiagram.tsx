@@ -32,7 +32,7 @@ const ArchitectureDiagram = () => {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
-      className="border-b border-border bg-background py-16 px-4 md:px-8 overflow-x-auto"
+      className="border-b border-border py-16 px-4 md:px-8 overflow-x-auto"
     >
       {/* Top phase labels */}
       <div className="mb-8 grid grid-cols-[1fr_2fr_2fr] gap-4 min-w-[900px]">
