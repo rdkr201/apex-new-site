@@ -85,8 +85,8 @@ const Index = () => {
                 {[
                   { label: "About", section: "about", tab: "Company" as TabId },
                   { label: "Insights", section: undefined, tab: "Insights" as TabId },
-                  { label: "Newsroom", section: "newsroom", tab: "Company" as TabId },
                   { label: "Careers", section: "careers", tab: "Company" as TabId },
+                  { label: "Contact", section: "contact", tab: "Company" as TabId },
                 ].map((item) => (
                   <button
                     key={item.label}
@@ -96,12 +96,6 @@ const Index = () => {
                     {item.label}
                   </button>
                 ))}
-                <a
-                  href="mailto:contact@apexe3.com"
-                  className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Contact
-                </a>
               </div>
             </div>
           </div>
