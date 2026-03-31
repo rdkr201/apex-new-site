@@ -20,7 +20,8 @@ const InfrastructureTab = () => {
 
           {/* AI Stack Diagram */}
           <AIStackDiagram />
-
+        </div>
+      </div>
     </div>
   );
 };
