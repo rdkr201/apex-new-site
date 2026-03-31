@@ -120,7 +120,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
 
                 {/* Dropdown */}
                 {items && openDropdown === tab && (
-                  <div className="absolute left-1/2 top-full z-50 mt-3 -translate-x-1/2 animate-fade-in">
+                  <div className="absolute left-1/2 top-full z-50 mt-4 -translate-x-1/2 animate-fade-in pt-1">
                     <div className="rounded-lg border border-border bg-background/95 p-3 shadow-xl backdrop-blur-lg">
                       <div className={`grid gap-1 ${items.length <= 3 ? "grid-cols-1 min-w-[280px]" : items.length <= 4 ? "grid-cols-2 min-w-[480px]" : "grid-cols-3 min-w-[640px]"}`}>
                         {items.map((item) => (
