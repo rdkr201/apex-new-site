@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import DotWaveField from "./DotWaveField";
+import TesseractAnimation from "./TesseractAnimation";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
 import AliceHubDiagram from "./AliceHubDiagram";
