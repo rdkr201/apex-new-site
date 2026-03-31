@@ -28,15 +28,15 @@ const InfrastructureTab = () => {
           <AIStackDiagram />
 
           {/* BDaaS Section */}
-          <div className="border-b border-border py-12 px-4 md:px-8">
-            <div className="mx-auto max-w-[1400px]">
+          <div className="py-12 px-4 md:px-8">
+            <div className="mx-auto max-w-[1400px] text-center">
               <h2 className="font-mono text-2xl font-light tracking-tight text-foreground md:text-3xl">
                 BDaaS <span className="text-muted-foreground">(Big Data Analytics as a Service)</span>
               </h2>
-              <p className="mt-4 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
                 APEX:E3's proprietary infrastructure for ingesting and processing any data type, structured or unstructured, in real time. From documents to order book data, all inputs are transformed into clean, analysis-ready intelligence.
               </p>
-              <p className="mt-3 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground/70">
+              <p className="mx-auto mt-3 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground/70">
                 Private. Low-latency or high-throughput. Deployable directly within your stack.
               </p>
             </div>
