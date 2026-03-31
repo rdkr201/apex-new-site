@@ -23,24 +23,27 @@ interface DropdownItem {
 }
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
+  ALICE: [
+    { label: "Overview", desc: "Award-winning agentic AI for capital markets" },
+    { label: "Partners & Awards", desc: "Trusted by leading institutions globally" },
+  ],
   Solutions: [
-    { label: "Portfolio Managers" },
-    { label: "Traders" },
-    { label: "Quants" },
-    { label: "Researchers" },
-    { label: "Developers" },
+    { label: "Portfolio Managers", desc: "Cross-asset intelligence and allocation" },
+    { label: "Traders", desc: "Spreads, risk, and execution intelligence" },
+    { label: "Quants", desc: "NL-to-model, backtesting, and signal analysis" },
+    { label: "Researchers", desc: "Document synthesis and cross-doc queries" },
+    { label: "Developers", desc: "APIs, SDKs, and custom integrations" },
   ],
   Infrastructure: [
-    { label: "BDAaS" },
-    { label: "Deployment" },
-    { label: "Microservices" },
-    { label: "Security" },
+    { label: "APEX:E3 AI Stack", desc: "Full 7-layer intelligence architecture" },
+    { label: "BDAaS", desc: "Big Data Architecture as a Service" },
+    { label: "Deployment", desc: "Cloud agnostic, VPC, Kubernetes" },
   ],
   Company: [
-    { label: "About", section: "about" },
-    { label: "Blog", section: "blog" },
-    { label: "Newsroom", section: "newsroom" },
-    { label: "Careers", section: "careers" },
+    { label: "About", section: "about", desc: "Our mission and team" },
+    { label: "Blog", section: "blog", desc: "Latest insights and updates" },
+    { label: "Newsroom", section: "newsroom", desc: "Press and media coverage" },
+    { label: "Careers", section: "careers", desc: "Join the team" },
   ],
 };
 
