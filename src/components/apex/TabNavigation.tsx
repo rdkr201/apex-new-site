@@ -229,16 +229,33 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                   {items && isExpanded && (
                     <div className="mb-2 ml-4 flex flex-col gap-1 border-l border-border pl-4">
                       {items.map((item) => (
-                        <button
-                          key={item.label}
+                        <div key={item.label}>
+                          <button
                             onClick={() => {
-                            onTabChange(item.tab || tab, item.section);
-                            setMobileOpen(false);
-                          }}
-                          className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                          {item.label}
-                        </button>
+                              onTabChange(item.tab || tab, item.section);
+                              setMobileOpen(false);
+                            }}
+                            className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {item.label}
+                          </button>
+                          {item.children && (
+                            <div className="ml-4 flex flex-col gap-0.5 border-l border-border pl-3">
+                              {item.children.map((child) => (
+                                <button
+                                  key={child.label}
+                                  onClick={() => {
+                                    onTabChange(child.tab, child.section);
+                                    setMobileOpen(false);
+                                  }}
+                                  className="py-1.5 text-left font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                  {child.label}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
