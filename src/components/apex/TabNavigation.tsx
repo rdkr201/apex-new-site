@@ -28,6 +28,7 @@ const dropdowns: Partial<Record<string, DropdownItem[]>> = {
     { label: "ALICE", desc: "Award-winning agentic AI for capital markets", tab: "ALICE" },
     { label: "Bespoke Workflows", desc: "Custom AI workflows for your processes", tab: "Custom Workflows" },
     { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
+    { label: "APIs & Data Layer", desc: "APIs, SDKs, and data pipelines to integrate and extend", tab: "Infrastructure" },
   ],
   Company: [
     { label: "About", section: "about", desc: "Our mission and team" },
