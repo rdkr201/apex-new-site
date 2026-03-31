@@ -83,14 +83,14 @@ const Index = () => {
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
                 {[
-                  { label: "About", section: "about" },
-                  { label: "Blog", section: "blog" },
-                  { label: "Newsroom", section: "newsroom" },
-                  { label: "Careers", section: "careers" },
+                  { label: "About", section: "about", tab: "Company" as TabId },
+                  { label: "Insights", section: undefined, tab: "Insights" as TabId },
+                  { label: "Newsroom", section: "newsroom", tab: "Company" as TabId },
+                  { label: "Careers", section: "careers", tab: "Company" as TabId },
                 ].map((item) => (
                   <button
                     key={item.label}
-                    onClick={() => handleTabChange("Company", item.section)}
+                    onClick={() => handleTabChange(item.tab, item.section)}
                     className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {item.label}
