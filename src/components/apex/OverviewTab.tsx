@@ -8,8 +8,7 @@ import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 
 import claudeLogo from "@/assets/partners-awards/claude.png";
-import cognismLogo from "@/assets/partners-awards/cognism.png";
-import cogxLogo from "@/assets/partners-awards/cogx.png";
+
 import corprimeLogo from "@/assets/partners-awards/corprime.png";
 import deusxLogo from "@/assets/partners-awards/deusx.png";
 import dwsLogo from "@/assets/partners-awards/dws.png";
@@ -18,7 +17,7 @@ import googleCloudLogo from "@/assets/partners-awards/google-cloud.png";
 import grokLogo from "@/assets/partners-awards/grok.png";
 import llamaMetaLogo from "@/assets/partners-awards/llama-meta.png";
 import mistralLogo from "@/assets/partners-awards/mistral-ai.png";
-import nvidiaNemoLogo from "@/assets/partners-awards/nvidia-nemo.png";
+
 import nvidiaLogo from "@/assets/partners-awards/nvidia.png";
 import openaiLogo from "@/assets/partners-awards/openai.png";
 import oxfordLogo from "@/assets/partners-awards/oxford.png";
@@ -30,9 +29,6 @@ const partnerLogos = [
   { src: dwsLogo, alt: "DWS" },
   { src: vanguardLogo, alt: "Vanguard" },
   { src: nvidiaLogo, alt: "NVIDIA" },
-  { src: nvidiaNemoLogo, alt: "NVIDIA NeMo" },
-  { src: cogxLogo, alt: "CogX" },
-  { src: cognismLogo, alt: "Cognism" },
   { src: corprimeLogo, alt: "CorPrime" },
   { src: deusxLogo, alt: "Deus X" },
   { src: solsticeLogo, alt: "Solstice Labs" },
