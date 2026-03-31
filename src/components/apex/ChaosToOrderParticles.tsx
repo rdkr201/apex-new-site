@@ -1,9 +1,9 @@
 import { useEffect, useRef, useCallback } from "react";
 
 const PARTICLE_COUNT = 120;
-const CYCLE_DURATION = 5000; // ms for one full chaos→order cycle
-const HOLD_DURATION = 1500; // ms to hold the ordered state
-const TOTAL_CYCLE = CYCLE_DURATION + HOLD_DURATION;
+const TRANSITION_DURATION = 3000; // ms chaos→order
+const HOLD_DURATION = 2000; // ms hold ordered state
+const CHAOS_HOLD = 1500; // ms hold chaos before re-transitioning
 
 interface Particle {
   x: number;
@@ -19,14 +19,16 @@ const ChaosToOrderParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animRef = useRef<number>(0);
-  const startTimeRef = useRef<number>(0);
+  const isInViewRef = useRef(false);
+  const phaseRef = useRef<"chaos" | "transitioning" | "ordered" | "resetting">("chaos");
+  const phaseStartRef = useRef<number>(0);
+  const tRef = useRef(0); // current transition progress 0-1
 
   const initParticles = useCallback((w: number, h: number) => {
     const pad = 20;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
 
-    // Compute grid targets
     const cols = Math.ceil(Math.sqrt(PARTICLE_COUNT * (innerW / innerH)));
     const rows = Math.ceil(PARTICLE_COUNT / cols);
     const cellW = innerW / cols;
@@ -55,9 +57,11 @@ const ChaosToOrderParticles = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const parentEl = canvas.parentElement;
+    if (!parentEl) return;
+
     const resize = () => {
-      const rect = canvas.parentElement?.getBoundingClientRect();
-      if (!rect) return;
+      const rect = parentEl.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
@@ -68,24 +72,73 @@ const ChaosToOrderParticles = () => {
     };
 
     resize();
-    startTimeRef.current = performance.now();
+    phaseRef.current = "chaos";
+    phaseStartRef.current = performance.now();
 
     const ro = new ResizeObserver(resize);
-    ro.observe(canvas.parentElement!);
+    ro.observe(parentEl);
+
+    // IntersectionObserver — trigger when fully in view
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const wasInView = isInViewRef.current;
+        isInViewRef.current = entry.isIntersecting;
+
+        // When section comes fully into view and we're in chaos, start transitioning
+        if (!wasInView && entry.isIntersecting && phaseRef.current === "chaos") {
+          phaseRef.current = "transitioning";
+          phaseStartRef.current = performance.now();
+        }
+      },
+      { threshold: 0.7 }
+    );
+    io.observe(parentEl);
 
     const animate = (now: number) => {
-      const rect = canvas.parentElement?.getBoundingClientRect();
+      const rect = parentEl.getBoundingClientRect();
       if (!rect) { animRef.current = requestAnimationFrame(animate); return; }
 
       const w = rect.width;
       const h = rect.height;
-      const elapsed = (now - startTimeRef.current) % TOTAL_CYCLE;
-      // t goes from 0 (full chaos) to 1 (full order)
-      const rawT = Math.min(elapsed / CYCLE_DURATION, 1);
-      // Smooth easing
-      const t = rawT < 0.5
-        ? 4 * rawT * rawT * rawT
-        : 1 - Math.pow(-2 * rawT + 2, 3) / 2;
+      const phaseElapsed = now - phaseStartRef.current;
+
+      // Phase state machine
+      if (phaseRef.current === "transitioning") {
+        const rawT = Math.min(phaseElapsed / TRANSITION_DURATION, 1);
+        tRef.current = rawT < 0.5
+          ? 4 * rawT * rawT * rawT
+          : 1 - Math.pow(-2 * rawT + 2, 3) / 2;
+        if (rawT >= 1) {
+          phaseRef.current = "ordered";
+          phaseStartRef.current = now;
+        }
+      } else if (phaseRef.current === "ordered") {
+        tRef.current = 1;
+        if (phaseElapsed >= HOLD_DURATION) {
+          phaseRef.current = "resetting";
+          phaseStartRef.current = now;
+        }
+      } else if (phaseRef.current === "resetting") {
+        const rawT = Math.min(phaseElapsed / TRANSITION_DURATION, 1);
+        const eased = rawT < 0.5
+          ? 4 * rawT * rawT * rawT
+          : 1 - Math.pow(-2 * rawT + 2, 3) / 2;
+        tRef.current = 1 - eased;
+        if (rawT >= 1) {
+          phaseRef.current = "chaos";
+          phaseStartRef.current = now;
+        }
+      } else {
+        // chaos phase
+        tRef.current = 0;
+        // If in view and chaos has held long enough, start transitioning again
+        if (isInViewRef.current && phaseElapsed >= CHAOS_HOLD) {
+          phaseRef.current = "transitioning";
+          phaseStartRef.current = now;
+        }
+      }
+
+      const t = tRef.current;
 
       ctx.clearRect(0, 0, w, h);
 
@@ -93,14 +146,11 @@ const ChaosToOrderParticles = () => {
       const pad = 20;
 
       for (const p of particles) {
-        // Brownian motion update (scaled down as t increases)
         const chaosScale = 1 - t;
         p.vx += (Math.random() - 0.5) * 0.8 * chaosScale;
         p.vy += (Math.random() - 0.5) * 0.8 * chaosScale;
-        // Damping
         p.vx *= 0.96;
         p.vy *= 0.96;
-        // Speed cap
         const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
         const maxSpeed = 2.5 * chaosScale + 0.01;
         if (speed > maxSpeed) {
@@ -108,22 +158,18 @@ const ChaosToOrderParticles = () => {
           p.vy = (p.vy / speed) * maxSpeed;
         }
 
-        // Move with chaos
         const chaosX = p.x + p.vx;
         const chaosY = p.y + p.vy;
 
-        // Bounce off walls
         if (chaosX < pad || chaosX > w - pad) p.vx *= -1;
         if (chaosY < pad || chaosY > h - pad) p.vy *= -1;
 
         p.x = Math.max(pad, Math.min(w - pad, chaosX));
         p.y = Math.max(pad, Math.min(h - pad, chaosY));
 
-        // Lerp toward target based on t
         const drawX = p.x + (p.targetX - p.x) * t;
         const drawY = p.y + (p.targetY - p.y) * t;
 
-        // Opacity: brighter as they settle
         const alpha = 0.2 + t * 0.5;
 
         ctx.beginPath();
@@ -164,6 +210,7 @@ const ChaosToOrderParticles = () => {
     return () => {
       cancelAnimationFrame(animRef.current);
       ro.disconnect();
+      io.disconnect();
     };
   }, [initParticles]);
 
