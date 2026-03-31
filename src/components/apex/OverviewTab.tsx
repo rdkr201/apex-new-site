@@ -34,7 +34,7 @@ const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   },
 ];
 
-const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
+const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
 
 interface OverviewTabProps {
   onTabChange?: (tab: TabId) => void;
