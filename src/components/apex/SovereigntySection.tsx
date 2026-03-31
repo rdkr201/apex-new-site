@@ -29,7 +29,7 @@ const pillars: { icon: typeof MessageSquare; title: string; subtitle: string; de
     title: "APIs & Data Layer",
     subtitle: "Build on APEX",
     desc: "APIs, SDKs, and data pipelines to integrate, extend, and customise across your stack.",
-    tab: "Infrastructure",
+    tab: "APIs & Data Layer",
   },
 ];
 
