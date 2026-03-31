@@ -144,6 +144,27 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {/* Security Section — Home only */}
       {isHome && <SecuritySection />}
 
+      {/* Contact Section — Home only */}
+      {isHome && (
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-[1400px] px-6 py-20 text-center lg:px-10">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Contact</p>
+            <h2 className="mt-4 font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl">
+              Get in Touch
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl font-mono text-sm leading-relaxed text-muted-foreground">
+              Whether you're exploring AI infrastructure for your fund, interested in a demo of ALICE, or want to discuss a partnership: we'd love to hear from you.
+            </p>
+            <a
+              href="mailto:contact@apexe3.com"
+              className="mt-6 inline-flex items-center gap-2 border border-primary/30 bg-primary/5 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
+            >
+              contact@apexe3.com
+            </a>
+          </div>
+        </section>
+      )}
+
       {/* ALICE Hub Diagram — ALICE tab only */}
       {!isHome && onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
