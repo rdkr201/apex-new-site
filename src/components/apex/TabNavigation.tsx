@@ -21,11 +21,23 @@ interface DropdownItem {
   desc?: string;
   section?: string;
   tab?: TabId;
+  children?: { label: string; section: string; tab: TabId }[];
 }
 
 const dropdowns: Partial<Record<string, DropdownItem[]>> = {
   Solutions: [
-    { label: "ALICE", desc: "Award-winning agentic AI for capital markets", tab: "ALICE" },
+    {
+      label: "ALICE",
+      desc: "Award-winning agentic AI for capital markets",
+      tab: "ALICE",
+      children: [
+        { label: "Portfolio Management", section: "portfolio-management", tab: "Solutions" },
+        { label: "Traders", section: "traders", tab: "Solutions" },
+        { label: "Quants", section: "quants", tab: "Solutions" },
+        { label: "Researchers", section: "researchers", tab: "Solutions" },
+        { label: "Developers", section: "developers", tab: "Solutions" },
+      ],
+    },
     { label: "Bespoke Workflows", desc: "Custom AI workflows for your processes", tab: "Custom Workflows" },
     { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
     { label: "APIs & Data Layer", desc: "APIs, SDKs, and data pipelines to integrate and extend", tab: "APIs & Data Layer" },
