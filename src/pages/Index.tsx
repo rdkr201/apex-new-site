@@ -44,9 +44,7 @@ const Index = () => {
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between lg:px-10">
           <div>
-            <div className="font-mono text-base font-medium tracking-tightest text-foreground">
-              APEX<span className="text-primary">:</span>E3
-            </div>
+            <img src={apexLogo} alt="APEX:E3" className="h-6 w-auto" />
             <p className="mt-3 max-w-xs font-mono text-xs leading-relaxed text-muted-foreground">
               Agentic AI infrastructure for capital markets.
             </p>
