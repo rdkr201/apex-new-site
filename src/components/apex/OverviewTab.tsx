@@ -8,9 +8,8 @@ import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 
 import claudeLogo from "@/assets/partners-awards/claude.png";
-import cognismLogo from "@/assets/partners-awards/cognism.png";
-import cogxLogo from "@/assets/partners-awards/cogx.png";
-import corprimeLogo from "@/assets/partners-awards/corprime.png";
+
+
 import deusxLogo from "@/assets/partners-awards/deusx.png";
 import dwsLogo from "@/assets/partners-awards/dws.png";
 import geminiLogo from "@/assets/partners-awards/gemini.png";
