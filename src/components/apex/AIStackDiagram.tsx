@@ -123,8 +123,8 @@ const AIStackDiagram = () => {
         {/* Layers */}
         <div className="relative flex flex-col gap-1">
           {layers.map((layer, i) => {
-            const isFirst = i === layers.length - 1;
-            const isLast = i === 0;
+            const isFirst = i === 0;
+            const isLast = i === layers.length - 1;
             const isExpanded = expandedId === layer.id;
 
             return (
