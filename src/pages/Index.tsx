@@ -8,6 +8,7 @@ import BespokeWorkflowsTab from "@/components/apex/BespokeWorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
+import ApiDataLayerTab from "@/components/apex/ApiDataLayerTab";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabId>("Overview");
@@ -34,6 +35,7 @@ const Index = () => {
             {activeTab === "Solutions" && <WorkflowsTab />}
             {activeTab === "Custom Workflows" && <BespokeWorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
+            {activeTab === "APIs & Data Layer" && <ApiDataLayerTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Insights" && <InsightsTab />}
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
