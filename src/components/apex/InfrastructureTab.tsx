@@ -23,6 +23,9 @@ const InfrastructureTab = () => {
           {/* Architecture Diagram */}
           <ArchitectureDiagram />
 
+          {/* AI Stack Diagram */}
+          <AIStackDiagram />
+
           {/* Transformation visual */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
