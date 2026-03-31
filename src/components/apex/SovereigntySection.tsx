@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import { MessageSquare, Bot, Server, Code, ArrowRight } from "lucide-react";
 import { type TabId } from "./TabNavigation";
 
-const pillars: { icon: typeof MessageSquare; title: string; subtitle: string; desc: string; tab: TabId }[] = [
-  {
-    icon: MessageSquare,
-    title: "ALICE",
-    subtitle: "Your AI Co-Pilot",
-    desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
-    tab: "ALICE",
-  },
+const alicePillar = {
+  icon: MessageSquare,
+  title: "ALICE",
+  subtitle: "Your AI Co-Pilot",
+  desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
+  tab: "ALICE" as TabId,
+};
+
+const otherPillars: { icon: typeof MessageSquare; title: string; subtitle: string; desc: string; tab: TabId }[] = [
   {
     icon: Bot,
     title: "Bespoke Agents",
@@ -51,8 +52,41 @@ const SovereigntySection = ({ onTabChange }: SovereigntySectionProps) => {
           A Complete Sovereign AI Stack — Delivered Your Way
         </motion.h2>
 
-        <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-4">
-          {pillars.map((item, i) => (
+        {/* ALICE — Featured Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.4 }}
+          className="mb-px flex flex-col border border-primary/30 bg-primary/5 p-10"
+        >
+          <alicePillar.icon className="mb-4 h-6 w-6 text-primary" strokeWidth={1.5} />
+          <h3 className="font-mono text-lg font-medium tracking-wide text-foreground">
+            {alicePillar.title}
+          </h3>
+          <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-primary/70">
+            {alicePillar.subtitle}
+          </p>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            {alicePillar.desc}
+          </p>
+          {onTabChange && (
+            <button
+              onClick={() => {
+                onTabChange(alicePillar.tab);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:text-primary/80"
+            >
+              Explore
+              <ArrowRight className="h-3 w-3" />
+            </button>
+          )}
+        </motion.div>
+
+        {/* Other 3 Pillars */}
+        <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+          {otherPillars.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 12 }}
