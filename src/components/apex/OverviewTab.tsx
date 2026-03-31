@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import DotWaveField from "./DotWaveField";
+import TesseractAnimation from "./TesseractAnimation";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
 import AliceHubDiagram from "./AliceHubDiagram";
@@ -81,7 +81,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
     <div>
       {/* Hero */}
       <div className="relative flex min-h-[70vh] items-center overflow-hidden">
-        <DotWaveField />
+        <TesseractAnimation activeRole={rotatingWords[wordIndex]} />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <motion.div
