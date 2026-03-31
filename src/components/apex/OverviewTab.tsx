@@ -143,19 +143,25 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             className="mb-12"
           >
             <p className="mb-8 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/40">
-              Awards & Recognition
+              Partners & Awards
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="flex h-20 w-32 items-center justify-center rounded-lg border border-dashed border-border bg-secondary/20"
-                >
-                  <span className="font-mono text-[10px] text-muted-foreground/40">
-                    Award {i}
-                  </span>
-                </div>
-              ))}
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent" />
+              <div className="flex animate-marquee items-center gap-12">
+                {[...Array(2)].flatMap((_, setIdx) =>
+                  [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    <div
+                      key={`${setIdx}-${i}`}
+                      className="flex h-16 w-28 flex-shrink-0 items-center justify-center rounded-lg border border-dashed border-border bg-secondary/20"
+                    >
+                      <span className="font-mono text-[9px] text-muted-foreground/40">
+                        Logo {i}
+                      </span>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </motion.div>
 
