@@ -1,38 +1,23 @@
 
 
-## Create APIs, SDKs & Data Layer Tab
+## Make ALICE Prominent in Core Pillars Section
 
-Currently "APIs & Data Layer" in the Solutions dropdown routes to the Infrastructure tab. We'll create a dedicated tab component mirroring the structure of `BespokeWorkflowsTab`.
+**Current state**: All four pillar cards (ALICE, Bespoke Agents, Infrastructure, APIs & Data Layer) are equal-width in a 4-column grid.
 
-### 1. New File: `src/components/apex/ApiDataLayerTab.tsx`
+**Change**: Make ALICE a featured card spanning the full width above the other three, with enhanced styling.
 
-Structure (matching BespokeWorkflowsTab pattern):
+### File: `src/components/apex/SovereigntySection.tsx`
 
-- **Hero Section**: Accent "APIs, SDKs & Data Layer", headline "Build, integrate, and extend AI directly within your environment", subtitle from provided copy. Tesseract variant "infrastructure".
+**Layout change**:
+- Split ALICE out from the 4-column grid
+- Render ALICE as a standalone full-width card above, with larger text, a subtle primary border/glow, and more padding
+- Render the remaining 3 pillars in a `md:grid-cols-3` grid below
 
-- **Core Capabilities Grid** (6 cards, 3x2): API Access, SDKs & Developer Tooling, MCP & Data Connectivity, Private Data Rooms, Natural Language to Systems, Agent Integration.
+**ALICE card enhancements**:
+- Full width with `border-primary/30` border accent
+- Larger title (`text-lg` instead of `text-sm`)
+- Subtle `bg-primary/5` background
+- Larger icon (`h-6 w-6`)
 
-- **Use Cases Section** (4 cards, 2x2): Internal Platform Integration, Data Pipeline Augmentation, Custom Application Development, Secure Data Room Analysis.
-
-- **Key Capabilities Strip**: 5 bullet items (private deployment, API-first, real-time + batch, secure access, scalable) in a horizontal row with check icons.
-
-- **Closing Line**: "Designed for teams that want to go beyond using AI and start building with it." centered at bottom.
-
-### 2. Update `src/components/apex/TabNavigation.tsx`
-
-- Add `"APIs & Data Layer"` to the `TabId` type union.
-- Change the dropdown item's `tab` from `"Infrastructure"` to `"APIs & Data Layer"`.
-
-### 3. Update `src/pages/Index.tsx`
-
-- Import `ApiDataLayerTab`.
-- Add rendering: `{activeTab === "APIs & Data Layer" && <ApiDataLayerTab />}`.
-
-### 4. Update `src/components/apex/SovereigntySection.tsx`
-
-- Change the APIs & Data Layer card's tab mapping from `"Infrastructure"` to `"APIs & Data Layer"`.
-
-### Notes
-- All copy will use commas, colons, or periods instead of em dashes per style constraint.
-- Follows existing mono font, border, animation patterns.
+**Other 3 cards**: Stay as they are, just in a 3-column grid instead of 4.
 
