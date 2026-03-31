@@ -199,48 +199,7 @@ const AIStackDiagram = () => {
           })}
         </div>
 
-        {/* Side badges - desktop only */}
-        <div className="absolute -right-44 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4">
-          {badges.map((badge) => (
-            <div
-              key={badge.label}
-              className="rounded-lg border border-primary/15 bg-card/60 px-4 py-3 backdrop-blur-sm"
-            >
-              <div className="font-mono text-[10px] font-medium uppercase tracking-[0.15em] text-primary">
-                {badge.label}
-              </div>
-              <div className="mt-1 font-mono text-[10px] text-muted-foreground whitespace-nowrap">
-                {badge.desc}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Side badges - mobile */}
-        <div className="mt-8 flex flex-wrap gap-3 justify-center xl:hidden">
-          {badges.map((badge) => (
-            <div
-              key={badge.label}
-              className="rounded-lg border border-primary/15 bg-card/60 px-4 py-2.5"
-            >
-              <div className="font-mono text-[10px] font-medium uppercase tracking-[0.15em] text-primary">
-                {badge.label}
-              </div>
-              <div className="mt-0.5 font-mono text-[10px] text-muted-foreground">
-                {badge.desc}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
-
-      {/* Flow animation keyframes */}
-      <style>{`
-        @keyframes flowUp {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-80px); }
-        }
-      `}</style>
     </div>
   );
 };
