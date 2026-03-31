@@ -3,17 +3,66 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const layers = [
   {
-    id: "07",
-    title: "User Interface",
-    summary: "Natural language, voice, and visual interaction layer",
+    id: "01",
+    title: "Data Ingestion & Connectivity",
+    summary: "Data-agnostic ingestion across structured and unstructured sources",
     bullets: [
-      "Chat, dashboard, and voice interfaces",
-      "Embedded widgets for existing platforms",
-      "API and SDK access for custom integrations",
-      "Role-based views and permissions",
+      "PDFs, Excel, APIs, market data, internal systems",
+      "Real-time and batch processing",
+      "Connector framework for proprietary feeds",
     ],
     detail:
-      "The interaction layer delivers intelligence through the medium best suited to each user. From conversational AI to embeddable components, every touchpoint is designed for institutional workflows.",
+      "The ingestion layer connects to any data source — structured or unstructured, real-time or batch — through a flexible connector framework built for institutional environments.",
+  },
+  {
+    id: "02",
+    title: "Data Processing & Structuring",
+    summary: "Intelligent parsing, metadata tagging, and data normalisation",
+    bullets: [
+      "Chunking, cleaning, deduplication",
+      "Schema inference and mapping",
+      "Quality scoring and validation",
+    ],
+    detail:
+      "Raw inputs are parsed, validated, and structured into clean, queryable formats. Automated quality scoring ensures only high-fidelity data enters the pipeline.",
+  },
+  {
+    id: "03",
+    title: "Vectorisation & Indexing",
+    summary: "Semantic embeddings and private knowledge indexing",
+    bullets: [
+      "Multi-model embedding generation",
+      "Hybrid search (semantic + keyword)",
+      "Incremental re-indexing",
+    ],
+    detail:
+      "Documents and data are transformed into high-dimensional vector representations, enabling semantic search across your entire private knowledge base.",
+  },
+  {
+    id: "04",
+    title: "AI Models & Reasoning Engine",
+    summary: "Multi-model orchestration, RAG, and explainable reasoning",
+    bullets: [
+      "Private model hosting and fine-tuning",
+      "Retrieval-augmented generation (RAG)",
+      "Citation and provenance tracking",
+      "Explainable, auditable outputs",
+    ],
+    detail:
+      "The reasoning engine selects and orchestrates the optimal model for each task. Every output is grounded in retrieved evidence with full citation trails.",
+  },
+  {
+    id: "05",
+    title: "Agentic Workflow Engine",
+    summary: "AI agents executing multi-step workflows and decision logic",
+    bullets: [
+      "Autonomous task decomposition",
+      "Human-in-the-loop checkpoints",
+      "Cross-system orchestration",
+      "Conditional branching and retry logic",
+    ],
+    detail:
+      "Agents break complex requests into discrete steps, execute them across systems, and surface results with full provenance. Every decision point can require human approval.",
   },
   {
     id: "06",
@@ -30,69 +79,19 @@ const layers = [
       "Purpose-built applications leverage every layer beneath them to deliver actionable, auditable outputs. Each module is designed for the specific demands of capital markets professionals.",
   },
   {
-    id: "05",
-    title: "Agentic Workflow Engine",
-    summary: "AI agents executing multi-step workflows and decision logic",
+    id: "07",
+    title: "User Interface",
+    summary: "Natural language, voice, and visual interaction layer",
     bullets: [
-      "Autonomous task decomposition",
-      "Human-in-the-loop checkpoints",
-      "Cross-system orchestration",
-      "Conditional branching and retry logic",
+      "Chat, dashboard, and voice interfaces",
+      "Embedded widgets for existing platforms",
+      "API and SDK access for custom integrations",
+      "Role-based views and permissions",
     ],
     detail:
-      "Agents break complex requests into discrete steps, execute them across systems, and surface results with full provenance. Every decision point can require human approval.",
-  },
-  {
-    id: "04",
-    title: "AI Models & Reasoning Engine",
-    summary: "Multi-model orchestration, RAG, and explainable reasoning",
-    bullets: [
-      "Private model hosting and fine-tuning",
-      "Retrieval-augmented generation (RAG)",
-      "Citation and provenance tracking",
-      "Explainable, auditable outputs",
-    ],
-    detail:
-      "The reasoning engine selects and orchestrates the optimal model for each task. Every output is grounded in retrieved evidence with full citation trails.",
-  },
-  {
-    id: "03",
-    title: "Vectorisation & Indexing",
-    summary: "Semantic embeddings and private knowledge indexing",
-    bullets: [
-      "Multi-model embedding generation",
-      "Hybrid search (semantic + keyword)",
-      "Incremental re-indexing",
-    ],
-    detail:
-      "Documents and data are transformed into high-dimensional vector representations, enabling semantic search across your entire private knowledge base.",
-  },
-  {
-    id: "02",
-    title: "Data Processing & Structuring",
-    summary: "Intelligent parsing, metadata tagging, and data normalisation",
-    bullets: [
-      "Chunking, cleaning, deduplication",
-      "Schema inference and mapping",
-      "Quality scoring and validation",
-    ],
-    detail:
-      "Raw inputs are parsed, validated, and structured into clean, queryable formats. Automated quality scoring ensures only high-fidelity data enters the pipeline.",
-  },
-  {
-    id: "01",
-    title: "Data Ingestion & Connectivity",
-    summary: "Data-agnostic ingestion across structured and unstructured sources",
-    bullets: [
-      "PDFs, Excel, APIs, market data, internal systems",
-      "Real-time and batch processing",
-      "Connector framework for proprietary feeds",
-    ],
-    detail:
-      "The ingestion layer connects to any data source — structured or unstructured, real-time or batch — through a flexible connector framework built for institutional environments.",
+      "The interaction layer delivers intelligence through the medium best suited to each user. From conversational AI to embeddable components, every touchpoint is designed for institutional workflows.",
   },
 ];
-
 const badges = [
   { label: "Privacy", desc: "Private deployment · On-prem · VPC" },
   { label: "Accuracy", desc: "Validated outputs · Retrieval-based reasoning" },
