@@ -137,8 +137,8 @@ const AIStackDiagram = () => {
                 <button
                   onClick={() => toggle(layer.id)}
                   className={`group w-full text-left transition-all duration-300 border border-primary/10 px-5 py-4 md:px-6 md:py-5 ${
-                    isLast ? "rounded-t-2xl" : ""
-                  } ${isFirst ? "rounded-b-2xl" : ""} ${
+                    isFirst ? "rounded-t-2xl" : ""
+                  } ${isLast ? "rounded-b-2xl" : ""} ${
                     isExpanded
                       ? "bg-primary/5 border-primary/30 shadow-[0_0_20px_-5px_hsl(var(--primary)/0.15)]"
                       : "bg-card/50 hover:bg-card/80 hover:border-primary/20"
