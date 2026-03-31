@@ -17,6 +17,9 @@ const Index = () => {
   const handleTabChange = (tab: TabId, section?: string) => {
     setActiveTab(tab);
     setScrollSection(section);
+    if (!section) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
