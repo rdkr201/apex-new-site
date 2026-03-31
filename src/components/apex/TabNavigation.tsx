@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef } from "react";
+import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
   "Solutions",

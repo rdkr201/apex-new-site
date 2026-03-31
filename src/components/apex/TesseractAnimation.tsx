@@ -68,14 +68,19 @@ const internalEdges: [number, number][] = [
   [2, 14], [3, 13],
   [7, 20], [10, 19],
   [1, 17], [4, 17],
-  // Additional vertical structural lines (front)
+  // Vertical structural lines (front)
   [6, 2], [6, 3], [6, 7], [6, 10], [6, 9], [6, 8],
   [0, 10], [5, 9], [1, 7], [4, 8],
-  // Additional vertical structural lines (back)
+  // Vertical structural lines (back)
   [17, 13], [17, 14], [17, 18], [17, 21], [17, 20], [17, 19],
   [11, 21], [16, 20], [12, 18], [15, 19],
   // Cross-depth vertical connectors
   [0, 12], [5, 15], [1, 11], [4, 16],
+  // Extra vertical depth struts
+  [2, 21], [3, 18], [7, 14], [10, 13],
+  [9, 18], [8, 21], [0, 18], [5, 21],
+  [1, 13], [4, 14], [11, 7], [16, 8],
+  [12, 10], [15, 9], [0, 14], [5, 13],
 ];
 
 const allEdges = [...edges, ...internalEdges];
