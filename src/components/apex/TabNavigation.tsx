@@ -30,11 +30,6 @@ const dropdowns: Partial<Record<string, DropdownItem[]>> = {
     { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
     { label: "APIs & Data Layer", desc: "APIs, SDKs, and data pipelines to integrate and extend", tab: "APIs & Data Layer" },
   ],
-  Company: [
-    { label: "About", section: "about", desc: "Our mission and team" },
-    { label: "Careers", section: "careers", desc: "Join the team" },
-    { label: "Contact", section: "contact", desc: "Get in touch" },
-  ],
 };
 
 interface TabNavigationProps {
