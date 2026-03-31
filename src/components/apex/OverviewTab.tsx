@@ -34,7 +34,7 @@ const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   },
 ];
 
-const rotatingWords = ["Alpha", "Equities", "Credit", "Quant", "Research", "Multi-Asset"];
+const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
 
 interface OverviewTabProps {
   onTabChange?: (tab: TabId) => void;
@@ -80,7 +80,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
   return (
     <div>
       {/* Hero */}
-      <div className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
+      <div className="relative flex min-h-[70vh] items-center overflow-hidden">
         <DotWaveField />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -101,7 +101,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             </div>
 
             <h1 className="font-mono text-5xl font-light leading-[1.1] tracking-tightest text-foreground md:text-7xl lg:text-8xl">
-              <span className="text-primary">Infrastructure</span>
+              <span className="text-primary">ALICE</span>
               {" for "}
               {dynamicText}
               <span className="animate-pulse text-primary">_</span>
