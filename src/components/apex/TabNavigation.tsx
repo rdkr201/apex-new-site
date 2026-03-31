@@ -21,11 +21,23 @@ interface DropdownItem {
   desc?: string;
   section?: string;
   tab?: TabId;
+  children?: { label: string; section: string; tab: TabId }[];
 }
 
 const dropdowns: Partial<Record<string, DropdownItem[]>> = {
   Solutions: [
-    { label: "ALICE", desc: "Award-winning agentic AI for capital markets", tab: "ALICE" },
+    {
+      label: "ALICE",
+      desc: "Award-winning agentic AI for capital markets",
+      tab: "ALICE",
+      children: [
+        { label: "Portfolio Management", section: "portfolio-management", tab: "Solutions" },
+        { label: "Traders", section: "traders", tab: "Solutions" },
+        { label: "Quants", section: "quants", tab: "Solutions" },
+        { label: "Researchers", section: "researchers", tab: "Solutions" },
+        { label: "Developers", section: "developers", tab: "Solutions" },
+      ],
+    },
     { label: "Bespoke Workflows", desc: "Custom AI workflows for your processes", tab: "Custom Workflows" },
     { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
     { label: "APIs & Data Layer", desc: "APIs, SDKs, and data pipelines to integrate and extend", tab: "APIs & Data Layer" },
@@ -112,23 +124,40 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                     <div className="rounded-lg border border-border bg-background/95 p-3 shadow-xl backdrop-blur-lg">
                       <div className={`grid gap-1 ${items.length <= 3 ? "grid-cols-1 min-w-[280px]" : items.length <= 4 ? "grid-cols-2 min-w-[480px]" : "grid-cols-3 min-w-[640px]"}`}>
                         {items.map((item) => (
-                          <button
-                            key={item.label}
-                            onClick={() => {
-                              onTabChange(item.tab || tab, item.section);
-                              setOpenDropdown(null);
-                            }}
-                            className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
-                          >
-                            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
-                              {item.label}
-                            </span>
-                            {item.desc && (
-                              <span className="font-mono text-[10px] leading-relaxed text-muted-foreground">
-                                {item.desc}
+                          <div key={item.label} className="flex flex-col">
+                            <button
+                              onClick={() => {
+                                onTabChange(item.tab || tab, item.section);
+                                setOpenDropdown(null);
+                              }}
+                              className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
+                            >
+                              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
+                                {item.label}
                               </span>
+                              {item.desc && (
+                                <span className="font-mono text-[10px] leading-relaxed text-muted-foreground">
+                                  {item.desc}
+                                </span>
+                              )}
+                            </button>
+                            {item.children && (
+                              <div className="ml-4 flex flex-col border-l border-border pl-3 pb-2">
+                                {item.children.map((child) => (
+                                  <button
+                                    key={child.label}
+                                    onClick={() => {
+                                      onTabChange(child.tab, child.section);
+                                      setOpenDropdown(null);
+                                    }}
+                                    className="py-1.5 text-left font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                                  >
+                                    {child.label}
+                                  </button>
+                                ))}
+                              </div>
                             )}
-                          </button>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -200,16 +229,33 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                   {items && isExpanded && (
                     <div className="mb-2 ml-4 flex flex-col gap-1 border-l border-border pl-4">
                       {items.map((item) => (
-                        <button
-                          key={item.label}
+                        <div key={item.label}>
+                          <button
                             onClick={() => {
-                            onTabChange(item.tab || tab, item.section);
-                            setMobileOpen(false);
-                          }}
-                          className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                          {item.label}
-                        </button>
+                              onTabChange(item.tab || tab, item.section);
+                              setMobileOpen(false);
+                            }}
+                            className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {item.label}
+                          </button>
+                          {item.children && (
+                            <div className="ml-4 flex flex-col gap-0.5 border-l border-border pl-3">
+                              {item.children.map((child) => (
+                                <button
+                                  key={child.label}
+                                  onClick={() => {
+                                    onTabChange(child.tab, child.section);
+                                    setMobileOpen(false);
+                                  }}
+                                  className="py-1.5 text-left font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                  {child.label}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
