@@ -186,19 +186,15 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             <div className="relative overflow-hidden">
               <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent" />
               <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent" />
-              <div className="flex animate-marquee items-center gap-12">
-                {[...Array(2)].flatMap((_, setIdx) =>
-                  [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                    <div
-                      key={`${setIdx}-${i}`}
-                      className="flex h-16 w-28 flex-shrink-0 items-center justify-center rounded-lg border border-dashed border-border bg-secondary/20"
-                    >
-                      <span className="font-mono text-[9px] text-muted-foreground/40">
-                        Logo {i}
-                      </span>
-                    </div>
-                  ))
-                )}
+              <div className="flex animate-marquee items-center gap-16">
+                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                  <img
+                    key={`${logo.alt}-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-10 w-auto flex-shrink-0 object-contain opacity-60 brightness-0 invert transition-opacity duration-300 hover:opacity-100"
+                  />
+                ))}
               </div>
             </div>
           </motion.div>
