@@ -23,11 +23,11 @@ const InfrastructureTab = () => {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          {/* Architecture Diagram */}
-          <ArchitectureDiagram />
-
           {/* AI Stack Diagram */}
           <AIStackDiagram />
+
+          {/* Architecture Diagram */}
+          <ArchitectureDiagram />
 
           {/* Deployment Specs */}
           <div className="border-t border-border">
