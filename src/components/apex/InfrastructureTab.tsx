@@ -3,11 +3,6 @@ import HeroSection from "./HeroSection";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import AIStackDiagram from "./AIStackDiagram";
 
-const stats = [
-  { value: "<10ms", label: "Ingestion Latency" },
-  { value: "20+ yrs", label: "Historical Depth" },
-  { value: "∞", label: "Schema Flexibility" },
-];
 
 const InfrastructureTab = () => {
   return (
