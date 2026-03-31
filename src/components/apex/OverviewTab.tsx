@@ -50,21 +50,21 @@ const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   },
   {
     label: "02",
-    title: "Big Data Architecture",
+    title: "Infrastructure",
+    desc: "Cloud agnostic. VPC deployment. Kubernetes + Docker microservices. Days to deploy.",
+    tab: "Infrastructure",
+  },
+  {
+    label: "03",
+    title: "Insights",
     desc: "Ingest structured and unstructured data. Real-time and historical. Query anything.",
     tab: "Data & Intelligence",
   },
   {
-    label: "03",
-    title: "AI Sovereignty",
-    desc: "On-premise deployment. Full data control. Designed for strict compliance environments.",
-    tab: "Infrastructure",
-  },
-  {
     label: "04",
-    title: "Infrastructure",
-    desc: "Cloud agnostic. VPC deployment. Kubernetes + Docker microservices. Days to deploy.",
-    tab: "Infrastructure",
+    title: "Company",
+    desc: "Award-winning team building the future of agentic AI for capital markets.",
+    tab: "Company",
   },
 ];
 
