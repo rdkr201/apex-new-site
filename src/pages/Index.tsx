@@ -30,7 +30,7 @@ const Index = () => {
             transition={{ duration: 0.3 }}
           >
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} />}
-            {activeTab === "Agentic Workflows" && <WorkflowsTab />}
+            {activeTab === "Solutions" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "Data & Intelligence" && <DataTab />}
             
