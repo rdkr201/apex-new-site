@@ -49,7 +49,7 @@ const SovereigntySection = ({ onTabChange }: SovereigntySectionProps) => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl"
         >
-          A Complete Sovereign AI Stack — Delivered Your Way
+          A Complete Sovereign AI Stack. Delivered Your Way
         </motion.h2>
 
         {/* ALICE — Featured Card */}
