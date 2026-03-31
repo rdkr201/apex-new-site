@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import HeroSection from "./HeroSection";
 import ArchitectureDiagram from "./ArchitectureDiagram";
+import AIStackDiagram from "./AIStackDiagram";
 
 const stats = [
   { value: "<10ms", label: "Ingestion Latency" },
