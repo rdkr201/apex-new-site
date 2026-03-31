@@ -101,7 +101,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             </div>
 
             <h1 className="font-mono text-5xl font-light leading-[1.1] tracking-tightest text-foreground md:text-7xl lg:text-8xl">
-              <span className="text-primary">Infrastructure</span>
+              <span className="text-primary">ALICE</span>
               {" for "}
               {dynamicText}
               <span className="animate-pulse text-primary">_</span>
