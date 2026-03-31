@@ -101,9 +101,6 @@ const layers = [
 const AIStackDiagram = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const toggle = (id: string) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
 
   return (
     <div className="border-b border-border py-20 px-4 md:px-8">
