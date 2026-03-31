@@ -5,9 +5,11 @@ interface HeroSectionProps {
   accentLine: string;
   headline: string;
   subtitle: string;
+  preHeadline?: string;
+  preSubline?: string;
 }
 
-const HeroSection = ({ accentLine, headline, subtitle }: HeroSectionProps) => {
+const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline }: HeroSectionProps) => {
   return (
     <div className="relative flex min-h-[60vh] items-end overflow-hidden pb-20">
       <DotWaveField />
@@ -17,6 +19,18 @@ const HeroSection = ({ accentLine, headline, subtitle }: HeroSectionProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          {preHeadline && (
+            <div className="mb-6">
+              <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
+                {preHeadline}
+              </p>
+              {preSubline && (
+                <p className="mt-1 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/60">
+                  {preSubline}
+                </p>
+              )}
+            </div>
+          )}
           <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
             {accentLine}
           </p>

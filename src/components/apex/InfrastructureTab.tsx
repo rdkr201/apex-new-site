@@ -17,6 +17,8 @@ const InfrastructureTab = () => {
         accentLine="Infrastructure"
         headline="Built for institutions"
         subtitle="Deployed in days. Runs in your environment. Scales with your ambition."
+        preHeadline="ALICE — The Award-Winning Agent for Capital Markets"
+        preSubline="Powered by APEX:E3"
       />
 
       <div className="border-t border-border">

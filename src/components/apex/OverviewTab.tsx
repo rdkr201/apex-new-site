@@ -10,9 +10,9 @@ import { type TabId } from "./TabNavigation";
 const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   {
     label: "01",
-    title: "Agentic Workflows",
+    title: "Solutions",
     desc: "End-to-end automation across research, signal generation, and trade execution.",
-    tab: "Agentic Workflows",
+    tab: "Solutions",
   },
   {
     label: "02",
@@ -90,6 +90,16 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
+            {/* Static ALICE intro */}
+            <div className="mb-6">
+              <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
+                ALICE — The Award-Winning Agent for Capital Markets
+              </p>
+              <p className="mt-1 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/60">
+                Powered by APEX:E3
+              </p>
+            </div>
+
             <h1 className="font-mono text-5xl font-light leading-[1.1] tracking-tightest text-foreground md:text-7xl lg:text-8xl">
               <span className="text-primary">Infrastructure</span>
               {" for "}
@@ -117,6 +127,48 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
               Get in Touch
               <ArrowRight className="h-3.5 w-3.5" />
             </motion.a>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Awards & Trusted By Section */}
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
+          {/* Awards Logos Placeholder */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-12"
+          >
+            <p className="mb-8 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground/40">
+              Awards & Recognition
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  className="flex h-20 w-32 items-center justify-center rounded-lg border border-dashed border-border bg-secondary/20"
+                >
+                  <span className="font-mono text-[10px] text-muted-foreground/40">
+                    Award {i}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Trusted By Banner */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-center"
+          >
+            <p className="font-mono text-sm leading-relaxed tracking-wide text-muted-foreground">
+              ALICE is trusted by asset managers, family offices and hedge funds managing{" "}
+              <span className="font-medium text-primary">$12T AUM</span>
+            </p>
           </motion.div>
         </div>
       </div>
