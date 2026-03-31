@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
+import BespokeWorkflowsTab from "@/components/apex/BespokeWorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
@@ -31,7 +32,7 @@ const Index = () => {
           >
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} isHome />}
             {activeTab === "Solutions" && <WorkflowsTab />}
-            {activeTab === "Custom Workflows" && <WorkflowsTab />}
+            {activeTab === "Custom Workflows" && <BespokeWorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Insights" && <InsightsTab />}
