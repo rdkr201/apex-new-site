@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef } from "react";
+import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
   "Solutions",
@@ -75,9 +76,9 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
         {/* Logo — home button */}
         <button
           onClick={() => onTabChange("Overview")}
-          className="font-mono text-base font-medium tracking-tightest text-foreground transition-colors hover:text-primary cursor-pointer"
+          className="transition-opacity hover:opacity-80 cursor-pointer"
         >
-          APEX<span className="text-primary">:</span>E3
+          <img src={apexLogo} alt="APEX:E3" className="h-6 w-auto" />
         </button>
 
         {/* Desktop Nav */}
