@@ -56,16 +56,23 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["ALICE", "Custom Workflows", "Infrastructure"].map(
-                  (link) => (
-                    <button
-                      key={link}
-                      onClick={() => handleTabChange(link as TabId)}
-                      className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link}
-                    </button>
-                  )
+                {["ALICE", "Bespoke Workflows", "Infrastructure"].map(
+                  (link) => {
+                    const tabMap: Record<string, TabId> = {
+                      "ALICE": "ALICE",
+                      "Bespoke Workflows": "Custom Workflows",
+                      "Infrastructure": "Infrastructure",
+                    };
+                    return (
+                      <button
+                        key={link}
+                        onClick={() => handleTabChange(tabMap[link])}
+                        className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link}
+                      </button>
+                    );
+                  }
                 )}
               </div>
             </div>
