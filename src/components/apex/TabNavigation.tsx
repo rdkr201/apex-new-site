@@ -4,13 +4,13 @@ import { useState, useRef } from "react";
 import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
-  "ALICE",
-  "Custom Workflows",
-  "Infrastructure",
+  "Home",
+  "Solutions",
+  "Insights",
   "Company",
 ] as const;
 
-export type TabId = (typeof tabs)[number] | "Overview" | "Solutions";
+export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure";
 
 
 
@@ -23,19 +23,14 @@ interface DropdownItem {
   tab?: TabId;
 }
 
-const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
-  ALICE: [
-    { label: "Overview", desc: "Award-winning agentic AI for capital markets" },
-    { label: "Solutions", desc: "Role-based workflows for institutional teams", tab: "Solutions" },
-  ],
-  Infrastructure: [
-    { label: "APEX:E3 AI Stack", desc: "Full 7-layer intelligence architecture" },
-    { label: "BDAaS", desc: "Big Data Architecture as a Service" },
-    { label: "Deployment", desc: "Cloud agnostic, VPC, Kubernetes" },
+const dropdowns: Partial<Record<string, DropdownItem[]>> = {
+  Solutions: [
+    { label: "ALICE", desc: "Award-winning agentic AI for capital markets", tab: "ALICE" },
+    { label: "Bespoke Workflows", desc: "Custom AI workflows for your processes", tab: "Custom Workflows" },
+    { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
   ],
   Company: [
     { label: "About", section: "about", desc: "Our mission and team" },
-    { label: "Blog", section: "blog", desc: "Latest insights and updates" },
     { label: "Newsroom", section: "newsroom", desc: "Press and media coverage" },
     { label: "Careers", section: "careers", desc: "Join the team" },
   ],
