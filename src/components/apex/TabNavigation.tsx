@@ -81,7 +81,15 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 onMouseLeave={() => items && handleMouseLeave(tab)}
               >
                 <button
-                  onClick={() => onTabChange(tab)}
+                  onClick={() => {
+                    if (tab === "Home") {
+                      onTabChange("Overview");
+                    } else if (!items) {
+                      onTabChange(tab as TabId);
+                    } else {
+                      setOpenDropdown(openDropdown === tab ? null : tab);
+                    }
+                  }}
                   className={cn(
                     "flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-200",
                     activeTab === tab
