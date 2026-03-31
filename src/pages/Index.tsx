@@ -32,7 +32,7 @@ const Index = () => {
           >
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} isHome />}
             {activeTab === "Solutions" && <WorkflowsTab />}
-            {activeTab === "Custom Workflows" && <WorkflowsTab />}
+            {activeTab === "Custom Workflows" && <BespokeWorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Insights" && <InsightsTab />}
