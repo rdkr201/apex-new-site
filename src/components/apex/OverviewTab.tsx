@@ -165,44 +165,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       {/* ALICE Hub Diagram */}
       {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
-      {/* Service Cards — matches Solutions tab card style */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="border-t border-border"
-      >
-        <div className="mx-auto max-w-[1400px] divide-y divide-border">
-          {services.map((service, i) => (
-            <motion.button
-              key={service.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
-              onClick={() => {
-                onTabChange?.(service.tab);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="group flex w-full items-center justify-between px-6 py-8 text-left transition-colors hover:bg-secondary/30 lg:px-10 cursor-pointer"
-            >
-              <div className="flex items-start gap-8">
-                <span className="font-mono text-xs text-muted-foreground/50">
-                  {service.label}
-                </span>
-                <div>
-                  <h3 className="font-mono text-sm font-medium tracking-wide text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1.5 max-w-md text-sm text-muted-foreground">
-                    {service.desc}
-                  </p>
-                </div>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground/30 transition-colors group-hover:text-primary" />
-            </motion.button>
-          ))}
-        </div>
-      </motion.div>
     </div>
   );
 };
