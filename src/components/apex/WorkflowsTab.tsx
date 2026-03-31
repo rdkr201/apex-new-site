@@ -133,7 +133,7 @@ const disciplines: Discipline[] = [
 ];
 
 const WorkflowsTab = () => {
-  const [activeId, setActiveId] = useState("equities");
+  const [activeId, setActiveId] = useState("portfolio-management");
   const active = disciplines.find((d) => d.id === activeId)!;
 
   return (
