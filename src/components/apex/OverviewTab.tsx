@@ -64,7 +64,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
             {isHome ? (
               <>
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-                  APEX:E3
+                  ALICE
                 </p>
                 <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
                   The Award-Winning Agent
