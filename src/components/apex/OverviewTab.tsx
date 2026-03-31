@@ -17,7 +17,7 @@ import googleCloudLogo from "@/assets/partners-awards/google-cloud.png";
 import grokLogo from "@/assets/partners-awards/grok.png";
 import llamaMetaLogo from "@/assets/partners-awards/llama-meta.png";
 import mistralLogo from "@/assets/partners-awards/mistral-ai.png";
-import nvidiaNemoLogo from "@/assets/partners-awards/nvidia-nemo.png";
+
 import nvidiaLogo from "@/assets/partners-awards/nvidia.png";
 import openaiLogo from "@/assets/partners-awards/openai.png";
 import oxfordLogo from "@/assets/partners-awards/oxford.png";
