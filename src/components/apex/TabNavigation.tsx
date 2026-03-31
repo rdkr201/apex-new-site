@@ -4,9 +4,9 @@ import { useState, useRef } from "react";
 import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
+  "ALICE",
   "Solutions",
   "Infrastructure",
-  "Data & Intelligence",
   "Company",
 ] as const;
 
