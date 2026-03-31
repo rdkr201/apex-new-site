@@ -169,7 +169,7 @@ const AIStackDiagram = () => {
                       +
                     </span>
                   </div>
-                </div>
+                </button>
 
                 <AnimatePresence>
                   {isExpanded && (
