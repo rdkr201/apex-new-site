@@ -18,28 +18,32 @@ export type SubSection = string;
 
 interface DropdownItem {
   label: string;
-  section?: string; // optional scroll target
+  desc?: string;
+  section?: string;
 }
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
+  ALICE: [
+    { label: "Overview", desc: "Award-winning agentic AI for capital markets" },
+    { label: "Partners & Awards", desc: "Trusted by leading institutions globally" },
+  ],
   Solutions: [
-    { label: "Portfolio Managers" },
-    { label: "Traders" },
-    { label: "Quants" },
-    { label: "Researchers" },
-    { label: "Developers" },
+    { label: "Portfolio Managers", desc: "Cross-asset intelligence and allocation" },
+    { label: "Traders", desc: "Spreads, risk, and execution intelligence" },
+    { label: "Quants", desc: "NL-to-model, backtesting, and signal analysis" },
+    { label: "Researchers", desc: "Document synthesis and cross-doc queries" },
+    { label: "Developers", desc: "APIs, SDKs, and custom integrations" },
   ],
   Infrastructure: [
-    { label: "BDAaS" },
-    { label: "Deployment" },
-    { label: "Microservices" },
-    { label: "Security" },
+    { label: "APEX:E3 AI Stack", desc: "Full 7-layer intelligence architecture" },
+    { label: "BDAaS", desc: "Big Data Architecture as a Service" },
+    { label: "Deployment", desc: "Cloud agnostic, VPC, Kubernetes" },
   ],
   Company: [
-    { label: "About", section: "about" },
-    { label: "Blog", section: "blog" },
-    { label: "Newsroom", section: "newsroom" },
-    { label: "Careers", section: "careers" },
+    { label: "About", section: "about", desc: "Our mission and team" },
+    { label: "Blog", section: "blog", desc: "Latest insights and updates" },
+    { label: "Newsroom", section: "newsroom", desc: "Press and media coverage" },
+    { label: "Careers", section: "careers", desc: "Join the team" },
   ],
 };
 
@@ -110,19 +114,28 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 {/* Dropdown */}
                 {items && openDropdown === tab && (
                   <div className="absolute left-1/2 top-full z-50 mt-3 -translate-x-1/2 animate-fade-in">
-                    <div className="rounded-lg border border-border bg-background/95 px-1 py-2 shadow-xl backdrop-blur-lg">
-                      {items.map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={() => {
-                            onTabChange(tab, item.section);
-                            setOpenDropdown(null);
-                          }}
-                          className="flex w-full items-center gap-3 whitespace-nowrap rounded-md px-4 py-2.5 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                        >
-                          {item.label}
-                        </button>
-                      ))}
+                    <div className="rounded-lg border border-border bg-background/95 p-3 shadow-xl backdrop-blur-lg">
+                      <div className={`grid gap-1 ${items.length <= 3 ? "grid-cols-1 min-w-[280px]" : items.length <= 4 ? "grid-cols-2 min-w-[480px]" : "grid-cols-3 min-w-[640px]"}`}>
+                        {items.map((item) => (
+                          <button
+                            key={item.label}
+                            onClick={() => {
+                              onTabChange(tab, item.section);
+                              setOpenDropdown(null);
+                            }}
+                            className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
+                          >
+                            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
+                              {item.label}
+                            </span>
+                            {item.desc && (
+                              <span className="font-mono text-[10px] leading-relaxed text-muted-foreground">
+                                {item.desc}
+                              </span>
+                            )}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
