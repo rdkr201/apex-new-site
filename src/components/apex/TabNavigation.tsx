@@ -172,15 +172,20 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 <div key={tab}>
                   <button
                     onClick={() => {
-                      if (items) {
+                      if (tab === "Home") {
+                        onTabChange("Overview");
+                        setMobileOpen(false);
+                      } else if (items) {
                         setExpandedMobile(isExpanded ? null : tab);
                       } else {
-                        onTabChange(tab);
+                        onTabChange(tab as TabId);
                         setMobileOpen(false);
                       }
                     }}
                     className={cn(
                       "flex w-full items-center justify-between py-2.5 text-left font-mono text-xs uppercase tracking-[0.15em] transition-colors",
+                      (tab === "Home" && activeTab === "Overview") ||
+                      (tab === "Solutions" && ["ALICE", "Custom Workflows", "Infrastructure", "Solutions"].includes(activeTab)) ||
                       activeTab === tab
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"
