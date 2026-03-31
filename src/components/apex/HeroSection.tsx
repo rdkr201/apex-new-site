@@ -3,7 +3,7 @@ import TesseractAnimation, { type TesseractVariant } from "./TesseractAnimation"
 
 interface HeroSectionProps {
   accentLine: string;
-  headline: string;
+  headline: React.ReactNode;
   subtitle: string;
   preHeadline?: string;
   preSubline?: string;
