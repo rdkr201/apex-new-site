@@ -63,7 +63,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
           >
             {isHome ? (
               <>
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
+                <p className="font-mono text-5xl font-light uppercase tracking-[0.2em] text-primary md:text-6xl">
                   ALICE
                 </p>
                 <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
