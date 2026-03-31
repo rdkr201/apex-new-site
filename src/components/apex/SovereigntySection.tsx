@@ -15,7 +15,7 @@ const pillars: { icon: typeof MessageSquare; title: string; subtitle: string; de
     title: "Bespoke Agents",
     subtitle: "Custom AI Workflows",
     desc: "Domain-specific agents designed around your internal processes, from research to execution.",
-    tab: "Solutions",
+    tab: "Custom Workflows",
   },
   {
     icon: Server,
