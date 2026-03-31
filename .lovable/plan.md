@@ -1,41 +1,38 @@
 
 
-## Bespoke Workflows Tab — New Dedicated Content
+## Create APIs, SDKs & Data Layer Tab
 
-Currently, "Custom Workflows" renders the same `WorkflowsTab` component (the Solutions/persona-based content). We need a new dedicated component for Bespoke Workflows with three sections.
+Currently "APIs & Data Layer" in the Solutions dropdown routes to the Infrastructure tab. We'll create a dedicated tab component mirroring the structure of `BespokeWorkflowsTab`.
 
-### New File: `src/components/apex/BespokeWorkflowsTab.tsx`
+### 1. New File: `src/components/apex/ApiDataLayerTab.tsx`
 
-**1. Hero Section** — Reuse existing `HeroSection` component with:
-- Accent: "Bespoke Workflows"
-- Headline: "Custom AI Workflows"
-- Subtitle: "We work directly with your team to design and deploy AI workflows tailored to your internal processes — integrating with your data, systems, and decision-making frameworks."
-- Tesseract variant: "solutions" (or similar)
+Structure (matching BespokeWorkflowsTab pattern):
 
-**2. Use Cases Grid** — 6 cards in a 2x3 or 3x2 grid, each with a title and description:
-- Research & Document Workflows
-- Data Extraction & Integration
-- Portfolio & Risk Workflows
-- Compliance & Audit Workflows
-- Internal Data Access (Natural Language → SQL)
-- Agentic Task Automation
+- **Hero Section**: Accent "APIs, SDKs & Data Layer", headline "Build, integrate, and extend AI directly within your environment", subtitle from provided copy. Tesseract variant "infrastructure".
 
-Cards styled consistently with existing site (border, bg-secondary/20, mono font).
+- **Core Capabilities Grid** (6 cards, 3x2): API Access, SDKs & Developer Tooling, MCP & Data Connectivity, Private Data Rooms, Natural Language to Systems, Agent Integration.
 
-**3. How We Work** — 3-step horizontal process strip:
-- 01. Identify
-- 02. Build
-- 03. Deploy & Iterate
+- **Use Cases Section** (4 cards, 2x2): Internal Platform Integration, Data Pipeline Augmentation, Custom Application Development, Secure Data Room Analysis.
 
-Each step has a number, title, and short description. Laid out as 3 columns on desktop.
+- **Key Capabilities Strip**: 5 bullet items (private deployment, API-first, real-time + batch, secure access, scalable) in a horizontal row with check icons.
 
-### Update: `src/pages/Index.tsx`
+- **Closing Line**: "Designed for teams that want to go beyond using AI and start building with it." centered at bottom.
 
-- Import `BespokeWorkflowsTab`
-- Change the `"Custom Workflows"` render line to use `<BespokeWorkflowsTab />` instead of `<WorkflowsTab />`
+### 2. Update `src/components/apex/TabNavigation.tsx`
 
-### Technical Details
-- Reuses `HeroSection`, `motion` from framer-motion for entry animations
-- Follows existing font-mono, text-foreground/muted-foreground styling conventions
-- No new dependencies
+- Add `"APIs & Data Layer"` to the `TabId` type union.
+- Change the dropdown item's `tab` from `"Infrastructure"` to `"APIs & Data Layer"`.
+
+### 3. Update `src/pages/Index.tsx`
+
+- Import `ApiDataLayerTab`.
+- Add rendering: `{activeTab === "APIs & Data Layer" && <ApiDataLayerTab />}`.
+
+### 4. Update `src/components/apex/SovereigntySection.tsx`
+
+- Change the APIs & Data Layer card's tab mapping from `"Infrastructure"` to `"APIs & Data Layer"`.
+
+### Notes
+- All copy will use commas, colons, or periods instead of em dashes per style constraint.
+- Follows existing mono font, border, animation patterns.
 
