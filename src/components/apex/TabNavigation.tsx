@@ -196,8 +196,8 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                       {items.map((item) => (
                         <button
                           key={item.label}
-                          onClick={() => {
-                            onTabChange(tab, item.section);
+                            onClick={() => {
+                            onTabChange(item.tab || tab, item.section);
                             setMobileOpen(false);
                           }}
                           className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
