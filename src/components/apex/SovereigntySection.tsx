@@ -58,7 +58,7 @@ const SovereigntySection = ({ onTabChange }: SovereigntySectionProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.4 }}
-          className="mb-px flex flex-col border border-primary/30 bg-primary/5 p-10"
+          className="mb-px flex flex-col items-center border border-primary/30 bg-primary/5 p-10 text-center"
         >
           <alicePillar.icon className="mb-4 h-6 w-6 text-primary" strokeWidth={1.5} />
           <h3 className="font-mono text-lg font-medium tracking-wide text-foreground">

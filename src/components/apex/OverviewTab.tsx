@@ -67,12 +67,12 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   APEX:E3
                 </p>
                 <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
-                  AI Infrastructure for
+                  The Award-Winning Agent
                   <br />
-                  Capital Markets
+                  for Capital Markets
                 </h1>
                 <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
-                  Applications, agents, and infrastructure — built for institutional workflows.
+                  Powered by APEX:E3
                 </p>
               </>
             ) : (
