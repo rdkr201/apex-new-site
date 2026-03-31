@@ -17,7 +17,7 @@ const InfrastructureTab = () => {
     <div>
       <HeroSection
         accentLine="Infrastructure"
-        headline="Ingest everything. Query anything."
+        headline={<>Ingest everything.<br />Query anything.</>}
         subtitle="Big Data Architecture as a Service. From unstructured noise to research-grade intelligence."
         tesseractVariant="infrastructure"
       />
