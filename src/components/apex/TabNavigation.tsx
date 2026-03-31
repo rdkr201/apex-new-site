@@ -4,13 +4,13 @@ import { useState, useRef } from "react";
 import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
-  "ALICE",
-  "Custom Workflows",
-  "Infrastructure",
+  "Home",
+  "Solutions",
+  "Insights",
   "Company",
 ] as const;
 
-export type TabId = (typeof tabs)[number] | "Overview" | "Solutions";
+export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure";
 
 
 
@@ -23,19 +23,14 @@ interface DropdownItem {
   tab?: TabId;
 }
 
-const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
-  ALICE: [
-    { label: "Overview", desc: "Award-winning agentic AI for capital markets" },
-    { label: "Solutions", desc: "Role-based workflows for institutional teams", tab: "Solutions" },
-  ],
-  Infrastructure: [
-    { label: "APEX:E3 AI Stack", desc: "Full 7-layer intelligence architecture" },
-    { label: "BDAaS", desc: "Big Data Architecture as a Service" },
-    { label: "Deployment", desc: "Cloud agnostic, VPC, Kubernetes" },
+const dropdowns: Partial<Record<string, DropdownItem[]>> = {
+  Solutions: [
+    { label: "ALICE", desc: "Award-winning agentic AI for capital markets", tab: "ALICE" },
+    { label: "Bespoke Workflows", desc: "Custom AI workflows for your processes", tab: "Custom Workflows" },
+    { label: "Infrastructure", desc: "Enterprise AI platform & deployment", tab: "Infrastructure" },
   ],
   Company: [
     { label: "About", section: "about", desc: "Our mission and team" },
-    { label: "Blog", section: "blog", desc: "Latest insights and updates" },
     { label: "Newsroom", section: "newsroom", desc: "Press and media coverage" },
     { label: "Careers", section: "careers", desc: "Join the team" },
   ],
@@ -86,9 +81,19 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 onMouseLeave={() => items && handleMouseLeave(tab)}
               >
                 <button
-                  onClick={() => onTabChange(tab)}
+                  onClick={() => {
+                    if (tab === "Home") {
+                      onTabChange("Overview");
+                    } else if (!items) {
+                      onTabChange(tab as TabId);
+                    } else {
+                      setOpenDropdown(openDropdown === tab ? null : tab);
+                    }
+                  }}
                   className={cn(
                     "flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-200",
+                    (tab === "Home" && activeTab === "Overview") ||
+                    (tab === "Solutions" && ["ALICE", "Custom Workflows", "Infrastructure", "Solutions"].includes(activeTab)) ||
                     activeTab === tab
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
@@ -167,15 +172,20 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 <div key={tab}>
                   <button
                     onClick={() => {
-                      if (items) {
+                      if (tab === "Home") {
+                        onTabChange("Overview");
+                        setMobileOpen(false);
+                      } else if (items) {
                         setExpandedMobile(isExpanded ? null : tab);
                       } else {
-                        onTabChange(tab);
+                        onTabChange(tab as TabId);
                         setMobileOpen(false);
                       }
                     }}
                     className={cn(
                       "flex w-full items-center justify-between py-2.5 text-left font-mono text-xs uppercase tracking-[0.15em] transition-colors",
+                      (tab === "Home" && activeTab === "Overview") ||
+                      (tab === "Solutions" && ["ALICE", "Custom Workflows", "Infrastructure", "Solutions"].includes(activeTab)) ||
                       activeTab === tab
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"

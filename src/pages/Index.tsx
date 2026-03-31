@@ -5,7 +5,7 @@ import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
-
+import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
 
 const Index = () => {
@@ -34,7 +34,7 @@ const Index = () => {
             {activeTab === "Custom Workflows" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
-            
+            {activeTab === "Insights" && <InsightsTab />}
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
         </AnimatePresence>
@@ -56,16 +56,23 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["ALICE", "Custom Workflows", "Infrastructure"].map(
-                  (link) => (
-                    <button
-                      key={link}
-                      onClick={() => handleTabChange(link as TabId)}
-                      className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link}
-                    </button>
-                  )
+                {["ALICE", "Bespoke Workflows", "Infrastructure"].map(
+                  (link) => {
+                    const tabMap: Record<string, TabId> = {
+                      "ALICE": "ALICE",
+                      "Bespoke Workflows": "Custom Workflows",
+                      "Infrastructure": "Infrastructure",
+                    };
+                    return (
+                      <button
+                        key={link}
+                        onClick={() => handleTabChange(tabMap[link])}
+                        className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link}
+                      </button>
+                    );
+                  }
                 )}
               </div>
             </div>
@@ -76,14 +83,14 @@ const Index = () => {
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
                 {[
-                  { label: "About", section: "about" },
-                  { label: "Blog", section: "blog" },
-                  { label: "Newsroom", section: "newsroom" },
-                  { label: "Careers", section: "careers" },
+                  { label: "About", section: "about", tab: "Company" as TabId },
+                  { label: "Insights", section: undefined, tab: "Insights" as TabId },
+                  { label: "Newsroom", section: "newsroom", tab: "Company" as TabId },
+                  { label: "Careers", section: "careers", tab: "Company" as TabId },
                 ].map((item) => (
                   <button
                     key={item.label}
-                    onClick={() => handleTabChange("Company", item.section)}
+                    onClick={() => handleTabChange(item.tab, item.section)}
                     className="text-left font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {item.label}
