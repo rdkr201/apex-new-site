@@ -32,24 +32,12 @@ const SovereigntySection = () => {
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-4"
-        >
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-            What We Offer
-          </span>
-        </motion.div>
-
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-12 max-w-2xl font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl"
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl"
         >
           A Complete Sovereign AI Stack — Delivered Your Way
         </motion.h2>
