@@ -32,7 +32,7 @@ const Index = () => {
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Solutions" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
-            {activeTab === "Data & Intelligence" && <DataTab />}
+            {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
