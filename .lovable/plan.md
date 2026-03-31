@@ -1,42 +1,73 @@
 
 
-# Redesign ALICE Hub Diagram to Vertical Center-Focused Layout
+# Infrastructure Tab: Remove Hero Text + Add AI Stack Cylinder Diagram
 
-## What changes
-Replace the current horizontal 3-column layout with a vertical flow: Inputs → ALICE → Outputs. ALICE becomes the dominant focal point with stronger glow. Everything flows vertically into and out of it.
+## Changes
 
-## New Layout (both desktop and mobile)
+### 1. Remove pre-headline text from Infrastructure hero
+**File: `src/components/apex/InfrastructureTab.tsx`**
+- Remove `preHeadline` and `preSubline` props from the `HeroSection` component call
+
+### 2. Create new AI Stack Diagram component
+**New file: `src/components/apex/AIStackDiagram.tsx`**
+
+A vertical stacked cylinder-inspired architecture diagram with 7 layers (bottom to top):
 
 ```text
-     ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
-     │ Public   │  │Enterprise│  │Financial │  │Proprietary│
-     │ Data     │  │ Data     │  │Providers │  │ Data      │
-     │ items... │  │ items... │  │ items... │  │ items...  │
-     └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬──────┘
-          └──────────────┼──────────────┼──────────────┘
-                         │ (animated lines flowing down)
-                    ┌────▼────┐
-                    │         │
-                    │  ALICE  │  ← bigger (h-40 w-40), stronger glow
-                    │         │
-                    └────┬────┘
-                         │ (animated lines flowing down)
-          ┌──────┬───────┼───────┬──────┬──────┐
-          ▼      ▼       ▼       ▼      ▼
-       Insights Reports Models Dashboards Signals
-       (glowing output cards in a row)
+  ┌─────────────────────────────────┐
+  │   07  User Interface            │  ← top
+  ├─────────────────────────────────┤
+  │   06  Financial Intelligence    │
+  ├─────────────────────────────────┤
+  │   05  Agentic Workflow Engine   │
+  ├─────────────────────────────────┤
+  │   04  AI Models & Reasoning     │
+  ├─────────────────────────────────┤
+  │   03  Vectorisation & Indexing  │
+  ├─────────────────────────────────┤
+  │   02  Data Processing           │
+  ├─────────────────────────────────┤
+  │   01  Data Ingestion            │  ← bottom
+  └─────────────────────────────────┘
 ```
 
-## Key design decisions
+**Visual design:**
+- Dark cards with subtle teal/primary gradient borders, stacked vertically
+- Each layer is a horizontal block with number badge (01-07), title, and one-line description
+- Animated upward-flowing gradient lines between layers (CSS keyframe moving dots/glow upward)
+- Hover: layer highlights with brighter border + glow, shows short description
+- Click: expands an inline detail panel below the layer with 3-5 bullet points and a 2-sentence explanation
+- Only one layer expanded at a time (accordion style)
+- Cylinder aesthetic via rounded top/bottom edges on the outermost layers and subtle curved separators
 
-1. **ALICE node**: Scale up to `h-40 w-40` on desktop, triple-layer glow (blur-2xl outer, blur-lg mid, border ring), slow pulse animation
-2. **Input groups**: 4-column grid at top, each group is a compact card with label + stacked items
-3. **Flow lines**: Vertical animated gradient lines between inputs→ALICE and ALICE→outputs using CSS keyframes (`flowDown`)
-4. **"INGEST" / "OUTPUT" labels**: Small mono labels on the vertical flow connectors
-5. **Output cards**: Horizontal row of 5 cards with teal border glow + staggered entrance animation
-6. **Mobile**: Inputs become 2-col grid, outputs become 3-col grid, same vertical flow
-7. **Remove**: The separate desktop (horizontal) and mobile layouts — use one unified vertical layout that's responsive
+**Floating side badges** (fixed position relative to the diagram):
+- Privacy: "Private deployment / On-prem / VPC"
+- Accuracy: "Validated outputs, retrieval-based reasoning"
+- Security: "Enterprise-grade infrastructure"
+- Positioned as small vertical pills on the right side of the stack
 
-## File to edit
-- `src/components/apex/AliceHubDiagram.tsx` — full rewrite of the diagram section, keeping header and CTA unchanged
+**Layer data:**
+
+| # | Title | One-liner | Expanded bullets |
+|---|-------|-----------|-----------------|
+| 01 | Data Ingestion & Connectivity | Data-agnostic ingestion across structured and unstructured sources | PDFs, Excel, APIs, market data, internal systems; Real-time and batch processing; Connector framework for proprietary feeds |
+| 02 | Data Processing & Structuring | Intelligent parsing, metadata tagging, and data normalisation | Chunking, cleaning, deduplication; Schema inference and mapping; Quality scoring and validation |
+| 03 | Vectorisation & Indexing | Semantic embeddings and private knowledge indexing | Multi-model embedding generation; Hybrid search (semantic + keyword); Incremental re-indexing |
+| 04 | AI Models & Reasoning Engine | Multi-model orchestration, RAG, and explainable reasoning | Private model hosting; Retrieval-augmented generation; Citation and provenance tracking |
+| 05 | Agentic Workflow Engine | AI agents executing multi-step workflows and decision logic | Autonomous task decomposition; Human-in-the-loop checkpoints; Cross-system orchestration |
+| 06 | Financial Intelligence Applications | Domain-specific applications built on top of the AI stack | Document Intelligence, Portfolio Analytics; Credit Analysis, Chart Builder; Custom application framework |
+| 07 | User Interface | Natural language, voice, and visual interaction layer | Chat, dashboards, voice; Embedded widgets; API and SDK access |
+
+**Header text above diagram:**
+> "APEX:E3 transforms fragmented data into structured, explainable, and actionable intelligence through a fully integrated AI stack."
+
+**Animation:** Subtle upward-flowing particles/dots along the left edge of the stack using CSS animation.
+
+### 3. Add AI Stack Diagram to Infrastructure tab
+**File: `src/components/apex/InfrastructureTab.tsx`**
+- Import and place `<AIStackDiagram />` after the existing `ArchitectureDiagram` (BDAaS chart) and before the transformation visual section
+
+## Files
+1. `src/components/apex/InfrastructureTab.tsx` — remove pre-headline props, add AIStackDiagram import
+2. `src/components/apex/AIStackDiagram.tsx` — new component (full AI stack vertical diagram)
 
