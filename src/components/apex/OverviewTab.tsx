@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import TesseractAnimation from "./TesseractAnimation";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
+import SecuritySection from "./SecuritySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
@@ -146,8 +147,11 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {/* Core Pillars — Home only */}
       {isHome && <SovereigntySection onTabChange={onTabChange} />}
 
-      {/* ALICE Hub Diagram */}
-      {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
+      {/* Security Section — Home only */}
+      {isHome && <SecuritySection />}
+
+      {/* ALICE Hub Diagram — ALICE tab only */}
+      {!isHome && onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
     </div>
   );
