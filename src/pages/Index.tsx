@@ -1,4 +1,5 @@
 import { useState } from "react";
+import apexLogo from "@/assets/apex-logo.png";
 import { AnimatePresence, motion } from "framer-motion";
 import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
