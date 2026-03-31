@@ -21,10 +21,18 @@ interface DropdownItem {
 }
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
+  Solutions: [
+    { label: "Portfolio Managers" },
+    { label: "Traders" },
+    { label: "Quants" },
+    { label: "Researchers" },
+    { label: "Developers" },
+  ],
   Infrastructure: [
-    { label: "Cloud Architecture" },
+    { label: "BDAaS" },
     { label: "Deployment" },
     { label: "Microservices" },
+    { label: "Security" },
   ],
   "Data & Intelligence": [
     { label: "Data Ingestion" },
