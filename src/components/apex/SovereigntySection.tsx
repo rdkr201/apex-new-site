@@ -5,7 +5,7 @@ import { type TabId } from "./TabNavigation";
 const alicePillar = {
   icon: MessageSquare,
   title: "ALICE",
-  subtitle: "Your AI Co-Pilot",
+  subtitle: "The Agent for Capital Markets",
   desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
   tab: "ALICE" as TabId,
 };
