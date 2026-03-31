@@ -1,34 +1,43 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Bot, Server, Code } from "lucide-react";
+import { MessageSquare, Bot, Server, Code, ArrowRight } from "lucide-react";
+import { type TabId } from "./TabNavigation";
 
-const pillars = [
+const pillars: { icon: typeof MessageSquare; title: string; subtitle: string; desc: string; tab: TabId }[] = [
   {
     icon: MessageSquare,
     title: "ALICE",
     subtitle: "Your AI Co-Pilot",
     desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
+    tab: "ALICE",
   },
   {
     icon: Bot,
     title: "Bespoke Agents",
     subtitle: "Custom AI Workflows",
     desc: "Domain-specific agents designed around your internal processes, from research to execution.",
+    tab: "Solutions",
   },
   {
     icon: Server,
     title: "Infrastructure",
     subtitle: "Enterprise AI Platform",
     desc: "Private, scalable AI infrastructure, deployed within your environment with full control.",
+    tab: "Infrastructure",
   },
   {
     icon: Code,
     title: "APIs & Data Layer",
     subtitle: "Build on APEX",
     desc: "APIs, SDKs, and data pipelines to integrate, extend, and customise across your stack.",
+    tab: "Infrastructure",
   },
 ];
 
-const SovereigntySection = () => {
+interface SovereigntySectionProps {
+  onTabChange?: (tab: TabId) => void;
+}
+
+const SovereigntySection = ({ onTabChange }: SovereigntySectionProps) => {
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
@@ -50,7 +59,7 @@ const SovereigntySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-background p-8"
+              className="flex flex-col bg-background p-8"
             >
               <item.icon className="mb-4 h-5 w-5 text-primary" strokeWidth={1.5} />
               <h3 className="font-mono text-sm font-medium tracking-wide text-foreground">
@@ -59,9 +68,21 @@ const SovereigntySection = () => {
               <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-primary/70">
                 {item.subtitle}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {item.desc}
               </p>
+              {onTabChange && (
+                <button
+                  onClick={() => {
+                    onTabChange(item.tab);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:text-primary/80"
+                >
+                  Explore
+                  <ArrowRight className="h-3 w-3" />
+                </button>
+              )}
             </motion.div>
           ))}
         </div>

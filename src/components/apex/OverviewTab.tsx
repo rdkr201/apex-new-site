@@ -125,7 +125,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {!isHome && <TransformationAnimation />}
 
       {/* AI Sovereignty */}
-      <SovereigntySection />
+      <SovereigntySection onTabChange={onTabChange} />
 
       {/* ALICE Hub Diagram */}
       {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
