@@ -114,7 +114,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                           <button
                             key={item.label}
                             onClick={() => {
-                              onTabChange(tab, item.section);
+                              onTabChange(item.tab || tab, item.section);
                               setOpenDropdown(null);
                             }}
                             className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
