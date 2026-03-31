@@ -10,7 +10,7 @@ const tabs = [
   "Company",
 ] as const;
 
-export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure";
+export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure" | "APIs & Data Layer";
 
 
 
