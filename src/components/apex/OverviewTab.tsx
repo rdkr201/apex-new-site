@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import TesseractAnimation from "./TesseractAnimation";
+import HeroSection from "./HeroSection";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
 
 import claudeLogo from "@/assets/partners-awards/claude.png";
-
 import corprimeLogo from "@/assets/partners-awards/corprime.png";
 import deusxLogo from "@/assets/partners-awards/deusx.png";
 import dwsLogo from "@/assets/partners-awards/dws.png";
@@ -17,7 +17,6 @@ import googleCloudLogo from "@/assets/partners-awards/google-cloud.png";
 import grokLogo from "@/assets/partners-awards/grok.png";
 import llamaMetaLogo from "@/assets/partners-awards/llama-meta.png";
 import mistralLogo from "@/assets/partners-awards/mistral-ai.png";
-
 import nvidiaLogo from "@/assets/partners-awards/nvidia.png";
 import openaiLogo from "@/assets/partners-awards/openai.png";
 import oxfordLogo from "@/assets/partners-awards/oxford.png";
@@ -113,8 +112,8 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
 
   return (
     <div>
-      {/* Hero */}
-      <div className="relative flex min-h-[70vh] items-center overflow-hidden">
+      {/* Hero — matches Solutions layout but keeps tesseract */}
+      <div className="relative flex min-h-[55vh] items-end overflow-hidden pb-20">
         <TesseractAnimation />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -122,9 +121,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
           >
-            {/* Static ALICE intro */}
             <div className="mb-6">
               <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
                 ALICE — The Award-Winning Agent for Capital Markets
@@ -134,7 +131,11 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
               </p>
             </div>
 
-            <h1 className="font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
+              ALICE
+            </p>
+
+            <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
               <span className="text-primary">ALICE</span>
               {" for"}
               <br />
@@ -146,7 +147,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 max-w-lg font-mono text-sm leading-relaxed tracking-wide text-muted-foreground"
+              className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground"
             >
               Domain-native. Institutionally deployed. Outcome-driven.
             </motion.p>
@@ -168,7 +169,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       {/* Awards & Trusted By Section */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-          {/* Awards Logos Placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -194,7 +194,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             </div>
           </motion.div>
 
-          {/* Trusted By Banner */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -209,7 +208,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
         </div>
       </div>
 
-
       {/* Transformation Animation */}
       <TransformationAnimation />
 
@@ -219,7 +217,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
       {/* ALICE Hub Diagram */}
       {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
-      {/* Service Cards */}
+      {/* Service Cards — matches Solutions tab card style */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
