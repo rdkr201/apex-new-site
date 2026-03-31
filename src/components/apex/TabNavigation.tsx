@@ -124,23 +124,40 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                     <div className="rounded-lg border border-border bg-background/95 p-3 shadow-xl backdrop-blur-lg">
                       <div className={`grid gap-1 ${items.length <= 3 ? "grid-cols-1 min-w-[280px]" : items.length <= 4 ? "grid-cols-2 min-w-[480px]" : "grid-cols-3 min-w-[640px]"}`}>
                         {items.map((item) => (
-                          <button
-                            key={item.label}
-                            onClick={() => {
-                              onTabChange(item.tab || tab, item.section);
-                              setOpenDropdown(null);
-                            }}
-                            className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
-                          >
-                            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
-                              {item.label}
-                            </span>
-                            {item.desc && (
-                              <span className="font-mono text-[10px] leading-relaxed text-muted-foreground">
-                                {item.desc}
+                          <div key={item.label} className="flex flex-col">
+                            <button
+                              onClick={() => {
+                                onTabChange(item.tab || tab, item.section);
+                                setOpenDropdown(null);
+                              }}
+                              className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
+                            >
+                              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
+                                {item.label}
                               </span>
+                              {item.desc && (
+                                <span className="font-mono text-[10px] leading-relaxed text-muted-foreground">
+                                  {item.desc}
+                                </span>
+                              )}
+                            </button>
+                            {item.children && (
+                              <div className="ml-4 flex flex-col border-l border-border pl-3 pb-2">
+                                {item.children.map((child) => (
+                                  <button
+                                    key={child.label}
+                                    onClick={() => {
+                                      onTabChange(child.tab, child.section);
+                                      setOpenDropdown(null);
+                                    }}
+                                    className="py-1.5 text-left font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+                                  >
+                                    {child.label}
+                                  </button>
+                                ))}
+                              </div>
                             )}
-                          </button>
+                          </div>
                         ))}
                       </div>
                     </div>
