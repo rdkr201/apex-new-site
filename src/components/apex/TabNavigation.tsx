@@ -5,12 +5,12 @@ import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
   "ALICE",
-  "Solutions",
+  "Custom Workflows",
   "Infrastructure",
   "Company",
 ] as const;
 
-export type TabId = (typeof tabs)[number] | "Overview";
+export type TabId = (typeof tabs)[number] | "Overview" | "Solutions";
 
 
 
@@ -20,19 +20,13 @@ interface DropdownItem {
   label: string;
   desc?: string;
   section?: string;
+  tab?: TabId;
 }
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
   ALICE: [
     { label: "Overview", desc: "Award-winning agentic AI for capital markets" },
-    { label: "Partners & Awards", desc: "Trusted by leading institutions globally" },
-  ],
-  Solutions: [
-    { label: "Portfolio Managers", desc: "Cross-asset intelligence and allocation" },
-    { label: "Traders", desc: "Spreads, risk, and execution intelligence" },
-    { label: "Quants", desc: "NL-to-model, backtesting, and signal analysis" },
-    { label: "Researchers", desc: "Document synthesis and cross-doc queries" },
-    { label: "Developers", desc: "APIs, SDKs, and custom integrations" },
+    { label: "Solutions", desc: "Role-based workflows for institutional teams", tab: "Solutions" },
   ],
   Infrastructure: [
     { label: "APEX:E3 AI Stack", desc: "Full 7-layer intelligence architecture" },
@@ -120,7 +114,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                           <button
                             key={item.label}
                             onClick={() => {
-                              onTabChange(tab, item.section);
+                              onTabChange(item.tab || tab, item.section);
                               setOpenDropdown(null);
                             }}
                             className="flex flex-col gap-1 rounded-md px-4 py-3 text-left transition-colors hover:bg-secondary"
@@ -202,8 +196,8 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                       {items.map((item) => (
                         <button
                           key={item.label}
-                          onClick={() => {
-                            onTabChange(tab, item.section);
+                            onClick={() => {
+                            onTabChange(item.tab || tab, item.section);
                             setMobileOpen(false);
                           }}
                           className="py-2 text-left font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"

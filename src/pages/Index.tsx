@@ -31,6 +31,7 @@ const Index = () => {
           >
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} isHome />}
             {activeTab === "Solutions" && <WorkflowsTab />}
+            {activeTab === "Custom Workflows" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             
@@ -55,7 +56,7 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["ALICE", "Solutions", "Infrastructure"].map(
+                {["ALICE", "Custom Workflows", "Infrastructure"].map(
                   (link) => (
                     <button
                       key={link}
