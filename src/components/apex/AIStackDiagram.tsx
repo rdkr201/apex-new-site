@@ -118,20 +118,7 @@ const AIStackDiagram = () => {
         </p>
       </motion.div>
 
-      {/* Stack + Badges */}
       <div className="relative mx-auto max-w-3xl">
-        {/* Upward flow animation line */}
-        <div className="absolute left-6 top-0 bottom-0 w-px overflow-hidden md:left-8">
-          <div
-            className="absolute inset-0 w-full"
-            style={{
-              background:
-                "repeating-linear-gradient(0deg, transparent 0%, hsl(var(--primary) / 0.4) 30%, transparent 60%)",
-              backgroundSize: "100% 80px",
-              animation: "flowUp 3s linear infinite",
-            }}
-          />
-        </div>
 
         {/* Layers */}
         <div className="relative flex flex-col gap-1">
