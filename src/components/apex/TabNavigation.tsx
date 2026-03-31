@@ -92,6 +92,9 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                   onClick={() => {
                     if (tab === "Home") {
                       onTabChange("Overview");
+                    } else if (tab === "Solutions") {
+                      onTabChange("ALICE");
+                      setOpenDropdown(null);
                     } else if (!items) {
                       onTabChange(tab as TabId);
                     } else {
