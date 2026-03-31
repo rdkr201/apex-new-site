@@ -9,9 +9,10 @@ const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers",
 
 interface OverviewTabProps {
   onTabChange?: (tab: TabId) => void;
+  isHome?: boolean;
 }
 
-const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
+const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pausing" | "erasing">("typing");
