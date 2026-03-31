@@ -5,7 +5,6 @@ import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
-import DataTab from "@/components/apex/DataTab";
 
 import CompanyTab from "@/components/apex/CompanyTab";
 
@@ -33,7 +32,7 @@ const Index = () => {
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Solutions" && <WorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
-            {activeTab === "Data & Intelligence" && <DataTab />}
+            {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
           </motion.div>
@@ -56,7 +55,7 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["Solutions", "Infrastructure", "Data & Intelligence"].map(
+                {["ALICE", "Solutions", "Infrastructure"].map(
                   (link) => (
                     <button
                       key={link}

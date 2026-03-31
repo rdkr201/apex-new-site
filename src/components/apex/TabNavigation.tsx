@@ -4,9 +4,9 @@ import { useState, useRef } from "react";
 import apexLogo from "@/assets/apex-logo.png";
 
 const tabs = [
+  "ALICE",
   "Solutions",
   "Infrastructure",
-  "Data & Intelligence",
   "Company",
 ] as const;
 
@@ -34,11 +34,6 @@ const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
     { label: "Deployment" },
     { label: "Microservices" },
     { label: "Security" },
-  ],
-  "Data & Intelligence": [
-    { label: "Data Ingestion" },
-    { label: "Analytics" },
-    { label: "NLP & Parsing" },
   ],
   Company: [
     { label: "About", section: "about" },
