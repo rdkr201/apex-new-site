@@ -63,11 +63,19 @@ const edges: [number, number][] = [
 
 // Additional internal structure lines for complexity
 const internalEdges: [number, number][] = [
-  [0, 17], [5, 17], // diagonal depth lines at base
-  [6, 11], [6, 16], // apex cross-depth
-  [2, 14], [3, 13], // crossbar gap cross-depth
-  [7, 20], [10, 19], // crossbar diagonals
-  [1, 17], [4, 17], // inner legs to back apex
+  [0, 17], [5, 17],
+  [6, 11], [6, 16],
+  [2, 14], [3, 13],
+  [7, 20], [10, 19],
+  [1, 17], [4, 17],
+  // Additional vertical structural lines (front)
+  [6, 2], [6, 3], [6, 7], [6, 10], [6, 9], [6, 8],
+  [0, 10], [5, 9], [1, 7], [4, 8],
+  // Additional vertical structural lines (back)
+  [17, 13], [17, 14], [17, 18], [17, 21], [17, 20], [17, 19],
+  [11, 21], [16, 20], [12, 18], [15, 19],
+  // Cross-depth vertical connectors
+  [0, 12], [5, 15], [1, 11], [4, 16],
 ];
 
 const allEdges = [...edges, ...internalEdges];

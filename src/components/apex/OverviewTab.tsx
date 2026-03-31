@@ -148,8 +148,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 max-w-lg font-mono text-sm leading-relaxed tracking-wide text-muted-foreground"
             >
-              Agentic AI for capital markets. Domain-native.
-              Institutionally deployed. Outcome-driven.
+              Domain-native. Institutionally deployed. Outcome-driven.
             </motion.p>
 
             <motion.a
