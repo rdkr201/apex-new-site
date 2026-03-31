@@ -152,16 +152,6 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
               Domain-native. Institutionally deployed. Outcome-driven.
             </motion.p>
 
-            <motion.a
-              href="mailto:contact@apexe3.com"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="mt-10 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/50 hover:text-primary"
-            >
-              Get in Touch
-              <ArrowRight className="h-3.5 w-3.5" />
-            </motion.a>
           </motion.div>
         </div>
       </div>
