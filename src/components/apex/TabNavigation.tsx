@@ -18,7 +18,8 @@ export type SubSection = string;
 
 interface DropdownItem {
   label: string;
-  section?: string; // optional scroll target
+  desc?: string;
+  section?: string;
 }
 
 const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
