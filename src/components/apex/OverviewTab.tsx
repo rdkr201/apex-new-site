@@ -81,7 +81,7 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
     <div>
       {/* Hero */}
       <div className="relative flex min-h-[70vh] items-center overflow-hidden">
-        <TesseractAnimation activeRole={rotatingWords[wordIndex]} />
+        <TesseractAnimation />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <motion.div
