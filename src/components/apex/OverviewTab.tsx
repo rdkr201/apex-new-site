@@ -147,8 +147,11 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {/* Core Pillars — Home only */}
       {isHome && <SovereigntySection onTabChange={onTabChange} />}
 
-      {/* ALICE Hub Diagram */}
-      {onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
+      {/* Security Section — Home only */}
+      {isHome && <SecuritySection />}
+
+      {/* ALICE Hub Diagram — ALICE tab only */}
+      {!isHome && onTabChange && <AliceHubDiagram onTabChange={onTabChange} />}
 
     </div>
   );
