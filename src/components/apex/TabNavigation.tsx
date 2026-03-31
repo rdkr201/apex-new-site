@@ -92,6 +92,8 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                   }}
                   className={cn(
                     "flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-200",
+                    (tab === "Home" && activeTab === "Overview") ||
+                    (tab === "Solutions" && ["ALICE", "Custom Workflows", "Infrastructure", "Solutions"].includes(activeTab)) ||
                     activeTab === tab
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
