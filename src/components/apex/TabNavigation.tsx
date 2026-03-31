@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef } from "react";
 
 const tabs = [
-  "Agentic Workflows",
+  "Solutions",
   "Infrastructure",
   "Data & Intelligence",
   "Company",
