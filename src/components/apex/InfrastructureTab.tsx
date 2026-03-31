@@ -22,6 +22,9 @@ const InfrastructureTab = () => {
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          {/* AI Stack Diagram */}
+          <AIStackDiagram />
+
           <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
             {specs.map((spec, i) => (
               <motion.div
