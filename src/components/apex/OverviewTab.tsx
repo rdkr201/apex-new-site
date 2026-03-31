@@ -10,9 +10,9 @@ import { type TabId } from "./TabNavigation";
 const services: { label: string; title: string; desc: string; tab: TabId }[] = [
   {
     label: "01",
-    title: "Agentic Workflows",
+    title: "Solutions",
     desc: "End-to-end automation across research, signal generation, and trade execution.",
-    tab: "Agentic Workflows",
+    tab: "Solutions",
   },
   {
     label: "02",
