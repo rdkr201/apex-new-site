@@ -58,7 +58,7 @@ const services: { label: string; title: string; desc: string; tab: TabId }[] = [
     label: "03",
     title: "Insights",
     desc: "Ingest structured and unstructured data. Real-time and historical. Query anything.",
-    tab: "Data & Intelligence",
+    tab: "Infrastructure",
   },
   {
     label: "04",
