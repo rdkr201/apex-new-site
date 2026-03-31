@@ -6,7 +6,6 @@ import SovereigntySection from "./SovereigntySection";
 import SecuritySection from "./SecuritySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
-import { type TabId } from "./TabNavigation";
 const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
 
 interface OverviewTabProps {
