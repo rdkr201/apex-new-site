@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import HeroSection from "./HeroSection";
+import AIStackDiagram from "./AIStackDiagram";
 
 const specs = [
   { label: "Cloud Agnostic", desc: "Deploy on AWS, GCP, Azure, or private cloud. No vendor lock-in." },
