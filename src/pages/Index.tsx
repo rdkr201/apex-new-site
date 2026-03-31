@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import TabNavigation, { type TabId } from "@/components/apex/TabNavigation";
 import OverviewTab from "@/components/apex/OverviewTab";
 import WorkflowsTab from "@/components/apex/WorkflowsTab";
+import BespokeWorkflowsTab from "@/components/apex/BespokeWorkflowsTab";
 import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
