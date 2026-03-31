@@ -107,12 +107,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="mt-6"
                 >
-                  <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                    The Award-Winning Agent for Capital Markets
-                  </p>
-                  <p className="mt-1 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/60">
-                    Powered by APEX:E3
-                  </p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60">
                   <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60">
                     Explore Solutions for
                   </p>
