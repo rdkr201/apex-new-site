@@ -140,7 +140,7 @@ const WorkflowsTab = () => {
     <div>
       <HeroSection
         accentLine="Solutions"
-        headline="ALICE: Role-Adaptive Intelligence"
+        headline={<>ALICE: Role-Adaptive<br />Intelligence</>}
         subtitle="One intelligence layer for every role in investing."
         tesseractVariant="solutions"
       />
