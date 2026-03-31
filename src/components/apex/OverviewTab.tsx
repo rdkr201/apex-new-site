@@ -60,22 +60,12 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-6">
-              <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                ALICE — The Award-Winning Agent for Capital Markets
-              </p>
-              <p className="mt-1 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/60">
-                Powered by APEX:E3
-              </p>
-            </div>
-
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
               ALICE
             </p>
 
             <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
-              <span className="text-primary">ALICE</span>
-              {" for"}
+              The AI Agent for
               <br />
               {dynamicText}
               <span className="animate-pulse text-primary">_</span>
@@ -89,6 +79,20 @@ const OverviewTab = ({ onTabChange }: OverviewTabProps) => {
             >
               Domain-native. Institutionally deployed. Outcome-driven.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: showContent ? 1 : 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-6"
+            >
+              <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-primary">
+                The Award-Winning Agent for Capital Markets
+              </p>
+              <p className="mt-1 font-mono text-[11px] tracking-[0.15em] text-muted-foreground/60">
+                Powered by APEX:E3
+              </p>
+            </motion.div>
 
           </motion.div>
         </div>
