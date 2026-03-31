@@ -35,11 +35,6 @@ const dropdowns: Partial<Record<TabId, DropdownItem[]>> = {
     { label: "Microservices" },
     { label: "Security" },
   ],
-  "Data & Intelligence": [
-    { label: "Data Ingestion" },
-    { label: "Analytics" },
-    { label: "NLP & Parsing" },
-  ],
   Company: [
     { label: "About", section: "about" },
     { label: "Blog", section: "blog" },

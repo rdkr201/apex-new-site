@@ -55,7 +55,7 @@ const Index = () => {
                 Platform
               </h4>
               <div className="mt-4 flex flex-col gap-2.5">
-                {["Solutions", "Infrastructure", "Data & Intelligence"].map(
+                {["ALICE", "Solutions", "Infrastructure"].map(
                   (link) => (
                     <button
                       key={link}
