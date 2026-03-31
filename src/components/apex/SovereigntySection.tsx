@@ -5,7 +5,7 @@ import { type TabId } from "./TabNavigation";
 const alicePillar = {
   icon: MessageSquare,
   title: "ALICE",
-  subtitle: "Your AI Co-Pilot",
+  subtitle: "The Agent for Capital Markets",
   desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
   tab: "ALICE" as TabId,
 };
@@ -49,7 +49,7 @@ const SovereigntySection = ({ onTabChange }: SovereigntySectionProps) => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl"
         >
-          A Complete Sovereign AI Stack — Delivered Your Way
+          A Complete Sovereign AI Stack. Delivered Your Way
         </motion.h2>
 
         {/* ALICE — Featured Card */}
