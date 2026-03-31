@@ -32,8 +32,8 @@ const dropdowns: Partial<Record<string, DropdownItem[]>> = {
   ],
   Company: [
     { label: "About", section: "about", desc: "Our mission and team" },
-    { label: "Newsroom", section: "newsroom", desc: "Press and media coverage" },
     { label: "Careers", section: "careers", desc: "Join the team" },
+    { label: "Contact", section: "contact", desc: "Get in touch" },
   ],
 };
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import HeroSection from "./HeroSection";
 
 interface CompanyTabProps {
@@ -14,17 +15,15 @@ const teamMembers = [
 
 const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
   const aboutRef = useRef<HTMLDivElement>(null);
-  const blogRef = useRef<HTMLDivElement>(null);
-  const newsroomRef = useRef<HTMLDivElement>(null);
   const careersRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!scrollToSection) return;
     const ref =
       scrollToSection === "about" ? aboutRef :
-      scrollToSection === "blog" ? blogRef :
-      scrollToSection === "newsroom" ? newsroomRef :
-      scrollToSection === "careers" ? careersRef : null;
+      scrollToSection === "careers" ? careersRef :
+      scrollToSection === "contact" ? contactRef : null;
 
     if (ref?.current) {
       setTimeout(() => {
@@ -90,54 +89,6 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
         </div>
       </div>
 
-      {/* Blog Section */}
-      <div ref={blogRef} className="scroll-mt-20 border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="max-w-2xl"
-          >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Blog
-            </p>
-            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-              Insights & Research
-            </h3>
-            <div className="mt-8 space-y-6">
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                Perspectives on agentic AI, quantitative research, and the future of institutional investment infrastructure. Coming soon.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Newsroom Section */}
-      <div ref={newsroomRef} className="scroll-mt-20 border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="max-w-2xl"
-          >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Newsroom
-            </p>
-            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-              Press & Announcements
-            </h3>
-            <div className="mt-8 space-y-6">
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                The latest updates on product launches, partnerships, and company milestones. Coming soon.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Careers Section */}
       <div ref={careersRef} className="scroll-mt-20 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
@@ -172,6 +123,38 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
                 </a>
               </p>
             </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div ref={contactRef} className="scroll-mt-20 border-t border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
+              Contact
+            </p>
+            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
+              Get in Touch
+            </h3>
+            <div className="mt-8 max-w-2xl space-y-6">
+              <p className="text-sm leading-[1.8] text-muted-foreground">
+                Whether you're exploring AI infrastructure for your fund, interested in a demo of ALICE, or want to discuss a partnership — we'd love to hear from you.
+              </p>
+            </div>
+            <div className="mt-8">
+              <a
+                href="mailto:contact@apexe3.com"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
+              >
+                contact@apexe3.com
+                <ArrowRight className="h-3 w-3" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
