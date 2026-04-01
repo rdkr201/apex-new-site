@@ -132,8 +132,20 @@ const disciplines: Discipline[] = [
   },
 ];
 
-const WorkflowsTab = () => {
+interface WorkflowsTabProps {
+  scrollToSection?: string;
+}
+
+const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
   const [activeId, setActiveId] = useState("portfolio-management");
+
+  // Sync active persona when navigated via dropdown/button
+  useState(() => {
+    if (scrollToSection && disciplines.some((d) => d.id === scrollToSection)) {
+      setActiveId(scrollToSection);
+    }
+  });
+
   const active = disciplines.find((d) => d.id === activeId)!;
 
   return (

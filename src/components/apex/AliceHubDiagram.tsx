@@ -184,17 +184,16 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
-              "Portfolio Management",
-              "Traders",
-              "Quants",
-              "Researchers",
-              "Developers",
-            ].map((label) => (
+              { label: "Portfolio Management", section: "portfolio-management" },
+              { label: "Traders", section: "traders" },
+              { label: "Quants", section: "quants" },
+              { label: "Researchers", section: "researchers" },
+              { label: "Developers", section: "developers" },
+            ].map(({ label, section }) => (
               <button
                 key={label}
                 onClick={() => {
-                  onTabChange("Solutions");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  onTabChange("Solutions", section);
                 }}
                 className="rounded-full border border-primary/40 bg-primary/10 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary/20 hover:border-primary/60"
               >
