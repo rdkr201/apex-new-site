@@ -68,6 +68,22 @@ const SecuritySection = ({ onTabChange }: SecuritySectionProps) => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="mt-10 text-center"
+        >
+          <button
+            onClick={() => onTabChange?.("Security")}
+            className="inline-flex items-center gap-2 border border-primary/30 bg-primary/5 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
+          >
+            Explore
+            <ArrowRight className="h-3 w-3" />
+          </button>
+        </motion.div>
       </div>
     </section>
   );
