@@ -167,6 +167,42 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
             <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </motion.div>
+
+        {/* Explore Solutions for Roles */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-20 text-center"
+        >
+          <h3 className="font-mono text-xl font-light tracking-tight text-foreground md:text-2xl">
+            Explore Solutions
+          </h3>
+          <p className="mx-auto mt-3 max-w-md font-mono text-sm text-muted-foreground">
+            See how ALICE adapts to every role in investing.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {[
+              "Portfolio Management",
+              "Traders",
+              "Quants",
+              "Researchers",
+              "Developers",
+            ].map((label) => (
+              <button
+                key={label}
+                onClick={() => {
+                  onTabChange("Solutions");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="rounded-full border border-primary/40 bg-primary/10 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary/20 hover:border-primary/60"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       {/* Animated flow keyframes */}
