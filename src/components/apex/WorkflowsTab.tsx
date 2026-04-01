@@ -140,11 +140,11 @@ const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
   const [activeId, setActiveId] = useState("portfolio-management");
 
   // Sync active persona when navigated via dropdown/button
-  useState(() => {
+  useEffect(() => {
     if (scrollToSection && disciplines.some((d) => d.id === scrollToSection)) {
       setActiveId(scrollToSection);
     }
-  });
+  }, [scrollToSection]);
 
   const active = disciplines.find((d) => d.id === activeId)!;
 
