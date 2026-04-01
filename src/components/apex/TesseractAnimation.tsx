@@ -195,6 +195,58 @@ function makeLock(): { vertices: [number, number, number][]; edges: [number, num
   internal.push([0, 2], [1, 3], [4, 6], [5, 7]);
   internal.push([0, 6], [1, 7], [2, 4], [3, 5]);
 
+  // Dense internal web: connect every body vertex to every other body vertex
+  for (let i = 0; i < 8; i++) {
+    for (let j = i + 1; j < 8; j++) {
+      const key = `${i}-${j}`;
+      // skip if already an edge
+      if ((i < 4 && j < 4) || (i >= 4 && j >= 4)) {
+        // same face non-adjacent diagonals already added, add remaining
+      }
+      internal.push([i, j]);
+    }
+  }
+
+  // Connect body vertices to shackle arc points
+  for (let i = 0; i < 8; i++) {
+    for (let si = 0; si <= segments; si += 2) {
+      internal.push([i, frontArc[si]]);
+      internal.push([i, backArc[si]]);
+    }
+  }
+
+  // Connect shackle points across the arc (skip connections)
+  for (let i = 0; i <= segments; i++) {
+    for (let j = i + 2; j <= segments; j += 2) {
+      internal.push([frontArc[i], frontArc[j]]);
+      internal.push([backArc[i], backArc[j]]);
+    }
+  }
+
+  // Cross-connect front arc to back arc non-corresponding points
+  for (let i = 0; i <= segments; i += 2) {
+    for (let j = 0; j <= segments; j += 3) {
+      if (i !== j) {
+        internal.push([frontArc[i], backArc[j]]);
+      }
+    }
+  }
+
+  // Connect keyhole to body corners
+  for (let i = 0; i < 8; i++) {
+    for (let k = 0; k < 4; k++) {
+      internal.push([i, ki + k]);
+    }
+  }
+
+  // Connect keyhole to shackle points
+  for (let k = 0; k < 4; k++) {
+    for (let si = 0; si <= segments; si += 3) {
+      internal.push([ki + k, frontArc[si]]);
+      internal.push([ki + k, backArc[si]]);
+    }
+  }
+
   return { vertices, edges, internal };
 }
 
