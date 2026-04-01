@@ -145,7 +145,7 @@ const SecurityTab = () => {
         </p>
       </div>
 
-      {/* 1. AI Sovereignty */}
+      {/* 1. AI Sovereignty + Comparison Table */}
       <Section>
         <motion.div {...sectionAnim}>
           <SectionLabel label="AI Sovereignty" />
@@ -162,6 +162,35 @@ const SecurityTab = () => {
         >
           Your data, your models, your infrastructure. Fully sovereign.
         </motion.p>
+
+        {/* Comparison Table */}
+        <motion.div {...sectionAnim}>
+          <h3 className="mt-16 font-mono text-lg font-light tracking-tightest text-foreground">How APEX:E3 Compares</h3>
+        </motion.div>
+        <motion.div {...sectionAnim} className="mt-6 overflow-hidden border border-border">
+          <Table>
+            <TableHeader>
+              <TableRow className="border-border bg-muted/30">
+                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Feature</TableHead>
+                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Typical AI Tools</TableHead>
+                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">APEX:E3</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {comparisonRows.map((row) => (
+                <TableRow key={row.feature} className="border-border">
+                  <TableCell className="font-mono text-sm text-foreground">{row.feature}</TableCell>
+                  <TableCell>
+                    <span className="font-mono text-sm text-muted-foreground">{row.typical}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="font-mono text-sm font-medium text-primary">{row.apex}</span>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </motion.div>
       </Section>
 
       {/* 2. Deployment & Infrastructure */}
