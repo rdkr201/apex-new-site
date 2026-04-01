@@ -1,35 +1,31 @@
 
 
-## Optimise Homepage Section Order
+## Add "The Agentic System Behind ALICE" Section to the ALICE Tab
 
-Reorder sections in `src/components/apex/OverviewTab.tsx` (home view only) to match the requested flow.
+Insert a new section between the `TransformationAnimation` (particle simulation) and the `AliceHubDiagram` (System Architecture) on the ALICE tab page.
 
-### Current Order
-1. Hero
-2. Partners logo carousel
-3. Core Pillars (SovereigntySection — ALICE / Infra / etc)
-4. Security Section
-5. Last Mile section
-6. Contact section
+### New Section: "The Agentic System Behind ALICE"
 
-### New Order
-1. Hero
-2. Partners logo carousel
-3. Core Pillars (SovereigntySection — "What APEX Does")
-4. **Last Mile section** (moved up from position 5)
-5. Security Section (moved down from position 4)
-6. Contact section
+**Layout** (within `OverviewTab.tsx`, rendered when `!isHome`):
 
-### Changes to `src/components/apex/OverviewTab.tsx`
+1. **Header block** (centered)
+   - Label: "Agentic Architecture" (styled as `text-[11px] uppercase tracking-[0.2em] text-primary`)
+   - Title: "The Agentic System Behind ALICE"
+   - Subtitle: "More than an interface. ALICE is a coordinated system of agents, data, and models operating as one."
 
-Swap the order of three `{isHome && ...}` blocks (lines 155–231):
+2. **Core paragraph** (centered, max-w-2xl)
+   - Two paragraphs explaining orchestration layer and agent-as-microservice concept
 
-- Move the **Last Mile section** (lines 162–231) to immediately after `SovereigntySection` (line 156)
-- Move the **Security Section** (lines 158–159) to after the Last Mile block
-
-No content changes, just reordering the JSX blocks.
+3. **Three-card grid** (`grid-cols-1 md:grid-cols-3`, with `gap-px border border-border bg-border` pattern matching SovereigntySection)
+   - **Agentic Harness**: Icon (Layers from lucide), description about orchestration layer connecting models/data/tools
+   - **Agent Mesh**: Icon (Network from lucide), description about specialised agents working together
+   - **System-Level Control**: Icon (Shield from lucide), description + bullet list (task decomposition, data access, output validation)
 
 ### Technical Details
-- Only the `isHome` conditional blocks change position
-- All component references, props, and animations remain identical
+
+- **File changed**: `src/components/apex/OverviewTab.tsx`
+- New JSX block inserted between `{!isHome && <TransformationAnimation />}` and `{!isHome && onTabChange && <AliceHubDiagram ... />}`
+- Uses existing patterns: `motion` animations, `border-t border-border` section dividers, `max-w-[1400px]` container
+- Icons: `Layers`, `Network`, `ShieldCheck` from lucide-react
+- Follows the same card grid pattern used in `SovereigntySection` (gap-px with bg-border trick)
 
