@@ -6,7 +6,23 @@ import SovereigntySection from "./SovereigntySection";
 import SecuritySection from "./SecuritySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
+import CorprimeLogo from "@/assets/logos/Corprime.png";
+import DeusXLogo from "@/assets/logos/DeusX.png";
+import DWSLogo from "@/assets/logos/DWS.png";
+import NvidiaLogo from "@/assets/logos/Nvidia.png";
+import OxfordLogo from "@/assets/logos/Oxford.png";
+import VanguardLogo from "@/assets/logos/Vanguard.png";
+
 const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
+
+const partnerLogos = [
+  { src: CorprimeLogo, alt: "Corprime" },
+  { src: DeusXLogo, alt: "DeusX" },
+  { src: DWSLogo, alt: "DWS" },
+  { src: NvidiaLogo, alt: "Nvidia" },
+  { src: OxfordLogo, alt: "Oxford" },
+  { src: VanguardLogo, alt: "Vanguard" },
+];
 
 interface OverviewTabProps {
   onTabChange?: (tab: TabId) => void;
@@ -116,13 +132,13 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               Trusted By
             </p>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flex h-10 w-28 items-center justify-center rounded border border-border/50 bg-secondary/20 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40"
-                >
-                  Logo {i + 1}
-                </div>
+              {partnerLogos.map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 w-auto max-w-[120px] object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100"
+                />
               ))}
             </div>
           </div>
