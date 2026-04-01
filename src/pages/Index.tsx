@@ -36,7 +36,7 @@ const Index = () => {
             transition={{ duration: 0.3 }}
           >
             {activeTab === "Overview" && <OverviewTab onTabChange={handleTabChange} isHome />}
-            {activeTab === "Solutions" && <WorkflowsTab />}
+            {activeTab === "Solutions" && <WorkflowsTab scrollToSection={scrollSection} />}
             {activeTab === "Custom Workflows" && <BespokeWorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "APIs & Data Layer" && <ApiDataLayerTab />}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import HeroSection from "./HeroSection";
 
@@ -132,8 +132,20 @@ const disciplines: Discipline[] = [
   },
 ];
 
-const WorkflowsTab = () => {
+interface WorkflowsTabProps {
+  scrollToSection?: string;
+}
+
+const WorkflowsTab = ({ scrollToSection }: WorkflowsTabProps) => {
   const [activeId, setActiveId] = useState("portfolio-management");
+
+  // Sync active persona when navigated via dropdown/button
+  useEffect(() => {
+    if (scrollToSection && disciplines.some((d) => d.id === scrollToSection)) {
+      setActiveId(scrollToSection);
+    }
+  }, [scrollToSection]);
+
   const active = disciplines.find((d) => d.id === activeId)!;
 
   return (
