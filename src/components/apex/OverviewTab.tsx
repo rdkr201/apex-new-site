@@ -145,7 +145,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {isHome && <SovereigntySection onTabChange={onTabChange} />}
 
       {/* Security Section — Home only */}
-      {isHome && <SecuritySection />}
+      {isHome && <SecuritySection onTabChange={onTabChange} />}
 
       {/* Contact Section — Home only */}
       {isHome && (
