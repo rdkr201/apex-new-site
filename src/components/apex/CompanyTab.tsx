@@ -1,11 +1,49 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, User } from "lucide-react";
 import HeroSection from "./HeroSection";
 
-interface CompanyTabProps {
-  scrollToSection?: string;
+interface Leader {
+  name: string;
+  title: string;
+  bullets: string[];
 }
+
+const leaders: Leader[] = [
+  {
+    name: "Usman Khan",
+    title: "Founder & CEO",
+    bullets: [
+      "Award-winning entrepreneur and technologist with multiple successful exits.",
+      "Over 10 years at UBS Investment Bank specialising in high-performance computing, AI, quantitative methods, and applied mathematics.",
+      "Deep expertise in applying AI across fixed income, equities, and algorithmic trading.",
+      "Investor and advisor to multiple successful high growth technology firms.",
+      "Founded and scaled b2b fintech companies to over $10M+ ARR and 300+ Buy side and Sell side enterprise clients globally.",
+    ],
+  },
+  {
+    name: "Jens Raiser, CFA, CFDS",
+    title: "Chief Commercial Officer",
+    bullets: [
+      "Head of AI Strategy and Chief Commercial Officer at APEX:E3 driving AI adoption in financial services.",
+      "Former senior executive at Bank of America Merrill Lynch, Merrill Lynch, and HSBC with 25+ years capital markets experience.",
+      "Financial analyst and portfolio manager across equities, fixed income, commodities, and FX.",
+      "Founder of JR Digital Ventures advising C-suite executives and investing in emerging technology startups.",
+      "Chartered Financial Analyst (CFA), Chartered Financial Data Scientist (CFDS), MIT CSAIL AI Executive Education.",
+    ],
+  },
+  {
+    name: "Tim Grant",
+    title: "Chairman",
+    bullets: [
+      "Chief Executive Officer at Deus X Capital, a family office-backed global investment and operating company.",
+      "Chairman of AlphaLab40, an institutional market maker.",
+      "Former Head of EMEA at Galaxy, a leading digital asset and blockchain financial services firm.",
+      "Previously CEO of SIX Digital Exchange (SDX), Founder and CEO of DrumG Technologies, and CEO of R3 Lab and Research Center.",
+      "Early career as Managing Director at UBS O'Connor and UBS Investment Bank.",
+    ],
+  },
+];
 
 const teamMembers = [
   { name: "Leadership Team", role: "Deep expertise across quantitative finance, AI research, and enterprise infrastructure." },
