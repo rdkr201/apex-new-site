@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Link, Settings, Lock, Building } from "lucide-react";
 import HeroSection from "./HeroSection";
 
 const useCases = [
@@ -56,25 +56,103 @@ const steps = [
   },
 ];
 
-const problemBullets = [
-  "Connecting to fragmented, proprietary data sources",
-  "Structuring outputs into repeatable, auditable workflows",
-  "Ensuring accuracy, traceability, and compliance",
-  "Embedding into real operational systems and decision processes",
+const frontierCapabilities = [
+  "Exploration",
+  "Summarisation",
+  "Prototyping",
 ];
 
-const apexBullets = [
-  "Integrate directly with your internal systems and datasets",
-  "Encode domain-specific logic and constraints",
-  "Deliver consistent, auditable outputs at scale",
-  "Operate securely within your environment",
+const lastMileCards = [
+  {
+    icon: Link,
+    label: "Data",
+    title: "Integration with proprietary data",
+  },
+  {
+    icon: Settings,
+    label: "Workflow",
+    title: "Structured, repeatable workflows",
+  },
+  {
+    icon: Lock,
+    label: "Compliance",
+    title: "Accuracy, traceability, and compliance",
+  },
+  {
+    icon: Building,
+    label: "Systems",
+    title: "Embedding into real decision systems",
+  },
 ];
 
-const comparisonRows = [
-  { frontier: "Insight generation", apex: "Workflow integration" },
-  { frontier: "Generic outputs", apex: "Structured, auditable intelligence" },
-  { frontier: "Experimentation", apex: "Production deployment" },
+const apexDelivers = [
+  {
+    icon: Link,
+    text: "Direct integration with internal systems",
+  },
+  {
+    icon: Settings,
+    text: "Domain-specific logic and constraints",
+  },
+  {
+    icon: Check,
+    text: "Consistent, auditable outputs",
+  },
+  {
+    icon: Lock,
+    text: "Secure deployment within your environment",
+  },
 ];
+
+const ProgressBar = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="mx-auto max-w-2xl"
+  >
+    {/* 80% bar */}
+    <div className="mb-3">
+      <div className="mb-1.5 flex items-baseline justify-between">
+        <span className="font-mono text-xs text-muted-foreground">Frontier Models</span>
+        <span className="font-mono text-xs text-muted-foreground">80%</span>
+      </div>
+      <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "80%" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          className="h-full rounded-full bg-muted-foreground/30"
+        />
+      </div>
+      <p className="mt-1.5 font-mono text-[10px] tracking-wide text-muted-foreground/60">
+        Insight / Exploration
+      </p>
+    </div>
+
+    {/* 100% bar */}
+    <div>
+      <div className="mb-1.5 flex items-baseline justify-between">
+        <span className="font-mono text-xs font-medium text-primary">APEX:E3 Production</span>
+        <span className="font-mono text-xs font-medium text-primary">100%</span>
+      </div>
+      <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.3, delay: 0.5, ease: "easeOut" }}
+          className="h-full rounded-full bg-primary"
+        />
+      </div>
+      <p className="mt-1.5 font-mono text-[10px] tracking-wide text-primary/60">
+        Integrated / Auditable / Deployed
+      </p>
+    </div>
+  </motion.div>
+);
 
 const BespokeWorkflowsTab = () => {
   return (
@@ -86,7 +164,7 @@ const BespokeWorkflowsTab = () => {
         tesseractVariant="solutions"
       />
 
-      {/* The Problem */}
+      {/* The Challenge */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:py-20 lg:px-10">
           <motion.div
@@ -95,34 +173,56 @@ const BespokeWorkflowsTab = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+            <h3 className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
               The Challenge
             </h3>
+
             <p className="max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
-              Frontier models like GPT and Claude are powerful for exploration, summarisation, and prototyping. They can accelerate early-stage workflows and unlock rapid insight.
+              Frontier models (GPT, Claude) are powerful for:
             </p>
-            <p className="mt-4 max-w-3xl font-mono text-sm leading-relaxed text-foreground/80">
-              But in institutional environments, the final mile is what matters most.
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              {frontierCapabilities.map((cap) => (
+                <span
+                  key={cap}
+                  className="rounded-full border border-border bg-secondary/30 px-4 py-2 font-mono text-xs text-muted-foreground"
+                >
+                  {cap}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-8 font-mono text-sm font-medium text-foreground">
+              But they stop short of production.
             </p>
-            <div className="mt-8 flex flex-col gap-3">
-              {problemBullets.map((item, i) => (
+            <p className="mt-2 font-mono text-sm text-muted-foreground">
+              The final mile requires:
+            </p>
+
+            {/* 4 icon cards */}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {lastMileCards.map((card, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  className="flex items-start gap-3"
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="rounded-lg border border-border bg-secondary/20 p-5"
                 >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <span className="font-mono text-xs leading-relaxed text-foreground/80">
-                    {item}
-                  </span>
+                  <card.icon className="mb-3 h-5 w-5 text-primary" />
+                  <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.15em] text-primary/60">
+                    {card.label}
+                  </p>
+                  <p className="font-mono text-xs leading-relaxed text-foreground/80">
+                    {card.title}
+                  </p>
                 </motion.div>
               ))}
             </div>
-            <p className="mt-8 font-mono text-sm font-medium text-foreground">
-              This is where generic tools stop, and where APEX:E3 begins.
+
+            <p className="mt-10 font-mono text-sm font-medium text-foreground">
+              This is where generic tools stop.
             </p>
           </motion.div>
         </div>
@@ -137,87 +237,49 @@ const BespokeWorkflowsTab = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+            <h3 className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
               The APEX:E3 Difference
             </h3>
-            <p className="max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
-              APEX:E3 transforms AI from a useful assistant into production-grade infrastructure.
+            <p className="max-w-3xl font-mono text-sm leading-relaxed text-foreground/80">
+              We turn AI from experimentation into infrastructure. APEX:E3 delivers:
             </p>
-            <p className="mt-4 max-w-3xl font-mono text-sm leading-relaxed text-muted-foreground">
-              We design and deploy bespoke workflows that:
-            </p>
-            <div className="mt-8 flex flex-col gap-3">
-              {apexBullets.map((item, i) => (
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {apexDelivers.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  className="flex items-start gap-3"
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-4 rounded-lg border border-border bg-secondary/20 p-5"
                 >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <span className="font-mono text-xs leading-relaxed text-foreground/80">
-                    {item}
+                    {item.text}
                   </span>
                 </motion.div>
               ))}
             </div>
-
-            {/* Punch line */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-12 border-l-2 border-primary/40 pl-6"
-            >
-              <p className="font-mono text-xl font-light tracking-tight text-foreground md:text-2xl">
-                From Exploration to Institutional Deployment
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* Comparison Strip */}
+      {/* Visual: 80% → 100% Progress Bar */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:py-20 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <ProgressBar />
+
+          {/* Reality check line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="mx-auto mt-10 max-w-2xl text-center font-mono text-xs leading-relaxed text-muted-foreground"
           >
-            <div className="grid gap-4 md:grid-cols-2">
-              <div>
-                <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/60">
-                  Frontier Models
-                </h4>
-                {comparisonRows.map((row, i) => (
-                  <div
-                    key={i}
-                    className="border-b border-border py-4 font-mono text-xs text-muted-foreground"
-                  >
-                    {row.frontier}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-                  APEX:E3
-                </h4>
-                {comparisonRows.map((row, i) => (
-                  <div
-                    key={i}
-                    className="border-b border-border py-4 font-mono text-xs text-foreground"
-                  >
-                    {row.apex}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            Most AI initiatives fail not because of model capability, but because integration, control, and reliability are never solved.
+          </motion.p>
         </div>
       </div>
 
@@ -233,9 +295,6 @@ const BespokeWorkflowsTab = () => {
           >
             <p className="mx-auto max-w-2xl font-mono text-sm leading-relaxed text-foreground/80">
               The difference between AI that is used occasionally and AI that drives outcomes is the last mile. That's what we build.
-            </p>
-            <p className="mx-auto mt-4 max-w-2xl font-mono text-xs leading-relaxed text-muted-foreground">
-              Most AI initiatives stall not because of model capability, but because the final 20% (integration, control, and reliability) is never solved.
             </p>
           </motion.div>
         </div>
