@@ -155,9 +155,6 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {/* Core Pillars — Home only */}
       {isHome && <SovereigntySection onTabChange={onTabChange} />}
 
-      {/* Security Section — Home only */}
-      {isHome && <SecuritySection onTabChange={onTabChange} />}
-
       {/* Last Mile Section — Home only */}
       {isHome && (
         <section className="border-t border-border">
