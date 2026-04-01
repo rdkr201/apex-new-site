@@ -51,6 +51,10 @@ const teamMembers = [
   { name: "Research", role: "PhD-level researchers in NLP, reinforcement learning, and financial signal processing." },
 ];
 
+interface CompanyTabProps {
+  scrollToSection?: string;
+}
+
 const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const careersRef = useRef<HTMLDivElement>(null);
