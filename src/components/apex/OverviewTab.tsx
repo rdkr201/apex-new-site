@@ -285,9 +285,9 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
 
               {/* 100% bar */}
               <div className="mb-10">
-                <div className="mb-1.5 flex items-baseline justify-between">
-                  <span className="font-mono text-xs font-medium text-primary">APEX:E3 Production</span>
-                  <span className="font-mono text-xs font-medium text-primary">100%</span>
+                <div className="mb-2 flex items-baseline justify-between">
+                  <span className="font-mono text-sm font-medium text-primary">APEX:E3 Production</span>
+                  <span className="font-mono text-sm font-medium text-primary">100%</span>
                 </div>
                 <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
