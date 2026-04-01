@@ -137,7 +137,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   key={logo.alt}
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-8 w-auto max-w-[120px] object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100"
+                  className={`w-auto max-w-[120px] object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100 ${logo.alt === "Oxford" ? "h-14" : "h-8"}`}
                 />
               ))}
             </div>
