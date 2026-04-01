@@ -265,9 +265,9 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
 
               {/* 80% bar */}
               <div className="mb-5">
-                <div className="mb-1.5 flex items-baseline justify-between">
-                  <span className="font-mono text-xs text-muted-foreground">Frontier Models</span>
-                  <span className="font-mono text-xs text-muted-foreground">80%</span>
+                <div className="mb-2 flex items-baseline justify-between">
+                  <span className="font-mono text-sm text-muted-foreground">Frontier Models</span>
+                  <span className="font-mono text-sm text-muted-foreground">80%</span>
                 </div>
                 <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
