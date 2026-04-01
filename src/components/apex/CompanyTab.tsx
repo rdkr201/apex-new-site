@@ -127,6 +127,83 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
         </div>
       </div>
 
+      {/* Leadership Section */}
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:py-20 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+              Leadership
+            </p>
+            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
+              Experienced and Aligned Leadership
+            </h3>
+          </motion.div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {leaders.map((leader, i) => (
+              <motion.div
+                key={leader.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="flex flex-col rounded-lg border border-border bg-secondary/20"
+              >
+                {/* Header */}
+                <div className="flex items-center gap-4 border-b border-border p-6">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-border bg-secondary/40">
+                    <User className="h-7 w-7 text-muted-foreground/50" />
+                  </div>
+                  <div>
+                    <h4 className="font-mono text-sm font-medium text-foreground">
+                      {leader.name}
+                    </h4>
+                    <p className="mt-0.5 font-mono text-[11px] text-primary">
+                      {leader.title}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bullets */}
+                <div className="flex-1 p-6">
+                  <ul className="space-y-3">
+                    {leader.bullets.map((bullet, j) => (
+                      <li key={j} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/50" />
+                        <span className="font-mono text-xs leading-relaxed text-muted-foreground">
+                          {bullet}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Advisory note */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-10 rounded-lg border border-border bg-secondary/10 px-6 py-4 text-center"
+          >
+            <p className="font-mono text-xs leading-relaxed text-muted-foreground">
+              Experienced advisory board and large professional network in Financial Services.
+            </p>
+            <p className="mt-1 font-mono text-xs leading-relaxed text-muted-foreground">
+              Team of Software Engineers, Quants, Analysts, Data Scientists, and UI/UX Designers.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Careers Section */}
       <div ref={careersRef} className="scroll-mt-20 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
