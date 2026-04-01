@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export type TesseractVariant = "alice" | "solutions" | "infrastructure";
+export type TesseractVariant = "alice" | "solutions" | "infrastructure" | "security";
 
 // ─── Shape definitions ───
 
