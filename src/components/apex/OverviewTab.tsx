@@ -132,13 +132,13 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               Trusted By
             </p>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flex h-10 w-28 items-center justify-center rounded border border-border/50 bg-secondary/20 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40"
-                >
-                  Logo {i + 1}
-                </div>
+              {partnerLogos.map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 w-auto max-w-[120px] object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100"
+                />
               ))}
             </div>
           </div>
