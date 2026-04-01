@@ -153,6 +153,98 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
       {/* Transformation Animation — ALICE tab only */}
       {!isHome && <TransformationAnimation />}
 
+      {/* Agentic System Section — ALICE tab only */}
+      {!isHome && (
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
+            >
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+                Agentic Architecture
+              </p>
+              <h2 className="mt-4 font-mono text-2xl font-light tracking-tightest text-foreground md:text-3xl">
+                The Agentic System Behind ALICE
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground">
+                More than an interface. ALICE is a coordinated system of agents, data, and models operating as one.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="mx-auto mt-10 max-w-2xl text-center"
+            >
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                ALICE acts as the orchestration layer across your AI stack, coordinating specialised agents and sub-agents to execute complex workflows.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Each agent operates as a microservice with defined business logic, while control flow is dynamically managed by AI, enabling systems that adapt, reason, and improve over time.
+              </p>
+            </motion.div>
+
+            <div className="mt-12 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+              {[
+                {
+                  icon: Layers,
+                  title: "Agentic Harness",
+                  desc: "A proprietary orchestration layer that connects models, data, and tools into a unified system, managing context, routing, and execution.",
+                },
+                {
+                  icon: Network,
+                  title: "Agent Mesh",
+                  desc: "A network of specialised agents working together across workflows, from data ingestion and retrieval to analysis and output generation.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "System-Level Control",
+                  desc: "Full visibility and governance across every step of execution.",
+                  bullets: [
+                    "Task decomposition and execution",
+                    "Data access and transformation",
+                    "Output validation and explainability",
+                  ],
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex flex-col bg-background p-8"
+                >
+                  <item.icon className="mb-4 h-5 w-5 text-primary" strokeWidth={1.5} />
+                  <h3 className="font-mono text-sm font-medium tracking-wide text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {item.desc}
+                  </p>
+                  {item.bullets && (
+                    <ul className="mt-4 space-y-2">
+                      {item.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={2} />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Core Pillars — Home only */}
       {isHome && <SovereigntySection onTabChange={onTabChange} />}
 
