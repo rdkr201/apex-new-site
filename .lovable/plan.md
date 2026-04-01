@@ -1,41 +1,35 @@
 
 
-## Add "The Last Mile" Section to Bespoke Workflows Tab
+## Optimise Homepage Section Order
 
-Rebuild `BespokeWorkflowsTab.tsx` to lead with a new "Last Mile" narrative section before the existing use cases and process steps.
+Reorder sections in `src/components/apex/OverviewTab.tsx` (home view only) to match the requested flow.
 
-### Changes to `src/components/apex/BespokeWorkflowsTab.tsx`
+### Current Order
+1. Hero
+2. Partners logo carousel
+3. Core Pillars (SovereigntySection — ALICE / Infra / etc)
+4. Security Section
+5. Last Mile section
+6. Contact section
 
-**1. Update Hero**
-- Headline: "Closing the Last Mile to Production"
-- Subtitle: "Frontier AI models get you 80% of the way. The remaining 20% is where real value is created, and where most systems fail."
+### New Order
+1. Hero
+2. Partners logo carousel
+3. Core Pillars (SovereigntySection — "What APEX Does")
+4. **Last Mile section** (moved up from position 5)
+5. Security Section (moved down from position 4)
+6. Contact section
 
-**2. New section: "The Problem" (after hero)**
-- Paragraph explaining frontier models are powerful for exploration but fall short in institutional environments
-- 4 bullet items with Check icons: connecting to proprietary data, structuring auditable workflows, ensuring accuracy/compliance, embedding into operational systems
-- Closing line: "This is where generic tools stop, and where APEX:E3 begins."
+### Changes to `src/components/apex/OverviewTab.tsx`
 
-**3. New section: "The APEX:E3 Difference" (positioning block)**
-- Lead text: "APEX:E3 transforms AI from a useful assistant into production-grade infrastructure."
-- 4 bullet items: integrate with internal systems, encode domain logic, deliver auditable outputs, operate securely
-- Visual punch line rendered as a large styled element: "From Exploration to Institutional Deployment"
+Swap the order of three `{isHome && ...}` blocks (lines 155–231):
 
-**4. New section: Comparison strip**
-- Two-column layout comparing Frontier Models vs APEX:E3:
-  - Insight generation vs Workflow integration
-  - Generic outputs vs Structured, auditable intelligence
-  - Experimentation vs Production deployment
+- Move the **Last Mile section** (lines 162–231) to immediately after `SovereigntySection` (line 156)
+- Move the **Security Section** (lines 158–159) to after the Last Mile block
 
-**5. Closing line block**
-- "The difference between AI that is used occasionally and AI that drives outcomes is the last mile. That's what we build."
-- Optional supporting line about the final 20%
-
-**6. Keep existing sections**
-- "What This Looks Like" use cases grid (unchanged)
-- "How We Work" 3-step process (unchanged)
+No content changes, just reordering the JSX blocks.
 
 ### Technical Details
-- Uses existing patterns: `HeroSection`, `motion` from framer-motion, `Check` from lucide-react
-- All sections use `border-t border-border` dividers, `max-w-[1400px]` containers
-- No em dashes per content constraints (replaced with commas/periods)
+- Only the `isHome` conditional blocks change position
+- All component references, props, and animations remain identical
 
