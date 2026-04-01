@@ -25,7 +25,7 @@ const outputs = ["Insights", "Reports", "Models", "Dashboards", "Signals"];
 
 interface AliceHubDiagramProps {
   onTabChange: (tab: TabId, section?: string) => void;
-                }}
+}
 
 const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
   return (
