@@ -258,61 +258,6 @@ const SecurityTab = () => {
         </div>
       </Section>
 
-      {/* Comparison Table */}
-      <Section>
-        <motion.div {...sectionAnim}>
-          <SectionLabel label="Comparison" />
-          <SectionTitle>How APEX:E3 Compares</SectionTitle>
-        </motion.div>
-        <motion.div {...sectionAnim} className="mt-12 overflow-hidden border border-border">
-          <Table>
-            <TableHeader>
-              <TableRow className="border-border bg-muted/30">
-                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Feature</TableHead>
-                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Typical AI Tools</TableHead>
-                <TableHead className="font-mono text-xs uppercase tracking-wider text-muted-foreground">APEX:E3</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {comparisonRows.map((row) => (
-                <TableRow key={row.feature} className="border-border">
-                  <TableCell className="font-mono text-sm text-foreground">{row.feature}</TableCell>
-                  <TableCell>
-                    {typeof row.typical === "boolean" ? (
-                      row.typical ? (
-                        <span className="flex items-center gap-2 text-destructive">
-                          <X className="h-4 w-4" strokeWidth={2} /> Yes
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-2 text-primary">
-                          <Check className="h-4 w-4" strokeWidth={2} /> No
-                        </span>
-                      )
-                    ) : (
-                      <span className="font-mono text-sm text-muted-foreground">{row.typical}</span>
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    {typeof row.apex === "boolean" ? (
-                      !row.apex ? (
-                        <span className="flex items-center gap-2 text-primary">
-                          <Check className="h-4 w-4" strokeWidth={2} /> No
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-2 text-destructive">
-                          <X className="h-4 w-4" strokeWidth={2} /> Yes
-                        </span>
-                      )
-                    ) : (
-                      <span className="font-mono text-sm font-medium text-primary">{row.apex}</span>
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </motion.div>
-      </Section>
     </div>
   );
 };
