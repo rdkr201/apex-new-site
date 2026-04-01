@@ -269,7 +269,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   <span className="font-mono text-sm text-muted-foreground">Frontier Models</span>
                   <span className="font-mono text-sm text-muted-foreground">80%</span>
                 </div>
-                <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "80%" }}
