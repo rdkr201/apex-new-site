@@ -128,20 +128,22 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
 
       {/* Logo Banner — Home only */}
       {isHome && (
-        <div className="border-t border-border">
+        <div className="border-t border-border overflow-hidden">
           <div className="mx-auto max-w-[1400px] px-6 py-12 lg:px-10">
             <p className="mb-8 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/50">
               Trusted By
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              {partnerLogos.map((logo) => (
-                <img
-                  key={logo.alt}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`w-auto object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100 ${logo.alt === "Oxford" ? "h-14 max-w-[120px]" : logo.alt === "Solstice" ? "h-8 max-w-[160px]" : "h-8 max-w-[120px]"}`}
-                />
-              ))}
+            <div className="relative overflow-hidden">
+              <div className="flex animate-marquee items-center gap-16 whitespace-nowrap">
+                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                  <img
+                    key={`${logo.alt}-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`w-auto shrink-0 object-contain opacity-70 brightness-0 invert ${logo.alt === "Oxford" ? "h-14" : logo.alt === "Solstice" ? "h-8" : "h-8"}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
