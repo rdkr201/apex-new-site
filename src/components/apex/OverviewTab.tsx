@@ -135,6 +135,27 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
         </div>
       </div>
 
+      {/* Logo Banner — Home only */}
+      {isHome && (
+        <div className="border-t border-border">
+          <div className="mx-auto max-w-[1400px] px-6 py-12 lg:px-10">
+            <p className="mb-8 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/50">
+              Trusted By
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="flex h-10 w-28 items-center justify-center rounded border border-border/50 bg-secondary/20 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40"
+                >
+                  Logo {i + 1}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Transformation Animation — ALICE tab only */}
       {!isHome && <TransformationAnimation />}
 
