@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export type TesseractVariant = "alice" | "solutions" | "infrastructure";
+export type TesseractVariant = "alice" | "solutions" | "infrastructure" | "security";
 
 // ─── Shape definitions ───
 
@@ -124,8 +124,83 @@ function makeTesseract(): { vertices: [number, number, number][]; edges: [number
   return { vertices, edges, internal };
 }
 
+// Lock wireframe for Security
+function makeLock(): { vertices: [number, number, number][]; edges: [number, number][]; internal: [number, number][] } {
+  const vertices: [number, number, number][] = [];
+  const edges: [number, number][] = [];
+  const internal: [number, number][] = [];
+
+  const d = 0.25; // depth
+
+  // Body: rectangle (indices 0-7, front 0-3, back 4-7)
+  const bw = 0.7, bh = 0.55;
+  const by = 0.25; // body top y (negative = up)
+  // front face: TL, TR, BR, BL
+  vertices.push([-bw, -by, -d]);       // 0
+  vertices.push([bw, -by, -d]);        // 1
+  vertices.push([bw, -by + bh * 2, -d]); // 2
+  vertices.push([-bw, -by + bh * 2, -d]); // 3
+  // back face
+  vertices.push([-bw, -by, d]);        // 4
+  vertices.push([bw, -by, d]);         // 5
+  vertices.push([bw, -by + bh * 2, d]); // 6
+  vertices.push([-bw, -by + bh * 2, d]); // 7
+
+  // Body edges
+  edges.push([0, 1], [1, 2], [2, 3], [3, 0]); // front
+  edges.push([4, 5], [5, 6], [6, 7], [7, 4]); // back
+  edges.push([0, 4], [1, 5], [2, 6], [3, 7]); // connecting
+
+  // Shackle: semicircular arch (indices 8+)
+  const shackleR = 0.45;
+  const shackleBase = -by;
+  const segments = 12;
+  const frontArc: number[] = [];
+  const backArc: number[] = [];
+
+  for (let i = 0; i <= segments; i++) {
+    const angle = Math.PI * (i / segments);
+    const x = shackleR * Math.cos(angle);
+    const y = shackleBase - shackleR * Math.sin(angle);
+    const fi = vertices.length;
+    vertices.push([x, y, -d * 0.6]);
+    frontArc.push(fi);
+    const bi = vertices.length;
+    vertices.push([x, y, d * 0.6]);
+    backArc.push(bi);
+  }
+
+  // Shackle edges
+  for (let i = 0; i < segments; i++) {
+    edges.push([frontArc[i], frontArc[i + 1]]);
+    edges.push([backArc[i], backArc[i + 1]]);
+  }
+  // Connect front/back arcs
+  for (let i = 0; i <= segments; i++) {
+    edges.push([frontArc[i], backArc[i]]);
+  }
+
+  // Keyhole: small diamond in center of body (internal lines)
+  const ky = -by + bh;
+  const ks = 0.12;
+  const ki = vertices.length;
+  vertices.push([0, ky - ks * 1.5, -d * 0.5]); // top
+  vertices.push([ks, ky, -d * 0.5]);            // right
+  vertices.push([0, ky + ks * 2, -d * 0.5]);    // bottom
+  vertices.push([-ks, ky, -d * 0.5]);           // left
+  internal.push([ki, ki + 1], [ki + 1, ki + 2], [ki + 2, ki + 3], [ki + 3, ki]);
+  internal.push([ki, ki + 2], [ki + 1, ki + 3]); // cross
+
+  // Body face diagonals as internal
+  internal.push([0, 2], [1, 3], [4, 6], [5, 7]);
+  internal.push([0, 6], [1, 7], [2, 4], [3, 5]);
+
+  return { vertices, edges, internal };
+}
+
 const icoData = makeIcosahedron();
 const tesData = makeTesseract();
+const lockData = makeLock();
 
 function getShapeData(variant: TesseractVariant) {
   switch (variant) {
@@ -133,6 +208,8 @@ function getShapeData(variant: TesseractVariant) {
       return { vertices: icoData.vertices, edges: icoData.edges, internal: icoData.internal };
     case "infrastructure":
       return { vertices: tesData.vertices, edges: tesData.edges, internal: tesData.internal };
+    case "security":
+      return { vertices: lockData.vertices, edges: lockData.edges, internal: lockData.internal };
     default:
       return { vertices: aliceVertices, edges: aliceEdges, internal: aliceInternal };
   }
@@ -173,9 +250,9 @@ const TesseractAnimation = ({ variant = "alice" }: Props) => {
     const startTime = performance.now();
 
     // Variant-specific rotation speeds
-    const rotSpeedY = variant === "infrastructure" ? 0.12 : variant === "solutions" ? 0.18 : 0.15;
-    const tiltAmp = variant === "infrastructure" ? 0.25 : variant === "solutions" ? 0.2 : 0.15;
-    const tiltSpeed = variant === "infrastructure" ? 0.06 : variant === "solutions" ? 0.1 : 0.08;
+    const rotSpeedY = variant === "security" ? 0.1 : variant === "infrastructure" ? 0.12 : variant === "solutions" ? 0.18 : 0.15;
+    const tiltAmp = variant === "security" ? 0.15 : variant === "infrastructure" ? 0.25 : variant === "solutions" ? 0.2 : 0.15;
+    const tiltSpeed = variant === "security" ? 0.05 : variant === "infrastructure" ? 0.06 : variant === "solutions" ? 0.1 : 0.08;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;

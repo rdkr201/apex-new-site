@@ -6,11 +6,12 @@ import apexLogo from "@/assets/apex-logo.png";
 const tabs = [
   "Home",
   "Solutions",
+  "Security",
   "Insights",
   "Company",
 ] as const;
 
-export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure" | "APIs & Data Layer";
+export type TabId = (typeof tabs)[number] | "Overview" | "ALICE" | "Custom Workflows" | "Infrastructure" | "APIs & Data Layer" | "Security";
 
 
 
