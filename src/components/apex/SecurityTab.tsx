@@ -112,8 +112,8 @@ const agentModes = [
 ];
 
 const comparisonRows = [
-  { feature: "Data leaves environment", typical: true, apex: false },
-  { feature: "Shared models", typical: true, apex: false },
+  { feature: "Data leaves environment", typical: "Yes", apex: "No" },
+  { feature: "Shared models", typical: "Yes", apex: "No" },
   { feature: "Auditability", typical: "Limited", apex: "Full" },
   { feature: "Deployment control", typical: "None", apex: "Full" },
   { feature: "Agent governance", typical: "Weak", apex: "Structured" },
