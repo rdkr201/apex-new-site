@@ -226,7 +226,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
 
               <div className="mt-8 text-center">
                 <button
-                  onClick={() => onTabChange?.("Bespoke Workflows")}
+                  onClick={() => onTabChange?.("Custom Workflows")}
                   className="inline-flex items-center gap-2 border border-primary/30 bg-primary/5 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
                 >
                   Explore
