@@ -25,7 +25,11 @@ const pillars = [
   },
 ];
 
-const SecuritySection = () => {
+interface SecuritySectionProps {
+  onTabChange?: (tab: TabId) => void;
+}
+
+const SecuritySection = ({ onTabChange }: SecuritySectionProps) => {
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
