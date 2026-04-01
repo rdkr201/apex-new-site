@@ -12,6 +12,7 @@ import DWSLogo from "@/assets/logos/DWS.png";
 import NvidiaLogo from "@/assets/logos/Nvidia.png";
 import OxfordLogo from "@/assets/logos/Oxford.png";
 import VanguardLogo from "@/assets/logos/Vanguard.png";
+import SolsticeLogo from "@/assets/logos/Solstice.png";
 
 const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
 
@@ -22,6 +23,7 @@ const partnerLogos = [
   { src: NvidiaLogo, alt: "Nvidia" },
   { src: OxfordLogo, alt: "Oxford" },
   { src: VanguardLogo, alt: "Vanguard" },
+  { src: SolsticeLogo, alt: "Solstice" },
 ];
 
 interface OverviewTabProps {
