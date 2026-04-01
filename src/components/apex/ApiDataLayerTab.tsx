@@ -31,7 +31,7 @@ const ApiDataLayerTab = () => {
     <div>
       <HeroSection
         accentLine="APIs, SDKs & Data Layer"
-        headline={<>Build, integrate, and extend AI<br className="hidden md:block" /> directly within your environment</>}
+        headline={<>Build and integrate AI<br className="hidden md:block" /> into your systems</>}
         subtitle="APEX:E3 provides developer-ready infrastructure to integrate AI directly into your systems, enabling programmatic access to data, models, agents, and workflows at scale."
         tesseractVariant="infrastructure"
       />
