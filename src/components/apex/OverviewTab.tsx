@@ -298,7 +298,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                     className="h-full rounded-full bg-primary"
                   />
                 </div>
-                <p className="mt-1.5 font-mono text-[10px] tracking-wide text-primary/60">
+                <p className="mt-2 font-mono text-xs tracking-wide text-primary/60">
                   Integrated / Auditable / Deployed
                 </p>
               </div>
