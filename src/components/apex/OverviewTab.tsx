@@ -289,7 +289,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   <span className="font-mono text-sm font-medium text-primary">APEX:E3 Production</span>
                   <span className="font-mono text-sm font-medium text-primary">100%</span>
                 </div>
-                <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
