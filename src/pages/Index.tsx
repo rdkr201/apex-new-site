@@ -9,6 +9,7 @@ import InfrastructureTab from "@/components/apex/InfrastructureTab";
 import InsightsTab from "@/components/apex/InsightsTab";
 import CompanyTab from "@/components/apex/CompanyTab";
 import ApiDataLayerTab from "@/components/apex/ApiDataLayerTab";
+import SecurityTab from "@/components/apex/SecurityTab";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabId>("Overview");
