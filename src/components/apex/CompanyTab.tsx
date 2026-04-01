@@ -127,37 +127,6 @@ const CompanyTab = ({ scrollToSection }: CompanyTabProps) => {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div ref={contactRef} className="scroll-mt-20 border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
-              Contact
-            </p>
-            <h3 className="mt-4 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
-              Get in Touch
-            </h3>
-            <div className="mt-8 max-w-2xl space-y-6">
-              <p className="text-sm leading-[1.8] text-muted-foreground">
-                Whether you're exploring AI infrastructure for your fund, interested in a demo of ALICE, or want to discuss a partnership — we'd love to hear from you.
-              </p>
-            </div>
-            <div className="mt-8">
-              <a
-                href="mailto:contact@apexe3.com"
-                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
-              >
-                contact@apexe3.com
-                <ArrowRight className="h-3 w-3" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </div>
     </div>
   );
 };
