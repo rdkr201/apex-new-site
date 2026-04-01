@@ -101,33 +101,6 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                 >
                   Domain-native. Institutionally deployed. Outcome-driven.
                 </motion.p>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: showContent ? 1 : 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="mt-6"
-                >
-                  <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60">
-                    Explore Solutions for
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {[
-                      { label: "Portfolio Management", id: "portfolio-management" },
-                      { label: "Traders", id: "traders" },
-                      { label: "Quants", id: "quants" },
-                      { label: "Researchers", id: "researchers" },
-                      { label: "Developers", id: "developers" },
-                    ].map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => onTabChange?.("Solutions")}
-                        className="rounded-full border border-primary/30 bg-primary/5 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.15em] text-primary transition-colors hover:bg-primary/20"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
               </>
             )}
 
