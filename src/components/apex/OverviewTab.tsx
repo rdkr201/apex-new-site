@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { Layers, Network, ShieldCheck, Check } from "lucide-react";
 import TesseractAnimation from "./TesseractAnimation";
 import TransformationAnimation from "./TransformationAnimation";
 import SovereigntySection from "./SovereigntySection";
