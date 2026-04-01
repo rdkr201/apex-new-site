@@ -140,7 +140,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                     key={`${logo.alt}-${i}`}
                     src={logo.src}
                     alt={logo.alt}
-                    className={`w-auto shrink-0 object-contain opacity-70 brightness-0 invert ${logo.alt === "Oxford" ? "h-14" : logo.alt === "Solstice" ? "h-14" : "h-8"}`}
+                    className={`w-auto shrink-0 object-contain opacity-70 brightness-0 invert ${logo.alt === "Oxford" ? "h-14" : logo.alt === "Solstice" ? "h-20" : "h-8"}`}
                   />
                 ))}
               </div>
