@@ -303,7 +303,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                 </p>
               </div>
 
-              <p className="text-center font-mono text-xs leading-relaxed text-muted-foreground">
+              <p className="text-center font-mono text-sm leading-relaxed text-muted-foreground">
                 Most AI initiatives fail not because of model capability, but because integration, control, and reliability are never solved.
               </p>
 
