@@ -5,8 +5,8 @@ import { type TabId } from "./TabNavigation";
 const alicePillar = {
   icon: MessageSquare,
   title: "ALICE",
-  subtitle: "The Agent for Capital Markets",
-  desc: "Natural language interface across research, analytics, and workflows. Built for portfolio managers, analysts, and investment teams.",
+  subtitle: "The Agentic Harness for Capital Markets",
+  desc: "An agentic orchestration harness across research, analytics, and workflows. Coordinating data, models, and tools into production-ready systems.",
   tab: "ALICE" as TabId,
 };
 
