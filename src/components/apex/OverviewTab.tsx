@@ -278,7 +278,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                     className="h-full rounded-full bg-muted-foreground/30"
                   />
                 </div>
-                <p className="mt-1.5 font-mono text-[10px] tracking-wide text-muted-foreground/60">
+                <p className="mt-2 font-mono text-xs tracking-wide text-muted-foreground/60">
                   Insight / Exploration
                 </p>
               </div>
