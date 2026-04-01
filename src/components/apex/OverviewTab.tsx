@@ -227,6 +227,9 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
         </section>
       )}
 
+      {/* Security Section — Home only */}
+      {isHome && <SecuritySection onTabChange={onTabChange} />}
+
       {/* Contact Section — Home only */}
       {isHome && (
         <section className="border-t border-border">
