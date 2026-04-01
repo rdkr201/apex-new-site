@@ -250,9 +250,9 @@ const TesseractAnimation = ({ variant = "alice" }: Props) => {
     const startTime = performance.now();
 
     // Variant-specific rotation speeds
-    const rotSpeedY = variant === "infrastructure" ? 0.12 : variant === "solutions" ? 0.18 : 0.15;
-    const tiltAmp = variant === "infrastructure" ? 0.25 : variant === "solutions" ? 0.2 : 0.15;
-    const tiltSpeed = variant === "infrastructure" ? 0.06 : variant === "solutions" ? 0.1 : 0.08;
+    const rotSpeedY = variant === "security" ? 0.1 : variant === "infrastructure" ? 0.12 : variant === "solutions" ? 0.18 : 0.15;
+    const tiltAmp = variant === "security" ? 0.15 : variant === "infrastructure" ? 0.25 : variant === "solutions" ? 0.2 : 0.15;
+    const tiltSpeed = variant === "security" ? 0.05 : variant === "infrastructure" ? 0.06 : variant === "solutions" ? 0.1 : 0.08;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
