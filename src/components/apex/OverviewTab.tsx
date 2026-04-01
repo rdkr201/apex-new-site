@@ -73,10 +73,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   for Capital Markets
                 </h1>
                 <p className="mt-4 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
-                  Trusted by Global Institutions managing $10T+ in combined AUM.
-                </p>
-                <p className="mt-2 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
-                  Powered by APEX:E3
+                  Trusted by Global Institutions managing $10T+ in combined AUM. Powered by APEX:E3
                 </p>
                 <button
                   onClick={() => onTabChange?.("ALICE")}
@@ -137,6 +134,27 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
           </motion.div>
         </div>
       </div>
+
+      {/* Logo Banner — Home only */}
+      {isHome && (
+        <div className="border-t border-border">
+          <div className="mx-auto max-w-[1400px] px-6 py-12 lg:px-10">
+            <p className="mb-8 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/50">
+              Trusted By
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="flex h-10 w-28 items-center justify-center rounded border border-border/50 bg-secondary/20 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40"
+                >
+                  Logo {i + 1}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Transformation Animation — ALICE tab only */}
       {!isHome && <TransformationAnimation />}
