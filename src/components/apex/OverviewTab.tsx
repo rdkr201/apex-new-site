@@ -128,7 +128,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
 
       {/* Logo Banner — Home only */}
       {isHome && (
-        <div className="border-t border-border overflow-hidden">
+        <div className="overflow-hidden">
           <div className="mx-auto max-w-[1400px] px-6 py-12 lg:px-10">
             <p className="mb-8 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/50">
               Trusted By
