@@ -257,19 +257,19 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mx-auto max-w-2xl"
+              className="mx-auto max-w-3xl"
             >
-              <h3 className="mb-10 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+              <h3 className="mb-10 text-center font-mono text-sm uppercase tracking-[0.2em] text-primary">
                 The Last Mile
               </h3>
 
               {/* 80% bar */}
               <div className="mb-5">
-                <div className="mb-1.5 flex items-baseline justify-between">
-                  <span className="font-mono text-xs text-muted-foreground">Frontier Models</span>
-                  <span className="font-mono text-xs text-muted-foreground">80%</span>
+                <div className="mb-2 flex items-baseline justify-between">
+                  <span className="font-mono text-sm text-muted-foreground">Frontier Models</span>
+                  <span className="font-mono text-sm text-muted-foreground">80%</span>
                 </div>
-                <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "80%" }}
@@ -278,18 +278,18 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                     className="h-full rounded-full bg-muted-foreground/30"
                   />
                 </div>
-                <p className="mt-1.5 font-mono text-[10px] tracking-wide text-muted-foreground/60">
+                <p className="mt-2 font-mono text-xs tracking-wide text-muted-foreground/60">
                   Insight / Exploration
                 </p>
               </div>
 
               {/* 100% bar */}
               <div className="mb-10">
-                <div className="mb-1.5 flex items-baseline justify-between">
-                  <span className="font-mono text-xs font-medium text-primary">APEX:E3 Production</span>
-                  <span className="font-mono text-xs font-medium text-primary">100%</span>
+                <div className="mb-2 flex items-baseline justify-between">
+                  <span className="font-mono text-sm font-medium text-primary">APEX:E3 Production</span>
+                  <span className="font-mono text-sm font-medium text-primary">100%</span>
                 </div>
-                <div className="h-3 w-full overflow-hidden rounded-full bg-secondary/40">
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary/40">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
@@ -298,12 +298,12 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                     className="h-full rounded-full bg-primary"
                   />
                 </div>
-                <p className="mt-1.5 font-mono text-[10px] tracking-wide text-primary/60">
+                <p className="mt-2 font-mono text-xs tracking-wide text-primary/60">
                   Integrated / Auditable / Deployed
                 </p>
               </div>
 
-              <p className="text-center font-mono text-xs leading-relaxed text-muted-foreground">
+              <p className="text-center font-mono text-sm leading-relaxed text-muted-foreground">
                 Most AI initiatives fail not because of model capability, but because integration, control, and reliability are never solved.
               </p>
 
