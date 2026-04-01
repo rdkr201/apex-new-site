@@ -194,6 +194,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                 key={label}
                 onClick={() => {
                   onTabChange("Solutions", section);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="rounded-full border border-primary/40 bg-primary/10 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary/20 hover:border-primary/60"
               >
