@@ -131,7 +131,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
         <div className="overflow-hidden">
           <div className="mx-auto max-w-[1400px] px-6 py-12 lg:px-10">
             <p className="mb-8 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground/50">
-              Trusted By
+              Partners
             </p>
             <div className="relative overflow-hidden">
               <div className="flex animate-marquee items-center gap-16 whitespace-nowrap">
