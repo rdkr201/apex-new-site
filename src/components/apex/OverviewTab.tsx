@@ -6,7 +6,23 @@ import SovereigntySection from "./SovereigntySection";
 import SecuritySection from "./SecuritySection";
 import AliceHubDiagram from "./AliceHubDiagram";
 import { type TabId } from "./TabNavigation";
+import CorprimeLogo from "@/assets/logos/Corprime.png";
+import DeusXLogo from "@/assets/logos/DeusX.png";
+import DWSLogo from "@/assets/logos/DWS.png";
+import NvidiaLogo from "@/assets/logos/Nvidia.png";
+import OxfordLogo from "@/assets/logos/Oxford.png";
+import VanguardLogo from "@/assets/logos/Vanguard.png";
+
 const rotatingWords = ["Portfolio Managers", "Traders", "Quants", "Researchers", "Developers"];
+
+const partnerLogos = [
+  { src: CorprimeLogo, alt: "Corprime" },
+  { src: DeusXLogo, alt: "DeusX" },
+  { src: DWSLogo, alt: "DWS" },
+  { src: NvidiaLogo, alt: "Nvidia" },
+  { src: OxfordLogo, alt: "Oxford" },
+  { src: VanguardLogo, alt: "Vanguard" },
+];
 
 interface OverviewTabProps {
   onTabChange?: (tab: TabId) => void;
