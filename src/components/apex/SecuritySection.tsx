@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Shield, Server, Users, FileSearch } from "lucide-react";
+import { Shield, Server, Users, FileSearch, ArrowRight } from "lucide-react";
+import { type TabId } from "./TabNavigation";
 
 const pillars = [
   {
