@@ -40,6 +40,7 @@ const Index = () => {
             {activeTab === "Custom Workflows" && <BespokeWorkflowsTab />}
             {activeTab === "Infrastructure" && <InfrastructureTab />}
             {activeTab === "APIs & Data Layer" && <ApiDataLayerTab />}
+            {activeTab === "Security" && <SecurityTab />}
             {activeTab === "ALICE" && <OverviewTab onTabChange={handleTabChange} />}
             {activeTab === "Insights" && <InsightsTab />}
             {activeTab === "Company" && <CompanyTab scrollToSection={scrollSection} />}
