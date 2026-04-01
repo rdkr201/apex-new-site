@@ -72,7 +72,10 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   <br />
                   for Capital Markets
                 </h1>
-                <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-lg font-mono text-xs leading-relaxed text-muted-foreground/70">
+                  Trusted by Global Institutions managing $10T+ in combined AUM.
+                </p>
+                <p className="mt-2 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
                   Powered by APEX:E3
                 </p>
                 <button
