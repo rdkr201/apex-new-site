@@ -257,7 +257,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mx-auto max-w-2xl"
+              className="mx-auto max-w-3xl"
             >
               <h3 className="mb-10 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
                 The Last Mile
