@@ -58,7 +58,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="flex gap-16">
+          <div className="flex gap-8 md:gap-16">
             <div>
               <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/50">
                 Platform

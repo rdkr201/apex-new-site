@@ -167,7 +167,7 @@ const SecurityTab = () => {
         <motion.div {...sectionAnim}>
           <h3 className="mt-16 font-mono text-lg font-light tracking-tightest text-foreground">How APEX:E3 Compares</h3>
         </motion.div>
-        <motion.div {...sectionAnim} className="mt-6 overflow-hidden border border-border">
+        <motion.div {...sectionAnim} className="mt-6 overflow-x-auto overflow-hidden border border-border">
           <Table>
             <TableHeader>
               <TableRow className="border-border bg-muted/30">

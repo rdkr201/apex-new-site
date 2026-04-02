@@ -42,7 +42,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
             System Architecture
           </p>
-          <h2 className="mt-3 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
+          <h2 className="mt-3 font-mono text-2xl font-light tracking-tightest text-foreground md:text-4xl">
             One Intelligence Layer. Fully Private.
           </h2>
           <p className="mx-auto mt-4 max-w-lg font-mono text-sm text-muted-foreground">
