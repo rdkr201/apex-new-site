@@ -72,7 +72,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
   return (
     <div>
       {/* Hero — matches Solutions layout but keeps tesseract */}
-      <div className="relative flex min-h-[55vh] items-end overflow-hidden pb-20">
+      <div className="relative flex min-h-[45vh] items-end overflow-hidden pb-12 md:min-h-[55vh] md:pb-20">
         <TesseractAnimation />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
