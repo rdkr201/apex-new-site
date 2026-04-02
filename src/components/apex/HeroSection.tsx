@@ -13,9 +13,9 @@ interface HeroSectionProps {
 
 const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
   return (
-    <div className="relative flex min-h-[45vh] items-end overflow-hidden pb-12 md:min-h-[60vh] md:pb-20">
+    <div className="relative flex flex-col overflow-hidden md:min-h-[60vh] md:flex-col md:justify-end">
       <TesseractAnimation variant={tesseractVariant} />
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-12 lg:px-10 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
