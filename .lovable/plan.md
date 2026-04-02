@@ -1,46 +1,51 @@
 
 
-## Mobile Graphics Placement — Stop Wrapping Behind Text
+## Mobile-Only Succinct Text — All Heroes & Sections
 
-The core problem: on mobile (390px), canvas animations and decorative graphics are positioned as `absolute` overlays behind text, creating visual noise. They should either be placed as standalone visual blocks (above/below text) or hidden entirely on mobile.
+Keep desktop/iPad text unchanged. On mobile (below `md` breakpoint), show shorter versions of subtitles and long body text using hidden/block responsive classes.
 
-### Components to Fix
+### Approach
 
-**1. TesseractAnimation (Hero sections across all tabs)**
-- Currently: `absolute top-0 right-0 h-full w-full opacity-40` on mobile — covers entire hero, sits behind text
-- Fix: On mobile, move the animation **above** the text content as a dedicated visual block (not absolute). Show it at ~30vh height, then place the text below it. On desktop, keep the current absolute overlay layout.
-- File: `src/components/apex/TesseractAnimation.tsx` and every hero that uses it (`OverviewTab.tsx`, `HeroSection.tsx`)
+Use paired elements: full text hidden on mobile (`hidden md:block`), short text shown only on mobile (`md:hidden`). This keeps desktop copy untouched.
 
-**2. ChaosToOrderParticles (TransformationAnimation — ALICE tab)**
-- Currently: `absolute inset-0` canvas inside a flex panel — this one is actually fine since it's contained within its own bordered box, not overlapping text
-- No change needed — it's properly contained
+### Changes by File
 
-**3. AliceHubDiagram glow effects**
-- Currently: `absolute -inset-10` glow rings around the ALICE circle — these are decorative and properly scoped to the circle container
-- No change needed
+**1. `src/components/apex/HeroSection.tsx`**
+- Add `mobileSubtitle` optional prop to the interface
+- When provided, render the short version with `md:hidden` and the full version with `hidden md:block`
+- No change when prop is absent
 
-### Implementation Details
+**2. `src/components/apex/OverviewTab.tsx`**
+- Home hero subtitle: desktop keeps "Trusted by Global Institutions managing $10T+ in combined AUM. Powered by APEX:E3", mobile shows "Trusted by institutions managing $10T+ AUM"
+- ALICE tab subtitle: already short ("Domain-native. Institutionally deployed. Outcome-driven.") — no change needed
+- Agentic System section body paragraphs: show condensed single paragraph on mobile, full two paragraphs on desktop
 
-**File: `src/components/apex/OverviewTab.tsx`** (home hero)
-- Restructure the hero `div` so on mobile the TesseractAnimation renders as a block element (not absolute) above the text
-- Mobile: stack vertically — animation block (200px height) → text content below
-- Desktop: keep current overlapping layout with absolute positioning
+**3. `src/components/apex/SecurityTab.tsx`**
+- Subtitle: desktop "APEX:E3 delivers fully private, auditable, and secure AI infrastructure, deployed within your environment, governed by your rules." → mobile: "Private, auditable AI infrastructure in your environment."
+- Pass `mobileSubtitle` prop
 
-**File: `src/components/apex/HeroSection.tsx`** (all other tab heroes)
-- Same restructure: on mobile, render TesseractAnimation as a contained block above text instead of an absolute overlay
-- Mobile: animation sits in its own `h-[25vh]` container, text follows below with padding
-- Desktop: unchanged
+**4. `src/components/apex/BespokeWorkflowsTab.tsx`**
+- Subtitle: desktop "Frontier AI models get you 80% of the way. The remaining 20% is where real value is created, and where most systems fail." → mobile: "The last 20% is where value is created."
+- Pass `mobileSubtitle` prop
 
-**File: `src/components/apex/TesseractAnimation.tsx`**
-- Accept a new optional `mobile` boolean prop or use CSS-only approach
-- CSS approach (preferred): Change from always-absolute to `relative` on mobile via responsive classes:
-  - Mobile: `relative h-[25vh] w-full` (block-level, own space)
-  - Desktop: `pointer-events-none absolute top-0 right-0 h-full w-[55%]` (current behavior)
-- Remove `opacity-40` on mobile since it will no longer overlap text
+**5. `src/components/apex/ApiDataLayerTab.tsx`**
+- Subtitle: desktop "APEX:E3 provides developer-ready infrastructure to integrate AI directly into your systems, enabling programmatic access to data, models, agents, and workflows at scale." → mobile: "Programmatic access to data, models, and workflows."
+- Pass `mobileSubtitle` prop
 
-### Summary
-- 3 files changed: `TesseractAnimation.tsx`, `HeroSection.tsx`, `OverviewTab.tsx`
-- Mobile: animations become standalone visual blocks above text (not behind)
-- Desktop: no visual change
-- No content changes
+**6. `src/components/apex/InfrastructureTab.tsx`**
+- Subtitle: desktop "Big Data Architecture as a Service. From unstructured noise to research-grade intelligence." → mobile: "Big Data Architecture as a Service."
+- Pass `mobileSubtitle` prop
+
+**7. `src/components/apex/InsightsTab.tsx`**
+- Subtitle: desktop "Perspectives on agentic AI, quantitative research, and the future of institutional investment infrastructure." → mobile: "Agentic AI and quantitative research perspectives."
+- Pass `mobileSubtitle` prop
+
+**8. Other tabs** (DataTab, CompanyTab, WorkflowsTab)
+- Already concise enough — no changes needed
+
+### Technical Detail
+- `HeroSection` gets one new optional prop: `mobileSubtitle?: string`
+- When set, two `<p>` tags render: one `hidden md:block` (full), one `md:hidden` (short)
+- Same pattern applied inline in `OverviewTab.tsx` for non-HeroSection text blocks
+- 7 files changed total
 
