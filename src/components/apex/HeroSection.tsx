@@ -40,9 +40,20 @@ const HeroSection = ({ accentLine, headline, subtitle, mobileSubtitle, preHeadli
           <h2 className="mt-4 font-mono text-2xl font-light leading-[1.15] tracking-tightest text-foreground md:text-4xl lg:text-6xl">
             {headline}
           </h2>
-          <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
-            {subtitle}
-          </p>
+          {mobileSubtitle ? (
+            <>
+              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground hidden md:block">
+                {subtitle}
+              </p>
+              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground md:hidden">
+                {mobileSubtitle}
+              </p>
+            </>
+          ) : (
+            <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
+              {subtitle}
+            </p>
+          )}
         </motion.div>
       </div>
     </div>

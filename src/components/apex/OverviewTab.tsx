@@ -182,11 +182,16 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="mx-auto mt-10 max-w-2xl text-center"
             >
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                ALICE acts as the orchestration layer across your AI stack, coordinating specialised agents and sub-agents to execute complex workflows.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Each agent operates as a microservice with defined business logic, while control flow is dynamically managed by AI, enabling systems that adapt, reason, and improve over time.
+              <div className="hidden md:block">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  ALICE acts as the orchestration layer across your AI stack, coordinating specialised agents and sub-agents to execute complex workflows.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  Each agent operates as a microservice with defined business logic, while control flow is dynamically managed by AI, enabling systems that adapt, reason, and improve over time.
+                </p>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground md:hidden">
+                ALICE orchestrates specialised agents across your AI stack to execute complex workflows, with control flow dynamically managed by AI.
               </p>
             </motion.div>
 
