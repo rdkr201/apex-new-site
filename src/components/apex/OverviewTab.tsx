@@ -91,8 +91,11 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                   <br />
                   for Capital Markets
                 </h1>
-                <p className="mt-4 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground hidden md:block">
                   Trusted by Global Institutions managing $10T+ in combined AUM. Powered by APEX:E3
+                </p>
+                <p className="mt-4 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground md:hidden">
+                  Trusted by institutions managing $10T+ AUM.
                 </p>
                 <button
                   onClick={() => onTabChange?.("ALICE")}
