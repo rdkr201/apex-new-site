@@ -133,8 +133,7 @@ const TransformationAnimation = () => {
 
           {/* Right panel: auto-scrolling discipline carousel */}
           <div
-            className="relative flex-1 rounded-sm border border-primary/20 bg-secondary/10 overflow-hidden"
-            style={{ minHeight: 380 }}
+            className="relative flex-1 rounded-sm border border-primary/20 bg-secondary/10 overflow-hidden min-h-[300px] md:min-h-[380px]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
