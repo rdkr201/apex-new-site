@@ -6,6 +6,7 @@ interface HeroSectionProps {
   accentLine: string;
   headline: React.ReactNode;
   subtitle: string;
+  mobileSubtitle?: string;
   preHeadline?: string;
   preSubline?: string;
   tesseractVariant?: TesseractVariant;
