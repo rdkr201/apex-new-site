@@ -12,7 +12,7 @@ interface HeroSectionProps {
   tesseractVariant?: TesseractVariant;
 }
 
-const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
+const HeroSection = ({ accentLine, headline, subtitle, mobileSubtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
   return (
     <div className="relative flex flex-col overflow-hidden md:min-h-[60vh] md:flex-col md:justify-end">
       <TesseractAnimation variant={tesseractVariant} />
