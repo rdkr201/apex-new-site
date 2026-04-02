@@ -103,8 +103,7 @@ const TransformationAnimation = () => {
         <div className="flex flex-col items-stretch gap-0 md:flex-row">
           {/* Unstructured: chaotic particles */}
           <div
-            className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20"
-            style={{ minHeight: 300 }}
+            className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20 min-h-[220px] md:min-h-[300px]"
           >
             <ChaosToOrderParticles />
           </div>
