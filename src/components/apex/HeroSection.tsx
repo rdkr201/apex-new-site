@@ -6,12 +6,13 @@ interface HeroSectionProps {
   accentLine: string;
   headline: React.ReactNode;
   subtitle: string;
+  mobileSubtitle?: string;
   preHeadline?: string;
   preSubline?: string;
   tesseractVariant?: TesseractVariant;
 }
 
-const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
+const HeroSection = ({ accentLine, headline, subtitle, mobileSubtitle, preHeadline, preSubline, tesseractVariant = "alice" }: HeroSectionProps) => {
   return (
     <div className="relative flex flex-col overflow-hidden md:min-h-[60vh] md:flex-col md:justify-end">
       <TesseractAnimation variant={tesseractVariant} />
@@ -39,9 +40,20 @@ const HeroSection = ({ accentLine, headline, subtitle, preHeadline, preSubline, 
           <h2 className="mt-4 font-mono text-2xl font-light leading-[1.15] tracking-tightest text-foreground md:text-4xl lg:text-6xl">
             {headline}
           </h2>
-          <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
-            {subtitle}
-          </p>
+          {mobileSubtitle ? (
+            <>
+              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground hidden md:block">
+                {subtitle}
+              </p>
+              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground md:hidden">
+                {mobileSubtitle}
+              </p>
+            </>
+          ) : (
+            <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">
+              {subtitle}
+            </p>
+          )}
         </motion.div>
       </div>
     </div>

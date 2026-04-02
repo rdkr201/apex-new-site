@@ -8,6 +8,7 @@ const InsightsTab = () => {
         accentLine="Insights"
         headline="Insights & Research"
         subtitle="Perspectives on agentic AI, quantitative research, and the future of institutional investment infrastructure."
+        mobileSubtitle="Agentic AI and quantitative research perspectives."
       />
 
       <div className="border-t border-border">

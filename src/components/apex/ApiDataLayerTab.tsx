@@ -33,6 +33,7 @@ const ApiDataLayerTab = () => {
         accentLine="APIs, SDKs & Data Layer"
         headline={<>Build and integrate AI<br className="hidden md:block" /> into your systems</>}
         subtitle="APEX:E3 provides developer-ready infrastructure to integrate AI directly into your systems, enabling programmatic access to data, models, agents, and workflows at scale."
+        mobileSubtitle="Programmatic access to data, models, and workflows."
         tesseractVariant="infrastructure"
       />
 

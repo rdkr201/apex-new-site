@@ -135,6 +135,7 @@ const SecurityTab = () => {
           </>
         }
         subtitle="APEX:E3 delivers fully private, auditable, and secure AI infrastructure, deployed within your environment, governed by your rules."
+        mobileSubtitle="Private, auditable AI infrastructure in your environment."
         tesseractVariant="security"
       />
 
