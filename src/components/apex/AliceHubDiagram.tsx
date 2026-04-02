@@ -42,7 +42,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
             System Architecture
           </p>
-          <h2 className="mt-3 font-mono text-3xl font-light tracking-tightest text-foreground md:text-4xl">
+          <h2 className="mt-3 font-mono text-2xl font-light tracking-tightest text-foreground md:text-4xl">
             One Intelligence Layer. Fully Private.
           </h2>
           <p className="mx-auto mt-4 max-w-lg font-mono text-sm text-muted-foreground">
@@ -76,7 +76,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                   {group.items.map((item) => (
                     <div
                       key={item}
-                      className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80 whitespace-nowrap"
+                      className="rounded-md border border-border bg-secondary/40 px-3 py-2 font-mono text-[11px] text-foreground/80"
                     >
                       {item}
                     </div>
@@ -196,7 +196,7 @@ const AliceHubDiagram = ({ onTabChange }: AliceHubDiagramProps) => {
                   onTabChange("Solutions", section);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="rounded-full border border-primary/40 bg-primary/10 px-6 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary/20 hover:border-primary/60"
+                className="rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-primary transition-all hover:bg-primary/20 hover:border-primary/60 md:px-6 md:py-2.5 md:text-xs"
               >
                 {label}
               </button>

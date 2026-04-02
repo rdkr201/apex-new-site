@@ -103,8 +103,7 @@ const TransformationAnimation = () => {
         <div className="flex flex-col items-stretch gap-0 md:flex-row">
           {/* Unstructured: chaotic particles */}
           <div
-            className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20"
-            style={{ minHeight: 300 }}
+            className="relative flex-1 overflow-hidden rounded-sm border border-border bg-secondary/20 min-h-[220px] md:min-h-[300px]"
           >
             <ChaosToOrderParticles />
           </div>
@@ -134,8 +133,7 @@ const TransformationAnimation = () => {
 
           {/* Right panel: auto-scrolling discipline carousel */}
           <div
-            className="relative flex-1 rounded-sm border border-primary/20 bg-secondary/10 overflow-hidden"
-            style={{ minHeight: 380 }}
+            className="relative flex-1 rounded-sm border border-primary/20 bg-secondary/10 overflow-hidden min-h-[300px] md:min-h-[380px]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -144,7 +142,7 @@ const TransformationAnimation = () => {
             {/* Bottom gradient fade */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-background/80 to-transparent" />
 
-            <div className="p-6 md:p-8">
+            <div className="p-4 md:p-8">
               <div className="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary/60">
                 Actionable Workflows
               </div>

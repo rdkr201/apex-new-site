@@ -72,7 +72,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
   return (
     <div>
       {/* Hero — matches Solutions layout but keeps tesseract */}
-      <div className="relative flex min-h-[55vh] items-end overflow-hidden pb-20">
+      <div className="relative flex min-h-[45vh] items-end overflow-hidden pb-12 md:min-h-[55vh] md:pb-20">
         <TesseractAnimation />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -83,10 +83,10 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
           >
             {isHome ? (
               <>
-                <p className="font-mono text-5xl font-light uppercase tracking-[0.2em] text-primary md:text-6xl">
+                <p className="font-mono text-3xl font-light uppercase tracking-[0.2em] text-primary md:text-5xl lg:text-6xl">
                   ALICE
                 </p>
-                <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
+                <h1 className="mt-4 font-mono text-2xl font-light leading-[1.15] tracking-tightest text-foreground md:text-4xl lg:text-6xl">
                   The Award-Winning Agent
                   <br />
                   for Capital Markets
@@ -106,7 +106,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary">
                   ALICE
                 </p>
-                <h1 className="mt-4 font-mono text-4xl font-light leading-[1.15] tracking-tightest text-foreground md:text-5xl lg:text-6xl">
+                <h1 className="mt-4 font-mono text-2xl font-light leading-[1.15] tracking-tightest text-foreground md:text-4xl lg:text-6xl">
                   The AI Agent for
                   <br />
                   {dynamicText}
@@ -135,13 +135,13 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               Partners
             </p>
             <div className="relative overflow-hidden">
-              <div className="flex animate-marquee items-center gap-16 whitespace-nowrap">
+              <div className="flex animate-marquee items-center gap-8 whitespace-nowrap md:gap-16">
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
                   <img
                     key={`${logo.alt}-${i}`}
                     src={logo.src}
                     alt={logo.alt}
-                    className={`w-auto shrink-0 object-contain opacity-70 brightness-0 invert ${logo.alt === "Oxford" ? "h-14" : logo.alt === "Solstice" ? "h-20" : "h-8"}`}
+                    className={`w-auto shrink-0 object-contain opacity-70 brightness-0 invert ${logo.alt === "Oxford" ? "h-10 md:h-14" : logo.alt === "Solstice" ? "h-14 md:h-20" : "h-6 md:h-8"}`}
                   />
                 ))}
               </div>

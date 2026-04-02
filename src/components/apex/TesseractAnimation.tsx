@@ -341,7 +341,7 @@ const TesseractAnimation = ({ variant = "alice" }: Props) => {
   }, [variant]);
 
   return (
-    <div className="pointer-events-none absolute top-0 right-0 h-full w-[55%]">
+    <div className="pointer-events-none absolute top-0 right-0 h-full w-full opacity-40 md:w-[55%] md:opacity-100">
       <canvas ref={canvasRef} className="h-full w-full" />
     </div>
   );
