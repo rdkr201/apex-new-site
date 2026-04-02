@@ -135,7 +135,7 @@ const OverviewTab = ({ onTabChange, isHome }: OverviewTabProps) => {
               Partners
             </p>
             <div className="relative overflow-hidden">
-              <div className="flex animate-marquee items-center gap-16 whitespace-nowrap">
+              <div className="flex animate-marquee items-center gap-8 whitespace-nowrap md:gap-16">
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
                   <img
                     key={`${logo.alt}-${i}`}
